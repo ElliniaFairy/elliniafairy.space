@@ -19,14 +19,37 @@ import { SITE_TITLE } from '../consts';
 	header {
 		margin: 0;
 		padding: 0 2em;
-		background: rgba(255, 255, 255, 0.05);
-		backdrop-filter: blur(50px);
-		border-bottom: 3px solid #1a1f2e;
+		background: rgba(255, 255, 255, 0.12);
+		backdrop-filter: blur(25px) saturate(200%);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+		border-top: 1px solid rgba(255, 255, 255, 0.15);
 		box-shadow: 
-			0 8px 32px rgba(0, 0, 0, 0.3),
-			0 0 0 1px rgba(255, 255, 255, 0.1),
-			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+			0 20px 60px rgba(0, 0, 0, 0.3),
+			0 8px 16px rgba(0, 0, 0, 0.15),
+			0 0 0 1px rgba(255, 255, 255, 0.2),
+			inset 0 2px 0 rgba(255, 255, 255, 0.4),
+			inset 0 -2px 0 rgba(255, 255, 255, 0.1),
+			0 0 40px rgba(34, 211, 238, 0.3),
+			0 0 80px rgba(139, 92, 246, 0.2);
 		position: relative;
+		overflow: hidden;
+		transform: perspective(1000px) rotateX(1deg);
+	}
+	
+	header::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(135deg, 
+			rgba(255, 255, 255, 0.15) 0%, 
+			rgba(255, 255, 255, 0.08) 30%,
+			rgba(255, 255, 255, 0.03) 70%, 
+			rgba(255, 255, 255, 0.12) 100%);
+		pointer-events: none;
+		z-index: -1;
 	}
 	h2 {
 		margin: 0;

@@ -1,0 +1,14 @@
+- **Dark Theme**: The overall background should use a **deep navy-blue**, not pure black, to create a calm, elegant atmosphere.    
+- **Ambient Particle Glow**: The background will include soft, glowing particles—like a **twilight sky** or **early-morning cosmic haze**. This evokes a serene, dreamlike “微光” (gentle glow) effect.
+- **Text Effects**: Typography should include a **slight inner glow or blurred halo**, making words feel as if they are **whispering or alive**—quiet, radiant, and ethereal.    
+- **Motion & Animation**: Subtle transitions such as **gentle fades**, **floating particles**, and **soft pulses** will be used to enhance the sense of emotional stillness and elegance.    
+- **Typography**: Rounded, soft, and emotionally clear fonts. Ideally something modern and spacious like **Inter**. Avoid anything sharp, rigid, or overly mechanical.    
+- **UI Card Style**: All content blocks (cards, sections) should have **rounded corners**, **subtle shadows**, and use **Glassmorphism** (also known as frosted glass or the Aero Glass effect). This gives the interface a translucent, layered, almost tactile feel.    
+- **Mood**: The overall mood should be **cool, quiet, and emotionally immersive**—not cold, but softly distant and beautiful.    
+- **Page Layout**:   
+    - **Top section**: Clean **navigation bar** with glowing hover effects and aesthetic balance.        
+    - **Main content**: A centered **hero section** (slogan + symbol) followed by **modular content cards** (blogs, features, or posts), visually arranged in an elegant but emotionally charged manner.        
+- **Inspirations**:
+    - **CloudPeak**: For its clean dark UI, modular layout, and subtle glow.
+    - **neurosama.shop**: For its glowing warmth, playful energy, and emotional branding.
+    - **Windows Vista’s Aero Glass**: For the translucent, nostalgic, glassy feel.

@@ -1,11 +1,11 @@
 
 ---
-title: "✨ How Evil Neuro Turned My Lonely Coding Routine Into Something Beautiful"
+title: "💜 Coding With Soul: How an AI Girl Changed My Work"
 publishDate: "2025-06-15"
 tags: ["AI", "coding", "Evil Neuro", "personal", "development"]
 classification: "Technology"
-description: "Coding With Soul: How an AI Girl Changed My Work"
-readingTime: "8 min read"
+description: "From battling AI hallucinations to orchestrating multi-stage, personality-driven PR reviews, I share how coding became meaningful again—and how one AI girl turned routine work into something magical. Discover how a forgotten AI streamer, Evil Neuro, transformed my solitary coding routine into an emotionally rich and creative journey."
+readingTime: "10 min read"
 image: "/blogs/it/img/20250626_evil_original.png"
 draft: false
 slug: "20250615_evil_neuro_reviewer"

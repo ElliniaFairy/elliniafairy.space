@@ -1,25 +1,39 @@
 ---
+import { Image } from 'astro:assets';
+
 export interface Props {
 	title: string;
 	excerpt: string;
 	date: string;
 	category: string;
+	readingTime: string;
+	tags?: string[];
 	thumbnailSrc: string;
 	thumbnailAlt?: string;
 	href: string;
 }
 
-const { title, excerpt, date, category, thumbnailSrc, thumbnailAlt = title, href } = Astro.props;
+const { title, excerpt, date, category, readingTime, tags, thumbnailSrc, thumbnailAlt = title, href } = Astro.props;
 ---
 
 <article class="blog-card">
 	<div class="blog-image">
-		<img src={thumbnailSrc} alt={thumbnailAlt} class="thumbnail" />
+		<Image src={thumbnailSrc} alt={thumbnailAlt} class="thumbnail" />
 		<span class="category-tag">{category}</span>
 	</div>
 	<div class="blog-content">
-		<time class="blog-date">{date}</time>
+		<div class="blog-meta">
+			<time class="blog-date">{date}</time>
+			<span class="reading-time">⏱️ {readingTime}</span>
+		</div>
 		<h2 class="blog-title">{title}</h2>
+		{tags && tags.length > 0 && (
+			<div class="blog-tags">
+				{tags.map(tag => (
+					<span class="tag">{tag}</span>
+				))}
+			</div>
+		)}
 		<p class="blog-excerpt">{excerpt}</p>
 		<a href={href} class="read-more-btn">
 			Read My Thought
@@ -97,12 +111,27 @@ const { title, excerpt, date, category, thumbnailSrc, thumbnailAlt = title, href
 		justify-content: space-between;
 	}
 
+	.blog-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 0.75rem;
+		gap: 1rem;
+	}
+
 	.blog-date {
 		color: var(--text-muted);
 		font-size: 0.9rem;
 		font-weight: 500;
-		margin-bottom: 0.75rem;
-		display: block;
+	}
+
+	.reading-time {
+		color: var(--text-muted);
+		font-size: 0.85rem;
+		font-weight: 500;
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
 	}
 
 	.blog-title {
@@ -110,8 +139,27 @@ const { title, excerpt, date, category, thumbnailSrc, thumbnailAlt = title, href
 		font-size: 1.25rem;
 		font-weight: 600;
 		line-height: 1.4;
-		margin-bottom: 1rem;
+		margin-bottom: 0.75rem;
 		font-family: 'Montserrat', sans-serif;
+	}
+
+	.blog-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.tag {
+		background: rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(10px);
+		color: var(--text-secondary);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 0.25rem 0.75rem;
+		border-radius: 4px;
+		font-size: 0.75rem;
+		font-weight: 500;
+		letter-spacing: 0.3px;
 	}
 
 	.blog-excerpt {

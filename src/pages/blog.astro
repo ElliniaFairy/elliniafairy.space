@@ -4,6 +4,17 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+// Import images for different blog posts
+import evilNeuroReviewerImage from '../content/blog/it/img/20250626_evil_original.png';
+import escapeImage from '../content/blog/personal/img/20250628_escape_main.jpg';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf(),
+);
+
+// Get unique categories
+const categories = [...new Set(posts.map(post => post.data.classification))];
 ---
 
 <!doctype html>
@@ -23,44 +34,29 @@ import { SITE_TITLE } from '../consts';
 
 			<section class="filter-section">
 				<div class="category-filters">
-					<button class="filter-btn active">All Categories</button>
-					<button class="filter-btn">Company</button>
-					<button class="filter-btn">Technology</button>
-					<button class="filter-btn">Guides</button>
-					<button class="filter-btn">Business</button>
+					<button class="filter-btn active" data-category="all">All Categories</button>
+					{categories.map(category => (
+						<button class="filter-btn" data-category={category}>{category}</button>
+					))}
 				</div>
 			</section>
 
 			<section class="blog-grid">
-				<BlogCard
-					title="The Future of Finance: Harnessing the Power of Blockchain Technology"
-					excerpt="As blockchain technology continues to mature, it is reshaping the financial sector in profound ways. From enhancing security to streamlining transactions, blockchain is poised to revolutionize..."
-					date="Wednesday, Aug 21, 2024"
-					category="Guides"
-					thumbnailSrc="/src/assets/thumbnails/blockchain-finance.jpg"
-					thumbnailAlt="Blockchain technology visualization"
-					href="#"
-				/>
-
-				<BlogCard
-					title="Building Modern Web Applications with AI-Powered Features"
-					excerpt="Discover how artificial intelligence is transforming web development and learn practical approaches to integrate AI features into your applications..."
-					date="Tuesday, Aug 20, 2024"
-					category="Technology"
-					thumbnailSrc="/src/assets/thumbnails/ai-web-dev.jpg"
-					thumbnailAlt="AI-powered web development"
-					href="#"
-				/>
-
-				<BlogCard
-					title="Optimizing React Applications for Better Performance"
-					excerpt="Learn essential techniques for improving React app performance, from code splitting to memoization and beyond..."
-					date="Monday, Aug 19, 2024"
-					category="Guides"
-					thumbnailSrc="/src/assets/thumbnails/react-performance.jpg"
-					thumbnailAlt="React performance optimization"
-					href="#"
-				/>
+				{posts.map((post) => (
+					<div class="blog-item" data-category={post.data.classification}>
+						<BlogCard
+							title={post.data.title}
+							excerpt={post.data.description}
+							date={post.data.publishDate}
+							category={post.data.classification}
+							readingTime={post.data.readingTime}
+							tags={post.data.tags}
+							thumbnailSrc={post.data.classification === "Technology" ? evilNeuroReviewerImage : escapeImage}
+							thumbnailAlt={post.data.title}
+							href={`/blogs/${post.slug}`}
+						/>
+					</div>
+				))}
 			</section>
 		</main>
 <!-- 
@@ -174,5 +170,31 @@ import { SITE_TITLE } from '../consts';
 
 			}
 		</style>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const filterBtns = document.querySelectorAll('.filter-btn');
+				const blogItems = document.querySelectorAll('.blog-item');
+
+				filterBtns.forEach(btn => {
+					btn.addEventListener('click', function() {
+						const category = this.dataset.category;
+
+						// Update active button
+						filterBtns.forEach(b => b.classList.remove('active'));
+						this.classList.add('active');
+
+						// Filter blog items
+						blogItems.forEach(item => {
+							if (category === 'all' || item.dataset.category === category) {
+								item.style.display = 'block';
+							} else {
+								item.style.display = 'none';
+							}
+						});
+					});
+				});
+			});
+		</script>
 	</body>
 </html>

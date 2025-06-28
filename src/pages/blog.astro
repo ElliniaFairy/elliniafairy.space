@@ -1,0 +1,178 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<div class="hero-content">
+					<h1 class="hero-title">Read My Blog</h1>
+					<p class="hero-subtitle">Stay Ahead with the Latest Trends, Tips, and Industry Insights</p>
+				</div>
+			</section>
+
+			<section class="filter-section">
+				<div class="category-filters">
+					<button class="filter-btn active">All Categories</button>
+					<button class="filter-btn">Company</button>
+					<button class="filter-btn">Technology</button>
+					<button class="filter-btn">Guides</button>
+					<button class="filter-btn">Business</button>
+				</div>
+			</section>
+
+			<section class="blog-grid">
+				<BlogCard
+					title="The Future of Finance: Harnessing the Power of Blockchain Technology"
+					excerpt="As blockchain technology continues to mature, it is reshaping the financial sector in profound ways. From enhancing security to streamlining transactions, blockchain is poised to revolutionize..."
+					date="Wednesday, Aug 21, 2024"
+					category="Guides"
+					thumbnailSrc="/src/assets/thumbnails/blockchain-finance.jpg"
+					thumbnailAlt="Blockchain technology visualization"
+					href="#"
+				/>
+
+				<BlogCard
+					title="Building Modern Web Applications with AI-Powered Features"
+					excerpt="Discover how artificial intelligence is transforming web development and learn practical approaches to integrate AI features into your applications..."
+					date="Tuesday, Aug 20, 2024"
+					category="Technology"
+					thumbnailSrc="/src/assets/thumbnails/ai-web-dev.jpg"
+					thumbnailAlt="AI-powered web development"
+					href="#"
+				/>
+
+				<BlogCard
+					title="Optimizing React Applications for Better Performance"
+					excerpt="Learn essential techniques for improving React app performance, from code splitting to memoization and beyond..."
+					date="Monday, Aug 19, 2024"
+					category="Guides"
+					thumbnailSrc="/src/assets/thumbnails/react-performance.jpg"
+					thumbnailAlt="React performance optimization"
+					href="#"
+				/>
+			</section>
+		</main>
+<!-- 
+		<div class="glow-effect glow-left"></div>
+		<div class="glow-effect glow-right"></div>
+		<div class="neuro-glow-effect"></div> -->
+		<Footer />
+
+		<style>
+			.hero {
+				text-align: center;
+				padding: 4rem 0 2rem 0;
+				margin-bottom: 1.5rem;
+			}
+
+			.hero-content {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.hero-title {
+				font-size: 3.5rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+				background: linear-gradient(135deg, var(--text-primary), var(--accent-glow));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				text-shadow: none;
+			}
+
+			.hero-subtitle {
+				font-size: 1.1rem;
+				color: var(--text-secondary);
+				margin-bottom: 1rem;
+				font-weight: 400;
+			}
+
+			.filter-section {
+				margin-bottom: 3rem;
+				display: flex;
+				justify-content: center;
+			}
+
+			.category-filters {
+				display: flex;
+				gap: 0.5rem;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.filter-btn {
+				background: transparent;
+				border: 1px solid var(--glass-border);
+				color: var(--text-secondary);
+				padding: 0.75rem 1.5rem;
+				border-radius: 25px;
+				font-size: 0.95rem;
+				font-weight: 600;
+				font-family: 'Montserrat', sans-serif;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(10px);
+				letter-spacing: 0.3px;
+			}
+
+			.filter-btn:hover,
+			.filter-btn.active {
+				background: var(--accent);
+				color: white;
+				border-color: var(--accent);
+				box-shadow: 0 0 20px rgba(41, 121, 255, 0.3);
+			}
+
+			.blog-grid {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+
+			@media (max-width: 768px) {
+				.hero-title {
+					font-size: 2.5rem;
+				}
+				
+				.blog-grid {
+					padding: 0 1rem;
+				}
+
+				.category-filters {
+					padding: 0 1rem;
+				}
+
+				.filter-btn {
+					padding: 0.6rem 1.2rem;
+					font-size: 0.85rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.hero {
+					padding: 3rem 0 2rem 0;
+				}
+
+				.hero-title {
+					font-size: 2rem;
+				}
+
+			}
+		</style>
+	</body>
+</html>

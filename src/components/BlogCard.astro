@@ -1,0 +1,173 @@
+---
+export interface Props {
+	title: string;
+	excerpt: string;
+	date: string;
+	category: string;
+	thumbnailSrc: string;
+	thumbnailAlt?: string;
+	href: string;
+}
+
+const { title, excerpt, date, category, thumbnailSrc, thumbnailAlt = title, href } = Astro.props;
+---
+
+<article class="blog-card">
+	<div class="blog-image">
+		<img src={thumbnailSrc} alt={thumbnailAlt} class="thumbnail" />
+		<span class="category-tag">{category}</span>
+	</div>
+	<div class="blog-content">
+		<time class="blog-date">{date}</time>
+		<h2 class="blog-title">{title}</h2>
+		<p class="blog-excerpt">{excerpt}</p>
+		<a href={href} class="read-more-btn">
+			Read My Blog
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+				<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</a>
+	</div>
+</article>
+
+<style>
+	.blog-card {
+		background: var(--glass-bg);
+		backdrop-filter: blur(20px);
+		border: 1px solid var(--glass-border);
+		border-radius: 20px;
+		overflow: hidden;
+		transition: all 0.3s ease;
+		box-shadow: var(--glass-shadow);
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+	}
+
+	.blog-card:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+		border-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.blog-image {
+		position: relative;
+		width: 400px;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		order: 2;
+		align-self: stretch;
+		background: linear-gradient(135deg, #1a1a2e, #16213e);
+	}
+
+	.thumbnail {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	.blog-card:hover .thumbnail {
+		transform: scale(1.05);
+	}
+
+	.category-tag {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		background: var(--accent);
+		color: white;
+		padding: 0.4rem 0.8rem;
+		border-radius: 15px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.blog-content {
+		padding: 1.5rem;
+		flex: 1;
+		order: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.blog-date {
+		color: var(--text-muted);
+		font-size: 0.9rem;
+		font-weight: 500;
+		margin-bottom: 0.75rem;
+		display: block;
+	}
+
+	.blog-title {
+		color: var(--text-primary);
+		font-size: 1.25rem;
+		font-weight: 600;
+		line-height: 1.4;
+		margin-bottom: 1rem;
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	.blog-excerpt {
+		color: var(--text-secondary);
+		font-size: 0.95rem;
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		opacity: 0.9;
+	}
+
+	.read-more-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: var(--accent);
+		color: white;
+		padding: 0.75rem 1.5rem;
+		border-radius: 25px;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.9rem;
+		font-family: 'Montserrat', sans-serif;
+		transition: all 0.3s ease;
+		border: none;
+		cursor: pointer;
+		width: fit-content;
+		align-self: flex-start;
+	}
+
+	.read-more-btn:hover {
+		background: var(--accent-glow);
+		transform: translateX(2px);
+		box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+	}
+
+	.read-more-btn svg {
+		transition: transform 0.3s ease;
+	}
+
+	.read-more-btn:hover svg {
+		transform: translate(2px, -2px);
+	}
+
+	@media (max-width: 768px) {
+		.blog-card {
+			flex-direction: column;
+		}
+
+		.blog-image {
+			order: 1;
+			width: 100%;
+			height: 200px;
+		}
+
+		.blog-content {
+			order: 2;
+		}
+	}
+</style>

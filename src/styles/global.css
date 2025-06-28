@@ -110,11 +110,11 @@ body {
 }
 
 .glow-left {
-    left: 20px;
+    left: 0;
 }
 
 .glow-right {
-    right: 20px;
+    right: 30px;
 }
 
 main {

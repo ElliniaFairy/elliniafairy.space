@@ -3,28 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-	--primary-navy: #0a0f1a;
-	--secondary-navy: #11162a;
-	--accent-glow: #64b5f6;
-	--accent-warm: #b39ddb;
-	--accent: #2979ff;
-	--text-primary: #f5f7fa;
-	--text-secondary: #b8bcc8;
-	--text-muted: #8a8f9a;
-	--glass-bg: rgba(20, 28, 46, 0.85);
-	--glass-border: rgba(255, 255, 255, 0.10);
-	--glass-shadow: 0 8px 32px rgba(100, 181, 246, 0.10);
-	--card-radius: 18px;
-	--card-shadow: 0 4px 24px 0 rgba(100,181,246,0.10);
-	--button-glow: 0 0 16px 2px var(--accent-glow);
-	--input-bg: #181f31;
-	--input-border: #22304a;
-	--input-focus: #64b5f6;
-
-	--primary-navy: #020308;
-	--secondary-navy: #040610;
+	--primary-navy: #020206;
+	--secondary-navy: #050612;
 	--accent-glow: #22D3EE;
 	--accent-warm: #F472B6;
+	--accent: #2979ff;
 	--accent-ultimate-purple: #8B5CF6;
 	--text-primary: #E8EAF0;
 	--text-secondary: #B8BCC8;
@@ -33,11 +16,20 @@
 	--glass-bg: rgba(255, 255, 255, 0.02);
 	--glass-border: rgba(255, 255, 255, 0.06);
 	--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+	--card-radius: 18px;
+	--card-shadow: 0 4px 24px 0 rgba(100,181,246,0.10);
+	--button-glow: 0 0 16px 2px var(--accent-glow);
+	--input-bg: #181f31;
+	--input-border: #22304a;
+	--input-focus: #64b5f6;
 	
 	--particle-glow: rgba(100, 181, 246, 0.3);
 	--particle-warm: rgba(179, 157, 219, 0.2);
 	--text-glow: 0 0 10px rgba(255, 255, 255, 0.3);
-	--gray-light: 255, 255, 255, 0.1;
+	--gray: 96, 125, 139;
+	--gray-dark: 69, 90, 100;
+	--gray-light: 144, 164, 174;
+	--gray-gradient: rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 10%;
 }
 @font-face {
 	font-family: 'Atkinson';

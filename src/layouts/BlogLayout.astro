@@ -1,0 +1,30 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+export type BlogPost = CollectionEntry<'blog'>;
+const { post } = Astro.props as { post: BlogPost };
+
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+>
+  <article>
+    <header>
+      <h1>{post.data.title}</h1>
+      <p class="meta">
+        {post.data.publishDate}
+        {post.data.readingTime && ` • ${post.data.readingTime}`}
+      </p>
+    </header>
+
+    <slot />   <!-- Markdown body appears here -->
+  </article>
+
+  <style>
+    /* …your styles… */
+  </style>
+</BaseLayout>

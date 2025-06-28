@@ -20,6 +20,54 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				</div>
 			</section>
 
+			<section class="blog-redirect-section">
+				<div class="blog-redirect-card">
+					<div class="blog-content-left">
+						<h2 class="blog-main-title">Ready to Explore My Digital Universe?</h2>
+						<p class="blog-description">Discover insights, tutorials, and creative processes. Dive deep into my thoughts on technology, development, and innovative solutions.</p>
+						<a href="/blog" class="blog-cta-btn">
+							Start Reading
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+								<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+						</a>
+					</div>
+					<div class="blog-preview-right">
+						<div class="preview-window">
+							<div class="window-header">
+								<div class="window-dots">
+									<span class="dot"></span>
+									<span class="dot"></span>
+									<span class="dot"></span>
+								</div>
+							</div>
+							<div class="preview-content">
+								<div class="preview-sidebar">
+									<div class="sidebar-item">📝 Latest Posts</div>
+									<div class="sidebar-item">🏷️ Categories</div>
+									<div class="sidebar-item">🔥 Popular</div>
+									<div class="sidebar-item">📊 Analytics</div>
+								</div>
+								<div class="preview-main">
+									<div class="preview-header">Welcome to My Blog Dashboard</div>
+									<div class="preview-stats">
+										<div class="stat-card">
+											<div class="stat-number">42</div>
+											<div class="stat-label">Articles</div>
+										</div>
+										<div class="stat-card">
+											<div class="stat-number">1.2k</div>
+											<div class="stat-label">Readers</div>
+										</div>
+									</div>
+									<div class="preview-chart"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<section class="content-grid">
 
 				<div class="glass-card">
@@ -62,7 +110,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			.hero {
 				text-align: center;
 				padding: 5rem 0;
-				margin-bottom: 4rem;
+				margin-bottom: 1rem;
 			}
 
 			.hero-content {
@@ -84,8 +132,246 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			.hero-subtitle {
 				font-size: 1.2rem;
 				color: var(--text-secondary);
-				margin-bottom: 2rem;
+				margin-bottom: 1rem;
 				font-weight: 300;
+			}
+
+			.blog-redirect-section {
+				margin: 1rem 0 4rem 0;
+				width: 100%;
+				position: relative;
+			}
+
+			.blog-redirect-card {
+				background: linear-gradient(135deg, rgba(41, 121, 255, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
+				backdrop-filter: blur(20px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 24px;
+				padding: 0;
+				overflow: hidden;
+				position: relative;
+				display: flex;
+				align-items: center;
+				min-height: 400px;
+				box-shadow: 
+					0 20px 40px rgba(0, 0, 0, 0.3),
+					0 0 80px rgba(138, 43, 226, 0.2),
+					0 0 120px rgba(147, 112, 219, 0.15),
+					inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			}
+
+			.blog-redirect-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: radial-gradient(circle at 20% 50%, rgba(41, 121, 255, 0.15) 0%, transparent 50%),
+							radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+				pointer-events: none;
+			}
+
+			.blog-content-left {
+				flex: 1;
+				padding: 3rem;
+				z-index: 2;
+				position: relative;
+			}
+
+			.blog-main-title {
+				font-size: 2.8rem;
+				font-weight: 700;
+				color: var(--text-primary);
+				margin-bottom: 1.5rem;
+				line-height: 1.2;
+				font-family: 'Montserrat', sans-serif;
+				text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+			}
+
+			.blog-description {
+				font-size: 1.1rem;
+				color: var(--text-secondary);
+				line-height: 1.6;
+				margin-bottom: 2.5rem;
+				opacity: 0.9;
+			}
+
+			.blog-cta-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
+				color: white;
+				padding: 1rem 2rem;
+				border-radius: 30px;
+				text-decoration: none;
+				font-weight: 600;
+				font-size: 1rem;
+				font-family: 'Montserrat', sans-serif;
+				transition: all 0.3s ease;
+				box-shadow: 
+					0 8px 20px rgba(41, 98, 255, 0.3),
+					0 0 0 1px rgba(255, 255, 255, 0.1);
+				position: relative;
+				overflow: hidden;
+			}
+
+			.blog-cta-btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 
+					0 12px 30px rgba(41, 98, 255, 0.4),
+					0 0 40px rgba(34, 211, 238, 0.3);
+			}
+
+			.blog-cta-btn svg {
+				transition: transform 0.3s ease;
+			}
+
+			.blog-cta-btn:hover svg {
+				transform: translate(2px, -2px);
+			}
+
+			.blog-preview-right {
+				flex: 1;
+				padding: 2rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.preview-window {
+				width: 100%;
+				max-width: 400px;
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid rgba(41, 121, 255, 0.3);
+				border-radius: 16px;
+				overflow: hidden;
+				backdrop-filter: blur(10px);
+				box-shadow: 
+					0 8px 32px rgba(0, 0, 0, 0.3),
+					0 0 40px rgba(41, 121, 255, 0.3),
+					0 0 60px rgba(34, 211, 238, 0.2),
+					inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			}
+
+			.window-header {
+				background: rgba(255, 255, 255, 0.05);
+				padding: 1rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.window-dots {
+				display: flex;
+				gap: 0.5rem;
+			}
+
+			.dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: var(--text-muted);
+				opacity: 0.6;
+			}
+
+			.dot:first-child {
+				background: #ff5f57;
+			}
+
+			.dot:nth-child(2) {
+				background: #ffbd2e;
+			}
+
+			.dot:last-child {
+				background: #28ca42;
+			}
+
+			.preview-content {
+				display: flex;
+				height: 250px;
+			}
+
+			.preview-sidebar {
+				width: 120px;
+				background: rgba(255, 255, 255, 0.02);
+				padding: 1rem 0.5rem;
+				border-right: 1px solid rgba(255, 255, 255, 0.05);
+			}
+
+			.sidebar-item {
+				padding: 0.5rem;
+				font-size: 0.8rem;
+				color: var(--text-muted);
+				margin-bottom: 0.5rem;
+				border-radius: 6px;
+				transition: all 0.3s ease;
+			}
+
+			.sidebar-item:first-child {
+				background: rgba(41, 98, 255, 0.2);
+				color: var(--accent-glow);
+			}
+
+			.preview-main {
+				flex: 1;
+				padding: 1rem;
+			}
+
+			.preview-header {
+				font-size: 0.9rem;
+				color: var(--text-primary);
+				margin-bottom: 1rem;
+				font-weight: 600;
+			}
+
+			.preview-stats {
+				display: flex;
+				gap: 1rem;
+				margin-bottom: 1rem;
+			}
+
+			.stat-card {
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 8px;
+				padding: 0.75rem;
+				text-align: center;
+				flex: 1;
+			}
+
+			.stat-number {
+				font-size: 1.2rem;
+				font-weight: 700;
+				color: var(--accent-glow);
+				margin-bottom: 0.25rem;
+			}
+
+			.stat-label {
+				font-size: 0.7rem;
+				color: var(--text-muted);
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+
+			.preview-chart {
+				height: 60px;
+				background: linear-gradient(135deg, rgba(41, 98, 255, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
+				border-radius: 8px;
+				border: 1px solid rgba(255, 255, 255, 0.05);
+				position: relative;
+				overflow: hidden;
+			}
+
+			.preview-chart::before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 10%;
+				width: 80%;
+				height: 40%;
+				background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
+				border-radius: 4px 4px 0 0;
+				opacity: 0.6;
 			}
 
 
@@ -144,6 +430,32 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					font-size: 2.5rem;
 				}
 				
+				.blog-redirect-card {
+					flex-direction: column;
+					min-height: auto;
+					margin: 0 1rem;
+				}
+
+				.blog-content-left {
+					padding: 2rem 1.5rem;
+				}
+
+				.blog-main-title {
+					font-size: 2rem;
+				}
+
+				.blog-preview-right {
+					padding: 1rem;
+				}
+
+				.preview-window {
+					max-width: 100%;
+				}
+
+				.preview-content {
+					height: 200px;
+				}
+
 				.content-grid {
 					grid-template-columns: 1fr;
 					padding: 0 1rem;

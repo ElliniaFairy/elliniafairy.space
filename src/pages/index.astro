@@ -42,25 +42,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 								</div>
 							</div>
 							<div class="preview-content">
-								<div class="preview-sidebar">
-									<div class="sidebar-item">📝 Latest Posts</div>
-									<div class="sidebar-item">🏷️ Categories</div>
-									<div class="sidebar-item">🔥 Popular</div>
-									<div class="sidebar-item">📊 Analytics</div>
-								</div>
-								<div class="preview-main">
-									<div class="preview-header">Welcome to My Blog Dashboard</div>
-									<div class="preview-stats">
-										<div class="stat-card">
-											<div class="stat-number">42</div>
-											<div class="stat-label">Articles</div>
+								<div class="stylish-dashboard">
+									<div class="dashboard-title">My Blog</div>
+									<div class="stats-grid">
+										<div class="stat-box">
+											<div class="stat-icon">📝</div>
+											<div class="stat-value">42</div>
+											<div class="stat-desc">Articles</div>
 										</div>
-										<div class="stat-card">
-											<div class="stat-number">1.2k</div>
-											<div class="stat-label">Readers</div>
+										<div class="stat-box">
+											<div class="stat-icon">🕒</div>
+											<div class="stat-value">Today</div>
+											<div class="stat-desc">Updated</div>
 										</div>
 									</div>
-									<div class="preview-chart"></div>
+									<div class="activity-bar">
+										<div class="activity-dot active"></div>
+										<div class="activity-dot"></div>
+										<div class="activity-dot"></div>
+										<div class="activity-dot active"></div>
+										<div class="activity-dot"></div>
+										<div class="activity-dot active"></div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -291,87 +294,92 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				height: 250px;
 			}
 
-			.preview-sidebar {
-				width: 120px;
-				background: rgba(255, 255, 255, 0.02);
-				padding: 1rem 0.5rem;
-				border-right: 1px solid rgba(255, 255, 255, 0.05);
+			.stylish-dashboard {
+				width: 100%;
+				padding: 1.5rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				height: 100%;
 			}
 
-			.sidebar-item {
-				padding: 0.5rem;
-				font-size: 0.8rem;
-				color: var(--text-muted);
-				margin-bottom: 0.5rem;
-				border-radius: 6px;
-				transition: all 0.3s ease;
-			}
-
-			.sidebar-item:first-child {
-				background: rgba(41, 98, 255, 0.2);
-				color: var(--accent-glow);
-			}
-
-			.preview-main {
-				flex: 1;
-				padding: 1rem;
-			}
-
-			.preview-header {
+			.dashboard-title {
 				font-size: 0.9rem;
 				color: var(--text-primary);
 				margin-bottom: 1rem;
-				font-weight: 600;
+				font-weight: 700;
+				font-family: 'Montserrat', sans-serif;
+				text-align: center;
+				opacity: 0.9;
 			}
 
-			.preview-stats {
+			.stats-grid {
 				display: flex;
 				gap: 1rem;
-				margin-bottom: 1rem;
+				flex: 1;
+				align-items: center;
+				justify-content: center;
 			}
 
-			.stat-card {
-				background: rgba(255, 255, 255, 0.05);
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				border-radius: 8px;
-				padding: 0.75rem;
+			.stat-box {
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 12px;
+				padding: 1rem 0.8rem;
 				text-align: center;
 				flex: 1;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(5px);
 			}
 
-			.stat-number {
+			.stat-box:hover {
+				transform: translateY(-2px);
+				border-color: rgba(41, 121, 255, 0.3);
+				box-shadow: 0 4px 20px rgba(41, 121, 255, 0.1);
+			}
+
+			.stat-icon {
 				font-size: 1.2rem;
+				margin-bottom: 0.5rem;
+				opacity: 0.8;
+			}
+
+			.stat-value {
+				font-size: 1.4rem;
 				font-weight: 700;
 				color: var(--accent-glow);
-				margin-bottom: 0.25rem;
+				font-family: 'Montserrat', sans-serif;
+				margin-bottom: 0.3rem;
 			}
 
-			.stat-label {
+			.stat-desc {
 				font-size: 0.7rem;
 				color: var(--text-muted);
 				text-transform: uppercase;
 				letter-spacing: 0.5px;
+				font-weight: 500;
 			}
 
-			.preview-chart {
-				height: 60px;
-				background: linear-gradient(135deg, rgba(41, 98, 255, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
-				border-radius: 8px;
-				border: 1px solid rgba(255, 255, 255, 0.05);
-				position: relative;
-				overflow: hidden;
+			.activity-bar {
+				display: flex;
+				gap: 0.4rem;
+				justify-content: center;
+				margin-top: 1rem;
+				padding-top: 1rem;
+				border-top: 1px solid rgba(255, 255, 255, 0.05);
 			}
 
-			.preview-chart::before {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 10%;
-				width: 80%;
-				height: 40%;
-				background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 100%);
-				border-radius: 4px 4px 0 0;
-				opacity: 0.6;
+			.activity-dot {
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.2);
+				transition: all 0.3s ease;
+			}
+
+			.activity-dot.active {
+				background: var(--accent-glow);
+				box-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
 			}
 
 

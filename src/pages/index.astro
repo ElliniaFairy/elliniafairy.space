@@ -38,7 +38,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 		<div class="glow-effect glow-left"></div>
 		<div class="glow-effect glow-right"></div>
+		<div class="neuro-glow-effect"></div>
 		<Footer />
+
+		<script>
+			// Set random position for the green glow effect that changes with each pulse cycle
+			const glowElement = document.querySelector('.neuro-glow-effect');
+			if (glowElement) {
+				function updateRandomPosition() {
+					glowElement.style.setProperty('--random-x', Math.random());
+					glowElement.style.setProperty('--random-y', Math.random());
+				}
+				
+				// Set initial position
+				updateRandomPosition();
+				
+				// Listen for animation iteration to sync with the pulse cycle
+				glowElement.addEventListener('animationiteration', updateRandomPosition);
+			}
+		</script>
 
 		<style>
 			.hero {

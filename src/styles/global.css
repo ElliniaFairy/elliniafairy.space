@@ -63,6 +63,27 @@ body {
 	line-height: 1.6;
 	font-weight: 400;
 }
+
+/* Bottom glow effects */
+.glow-effect {
+    position: fixed;
+    bottom: -120px; /* adjusted depth of glow to be more visible */
+    width: 1000px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(44, 110, 234, 0.7) 0%, rgba(44, 110, 234, 0.3) 40%, transparent 70%);
+    filter: blur(90px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.glow-left {
+    left: 0;
+}
+
+.glow-right {
+    right: 30px;
+}
+
 main {
 	width: 100%;
 	max-width: 1400px;

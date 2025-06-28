@@ -3,6 +3,12 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const postCount = posts.length;
+const latestPost = posts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf())[0];
+const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Never';
 ---
 
 <!doctype html>
@@ -47,12 +53,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 									<div class="stats-grid">
 										<div class="stat-box">
 											<div class="stat-icon">📝</div>
-											<div class="stat-value">42</div>
+											<div class="stat-value">{postCount}</div>
 											<div class="stat-desc">Articles</div>
 										</div>
 										<div class="stat-box">
 											<div class="stat-icon">🕒</div>
-											<div class="stat-value">Today</div>
+											<div class="stat-value">{lastUpdated}</div>
 											<div class="stat-desc">Updated</div>
 										</div>
 									</div>
@@ -304,7 +310,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			}
 
 			.dashboard-title {
-				font-size: 0.9rem;
+				font-size: 1.4rem;
 				color: var(--text-primary);
 				margin-bottom: 1rem;
 				font-weight: 700;

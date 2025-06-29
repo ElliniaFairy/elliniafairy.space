@@ -325,3 +325,22 @@ article.blog-post h2 {
 	letter-spacing: 0.3px;
 }
 
+/* Table of Contents specific link overrides */
+.table-of-contents .toc-list a {
+	color: rgba(255, 255, 255, 0.7) !important;
+	text-decoration: none !important;
+	text-shadow: none !important;
+	transition: all 0.2s ease !important;
+	font-size: 0.9rem !important;
+}
+
+.table-of-contents .toc-list a:hover {
+	color: white !important;
+	text-shadow: none !important;
+}
+
+.table-of-contents .toc-list a.active {
+	color: white !important;
+	text-shadow: none !important;
+}
+

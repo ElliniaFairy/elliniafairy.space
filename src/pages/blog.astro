@@ -24,8 +24,8 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 		<main>
 			<section class="hero">
 				<div class="hero-content">
-					<h1 class="hero-title">📚 Read My Blog</h1>
-					<p class="hero-subtitle">Stay Ahead with the Latest Trends, Tips, and Industry Insights</p>
+					<h1 class="hero-title"><span class="emoji">📖</span> Read my Blog</h1>
+					<p class="hero-subtitle">Come walk with me through clouds and code, anime and math symbols, where logic holds emotion gently, and creation becomes our way home.</p>
 				</div>
 			</section>
 
@@ -83,6 +83,14 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 				-webkit-text-fill-color: transparent;
 				background-clip: text;
 				text-shadow: none;
+			}
+
+			.hero-title .emoji {
+				background: none !important;
+				-webkit-background-clip: initial !important;
+				-webkit-text-fill-color: initial !important;
+				background-clip: initial !important;
+				color: initial !important;
 			}
 
 			.hero-subtitle {

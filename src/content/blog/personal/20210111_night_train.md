@@ -1,4 +1,15 @@
-# Night Scenery Through a Train Window: The Gradually Fading Wonderland
+
+---
+title: "Night Scenery Through a Train Window: The Gradually Fading Wonderland"
+publishDate: "2021-01-11"
+tags: ["travel"]
+classification: "Travel"
+description: "A reflection on the unique experience and emotional resonance of traveling overnight on slow-speed trains in China, witnessing magical night landscapes and pondering the gradual disappearance of this tradition."
+readingTime: "7 min read"
+image: "/blogs/personal/img/20210111_night_train.png"
+draft: false
+slug: "20210111_night_train"
+---
 
 Traveling overnight on an ordinary slow-speed train is the perfect union between security and fantasy.
 

@@ -81,6 +81,10 @@ const formatDate = (date: Date) => {
       align-items: flex-start;
     }
 
+    .blog-container.no-toc {
+      justify-content: center;
+    }
+
     .reading-progress {
       position: fixed;
       top: 0;
@@ -152,7 +156,7 @@ const formatDate = (date: Date) => {
       line-height: 1.2;
       margin: 0 2rem 1.5rem 2rem;
       color: white;
-      text-shadow: none;
+      text-shadow: var(--text-glow);
     }
 
     .blog-meta {

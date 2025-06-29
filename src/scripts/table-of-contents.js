@@ -4,12 +4,17 @@
 function generateTableOfContents() {
   const tocContainer = document.querySelector('.table-of-contents');
   const tocList = document.querySelector('.toc-list');
+  const blogContainer = document.querySelector('.blog-container');
   const headings = document.querySelectorAll('.blog-content h2, .blog-content h3, .blog-content h4');
   
   if (!tocList || !headings.length) {
     if (tocContainer) tocContainer.style.display = 'none';
+    if (blogContainer) blogContainer.classList.add('no-toc');
     return;
   }
+  
+  // Remove no-toc class if TOC exists
+  if (blogContainer) blogContainer.classList.remove('no-toc');
 
   // Clear existing TOC
   tocList.innerHTML = '';

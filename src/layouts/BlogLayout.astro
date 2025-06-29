@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 import type { CollectionEntry } from "astro:content";
 
 export type BlogPost = CollectionEntry<'blog'>;
@@ -25,28 +26,7 @@ const formatDate = (date: Date) => {
     <div class="reading-progress" id="reading-progress"></div>
     
     <!-- Table of Contents -->
-    <nav class="table-of-contents" id="table-of-contents">
-      <div class="toc-header">
-        <h3>📖 Table of Contents</h3>
-      </div>
-      <div class="toc-background-effects">
-        <div class="toc-energy-line"></div>
-        <div class="toc-orbs">
-          <div class="toc-orb toc-orb-1"></div>
-          <div class="toc-orb toc-orb-2"></div>
-          <div class="toc-orb toc-orb-3"></div>
-        </div>
-        <div class="toc-particles">
-          <div class="toc-particle"></div>
-          <div class="toc-particle"></div>
-          <div class="toc-particle"></div>
-          <div class="toc-particle"></div>
-        </div>
-      </div>
-      <ul class="toc-list" id="toc-list">
-        <!-- Dynamically populated -->
-      </ul>
-    </nav>
+    <TableOfContents />
     
     <article class="blog-post">
       <header class="blog-header">
@@ -112,252 +92,6 @@ const formatDate = (date: Date) => {
       transition: width 0.2s ease;
     }
 
-    .table-of-contents {
-      position: sticky;
-      top: 2rem;
-      width: 280px;
-      max-height: calc(100vh - 4rem);
-      overflow-y: auto;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--card-radius);
-      backdrop-filter: blur(20px);
-      box-shadow: var(--glass-shadow);
-      padding: 1.5rem;
-      flex-shrink: 0;
-      order: 1;
-      position: relative;
-    }
-
-    .toc-header {
-      padding: 0 0 1rem 0;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    .toc-header h3 {
-      margin: 0;
-      font-family: 'Sora', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: white;
-    }
-
-    .toc-background-effects {
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .toc-tree-structure {
-      position: absolute;
-      left: 15px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(
-        180deg,
-        var(--accent-glow) 0%,
-        var(--accent-warm) 50%,
-        var(--accent-glow) 100%
-      );
-      box-shadow: 
-        0 0 8px var(--accent-glow),
-        0 0 16px rgba(138, 43, 226, 0.4);
-      animation: toc-pulse 3s ease-in-out infinite alternate;
-    }
-
-    .toc-particles {
-      position: absolute;
-      left: 10px;
-      top: 0;
-      bottom: 0;
-      width: 12px;
-    }
-
-    .toc-particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: var(--accent-glow);
-      border-radius: 50%;
-      box-shadow: 0 0 6px var(--accent-glow);
-    }
-
-    .toc-particle:nth-child(1) {
-      left: 2px;
-      animation: toc-particle-float 4s linear infinite;
-    }
-
-    .toc-particle:nth-child(2) {
-      left: 8px;
-      animation: toc-particle-float 3.5s linear infinite;
-      animation-delay: 1s;
-    }
-
-    .toc-particle:nth-child(3) {
-      left: 5px;
-      animation: toc-particle-float 4.2s linear infinite;
-      animation-delay: 2s;
-    }
-
-    .toc-particle:nth-child(4) {
-      left: 1px;
-      animation: toc-particle-float 3.8s linear infinite;
-      animation-delay: 0.5s;
-    }
-
-    .toc-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      position: relative;
-      z-index: 5;
-    }
-
-    .toc-list li {
-      margin: 0;
-      position: relative;
-    }
-
-    .table-of-contents .toc-list a {
-      display: block;
-      padding: 0.5rem 0;
-      line-height: 1.5;
-      border-left: 3px solid transparent;
-      padding-left: 2rem;
-      font-family: 'Inter', sans-serif;
-      transition: all 0.3s ease;
-      position: relative;
-      border-radius: 6px;
-      margin: 2px 0;
-    }
-
-    .table-of-contents .toc-list a:hover {
-      border-left-color: var(--accent-glow);
-      background: rgba(138, 43, 226, 0.1);
-      box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
-      transform: translateX(3px);
-    }
-
-    .table-of-contents .toc-list a.active {
-      border-left-color: var(--accent-glow);
-      background: linear-gradient(90deg, 
-        rgba(138, 43, 226, 0.3) 0%, 
-        rgba(138, 43, 226, 0.1) 100%);
-      box-shadow: 
-        0 0 20px rgba(138, 43, 226, 0.4),
-        inset 0 0 10px rgba(138, 43, 226, 0.2);
-      font-weight: 600;
-      color: var(--accent-glow);
-      transform: translateX(5px);
-    }
-
-    .table-of-contents .toc-list a.active::before {
-      content: '▶';
-      position: absolute;
-      left: 0.5rem;
-      color: var(--accent-glow);
-      font-size: 0.8rem;
-      animation: pulse-arrow 1s ease-in-out infinite alternate;
-    }
-
-    .table-of-contents .toc-list a.active::after {
-      content: '';
-      position: absolute;
-      right: 0.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
-      background: var(--accent-glow);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-glow);
-      animation: glow-pulse 1.5s ease-in-out infinite;
-    }
-
-    
-    .table-of-contents .toc-list a.toc-h2 {
-      padding-left: 1rem;
-    }
-
-    .table-of-contents .toc-list a.toc-h3 {
-      padding-left: 2rem;
-    }
-
-    .table-of-contents .toc-list a.toc-h4 {
-      padding-left: 3rem;
-    }
-
-    /* TOC Animation Keyframes */
-    @keyframes toc-pulse {
-      0% {
-        opacity: 0.6;
-        box-shadow: 
-          0 0 8px var(--accent-glow),
-          0 0 16px rgba(138, 43, 226, 0.4);
-      }
-      100% {
-        opacity: 1;
-        box-shadow: 
-          0 0 16px var(--accent-glow),
-          0 0 32px rgba(138, 43, 226, 0.6);
-      }
-    }
-
-    @keyframes toc-float {
-      0%, 100% {
-        transform: translateY(-5px);
-      }
-      50% {
-        transform: translateY(5px);
-      }
-    }
-
-    @keyframes toc-particle-float {
-      0% {
-        bottom: 0;
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        bottom: 100%;
-        opacity: 0;
-      }
-    }
-
-    @keyframes pulse-arrow {
-      0% {
-        opacity: 0.7;
-        transform: scale(1);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1.2);
-      }
-    }
-
-    @keyframes glow-pulse {
-      0%, 100% {
-        box-shadow: 0 0 10px var(--accent-glow);
-        opacity: 0.8;
-      }
-      50% {
-        box-shadow: 0 0 20px var(--accent-glow);
-        opacity: 1;
-      }
-    }
 
     .blog-post {
       background: var(--glass-bg);
@@ -474,6 +208,7 @@ const formatDate = (date: Date) => {
 
     .blog-content {
       padding: 3rem;
+      padding-right: 4rem;
       color: var(--text-secondary);
       line-height: 1.8;
       font-size: 1.1rem;
@@ -643,75 +378,6 @@ const formatDate = (date: Date) => {
       progressBar.style.width = `${progress * 100}%`;
     }
 
-    // Table of Contents functionality
-    function generateTableOfContents() {
-      const tocList = document.getElementById('toc-list');
-      const tocContainer = document.getElementById('table-of-contents');
-      const headings = document.querySelectorAll('.blog-content h2, .blog-content h3, .blog-content h4');
-      
-      if (!tocList || !headings.length) {
-        if (tocContainer) tocContainer.style.display = 'none';
-        return;
-      }
-
-      // Clear existing TOC
-      tocList.innerHTML = '';
-
-      headings.forEach((heading, index) => {
-        // Create ID if it doesn't exist
-        if (!heading.id) {
-          heading.id = `heading-${index}`;
-        }
-
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = `#${heading.id}`;
-        a.textContent = heading.textContent;
-        a.className = `toc-${heading.tagName.toLowerCase()}`;
-        
-        li.appendChild(a);
-        tocList.appendChild(li);
-
-        // Smooth scroll with offset
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          const headerOffset = 100; // Adjust this value for desired spacing
-          const elementPosition = heading.offsetTop;
-          const offsetPosition = elementPosition - headerOffset;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        });
-      });
-    }
-
-    // Update active TOC item based on scroll position
-    function updateActiveTocItem() {
-      const headings = document.querySelectorAll('.blog-content h2, .blog-content h3, .blog-content h4');
-      const tocLinks = document.querySelectorAll('.toc-list a');
-      
-      if (!headings.length || !tocLinks.length) return;
-
-      const scrollTop = window.scrollY + 100; // Offset for better UX
-      let activeHeading = null;
-
-      // Find the current heading
-      headings.forEach((heading) => {
-        if (heading.offsetTop <= scrollTop) {
-          activeHeading = heading;
-        }
-      });
-
-      // Update active state
-      tocLinks.forEach((link) => {
-        link.classList.remove('active');
-        if (activeHeading && link.getAttribute('href') === `#${activeHeading.id}`) {
-          link.classList.add('active');
-        }
-      });
-    }
 
     // Throttled scroll handler
     let ticking = false;
@@ -719,7 +385,6 @@ const formatDate = (date: Date) => {
       if (!ticking) {
         requestAnimationFrame(() => {
           updateReadingProgress();
-          updateActiveTocItem();
           ticking = false;
         });
         ticking = true;
@@ -728,9 +393,7 @@ const formatDate = (date: Date) => {
 
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      generateTableOfContents();
       updateReadingProgress();
-      updateActiveTocItem();
     });
     
     window.addEventListener('scroll', onScroll);

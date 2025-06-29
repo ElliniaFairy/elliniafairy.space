@@ -21,46 +21,51 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section class="hero">
-				<div class="hero-content">
-					<h1 class="hero-title"><span class="emoji">📖</span> Read my Blog</h1>
-					<p class="hero-subtitle">Come walk with me through clouds and code, anime and math symbols, where logic holds emotion gently, and creation becomes our way home.</p>
-				</div>
-			</section>
-
-			<section class="filter-section">
-				<div class="category-filters">
-					<button class="filter-btn active" data-category="all">All Categories</button>
-					{categories.map(category => (
-						<button class="filter-btn" data-category={category}>{category}</button>
-					))}
-				</div>
-			</section>
-
-			<section class="blog-grid">
-				{posts.map((post) => (
-					<div class="blog-item" data-category={post.data.classification}>
-						<BlogCard
-							title={post.data.title}
-							excerpt={post.data.description}
-							date={post.data.publishDate}
-							category={post.data.classification}
-							readingTime={post.data.readingTime}
-							tags={post.data.tags}
-							thumbnailSrc={post.data.image}
-							thumbnailAlt={post.data.title}
-							href={`/blogs/${post.slug}`}
-						/>
+		<div class="page-container">
+			<main>
+				<section class="hero">
+					<div class="hero-content">
+						<h1 class="hero-title"><span class="emoji">📖</span> Read my Blog</h1>
+						<p class="hero-subtitle">Come walk with me through clouds and code, anime and math symbols, where logic holds emotion gently, and creation becomes our way home.</p>
 					</div>
-				))}
-			</section>
-		</main>
-<!-- 
-		<div class="glow-effect glow-left"></div>
-		<div class="glow-effect glow-right"></div>
-		<div class="neuro-glow-effect"></div> -->
-		<Footer />
+				</section>
+
+				<section class="filter-section">
+					<div class="category-filters">
+						<button class="filter-btn active" data-category="all">All Categories</button>
+						{categories.map(category => (
+							<button class="filter-btn" data-category={category}>{category}</button>
+						))}
+					</div>
+				</section>
+
+				<section class="blog-grid">
+					{posts.map((post) => (
+						<div class="blog-item" data-category={post.data.classification}>
+							<BlogCard
+								title={post.data.title}
+								excerpt={post.data.description}
+								date={post.data.publishDate}
+								category={post.data.classification}
+								readingTime={post.data.readingTime}
+								tags={post.data.tags}
+								thumbnailSrc={post.data.image}
+								thumbnailAlt={post.data.title}
+								href={`/blogs/${post.slug}`}
+							/>
+						</div>
+					))}
+				</section>
+			</main>
+
+			<Footer />
+			
+			<div class="glow-effect glow-left"></div>
+			<div class="glow-effect glow-right"></div>
+			<div class="neuro-glow-effect"></div>
+		</div>
+
+		<script src="/src/scripts/glow-effects.js"></script>
 
 		<style>
 			.hero {

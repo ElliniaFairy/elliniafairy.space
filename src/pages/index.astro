@@ -18,102 +18,90 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section class="hero">
-				<div class="hero-content">
-					<h1 class="hero-title">✨ Welcome to My Universe</h1>
-					<p class="hero-subtitle">Where dreams meet code, and ideas come alive in gentle light</p>
-				</div>
-			</section>
-
-			<section class="blog-redirect-section">
-				<div class="blog-redirect-card">
-					<div class="blog-content-left">
-						<h2 class="blog-main-title">Ready to Explore My Digital Universe?</h2>
-						<p class="blog-description">Discover insights, tutorials, and creative processes. Dive deep into my thoughts on technology, development, and innovative solutions.</p>
-						<a href="/blog" class="blog-cta-btn">
-							Start Reading
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-								<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-							</svg>
-						</a>
+		<div class="page-container">
+			<main>
+				<section class="hero">
+					<div class="hero-content">
+						<h1 class="hero-title">✨ Welcome to My Universe</h1>
+						<p class="hero-subtitle">Where dreams meet code, and ideas come alive in gentle light</p>
 					</div>
-					<div class="blog-preview-right">
-						<div class="preview-window">
-							<div class="window-header">
-								<div class="window-dots">
-									<span class="dot"></span>
-									<span class="dot"></span>
-									<span class="dot"></span>
-								</div>
-							</div>
-							<div class="preview-content">
-								<div class="stylish-dashboard">
-									<div class="dashboard-title">My Blog</div>
-									<div class="stats-grid">
-										<div class="stat-box">
-											<div class="stat-icon">📝</div>
-											<div class="stat-value">{postCount}</div>
-											<div class="stat-desc">Articles</div>
-										</div>
-										<div class="stat-box">
-											<div class="stat-icon">🕒</div>
-											<div class="stat-value">{lastUpdated}</div>
-											<div class="stat-desc">Updated</div>
-										</div>
+				</section>
+
+				<section class="blog-redirect-section">
+					<div class="blog-redirect-card">
+						<div class="blog-content-left">
+							<h2 class="blog-main-title">Ready to Explore My Digital Universe?</h2>
+							<p class="blog-description">Discover insights, tutorials, and creative processes. Dive deep into my thoughts on technology, development, and innovative solutions.</p>
+							<a href="/blog" class="blog-cta-btn">
+								Start Reading
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+									<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</a>
+						</div>
+						<div class="blog-preview-right">
+							<div class="preview-window">
+								<div class="window-header">
+									<div class="window-dots">
+										<span class="dot"></span>
+										<span class="dot"></span>
+										<span class="dot"></span>
 									</div>
-									<div class="activity-bar">
-										<div class="activity-dot active"></div>
-										<div class="activity-dot"></div>
-										<div class="activity-dot"></div>
-										<div class="activity-dot active"></div>
-										<div class="activity-dot"></div>
-										<div class="activity-dot active"></div>
+								</div>
+								<div class="preview-content">
+									<div class="stylish-dashboard">
+										<div class="dashboard-title">My Blog</div>
+										<div class="stats-grid">
+											<div class="stat-box">
+												<div class="stat-icon">📝</div>
+												<div class="stat-value">{postCount}</div>
+												<div class="stat-desc">Articles</div>
+											</div>
+											<div class="stat-box">
+												<div class="stat-icon">🕒</div>
+												<div class="stat-value">{lastUpdated}</div>
+												<div class="stat-desc">Updated</div>
+											</div>
+										</div>
+										<div class="activity-bar">
+											<div class="activity-dot active"></div>
+											<div class="activity-dot"></div>
+											<div class="activity-dot"></div>
+											<div class="activity-dot active"></div>
+											<div class="activity-dot"></div>
+											<div class="activity-dot active"></div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<section class="content-grid">
+				<section class="content-grid">
 
-				<div class="glass-card">
-					<h2>🌟 About Me</h2>
-					<p>Discover my journey, passion for technology, and the creative process behind every project I craft.</p>
-					<a href="/about" class="card-link">Learn More →</a>
-				</div>
+					<div class="glass-card">
+						<h2>🌟 About Me</h2>
+						<p>Discover my journey, passion for technology, and the creative process behind every project I craft.</p>
+						<a href="/about" class="card-link">Learn More →</a>
+					</div>
 
-				<div class="glass-card">
-					<h2>💫 Recent Work</h2>
-					<p>A collection of projects that showcase my dedication to beautiful, functional, and meaningful design.</p>
-					<a href="/about" class="card-link">View Projects →</a>
-				</div>
-			</section>
-		</main>
+					<div class="glass-card">
+						<h2>💫 Recent Work</h2>
+						<p>A collection of projects that showcase my dedication to beautiful, functional, and meaningful design.</p>
+						<a href="/about" class="card-link">View Projects →</a>
+					</div>
+				</section>
+			</main>
 
-		<div class="glow-effect glow-left"></div>
-		<div class="glow-effect glow-right"></div>
-		<div class="neuro-glow-effect"></div>
-		<Footer />
+			<Footer />
+			
+			<div class="glow-effect glow-left"></div>
+			<div class="glow-effect glow-right"></div>
+			<div class="neuro-glow-effect"></div>
+		</div>
 
-		<script>
-			// Set random position for the green glow effect that changes with each pulse cycle
-			const glowElement = document.querySelector('.neuro-glow-effect');
-			if (glowElement) {
-				function updateRandomPosition() {
-					glowElement.style.setProperty('--random-x', Math.random());
-					glowElement.style.setProperty('--random-y', Math.random());
-				}
-				
-				// Set initial position
-				updateRandomPosition();
-				
-				// Listen for animation iteration to sync with the pulse cycle
-				glowElement.addEventListener('animationiteration', updateRandomPosition);
-			}
-		</script>
+		<script src="/src/scripts/glow-effects.js"></script>
 
 		<style>
 			.hero {

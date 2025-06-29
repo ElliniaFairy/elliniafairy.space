@@ -69,9 +69,17 @@ body {
 	overflow-x: hidden;
 }
 
+.page-container {
+	position: relative;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
 /* Bottom glow effects */
 .glow-effect {
-    position: fixed;
+    position: absolute;
     bottom: -120px; /* adjusted depth of glow to be more visible */
     width: 1000px;
     height: 300px;
@@ -83,7 +91,7 @@ body {
 
 /* Neuro-sama green glow effect */
 .neuro-glow-effect {
-    position: fixed;
+    position: absolute;
     top: calc(20% + 60% * var(--random-y, 0.5));
     left: calc(10% + 80% * var(--random-x, 0.5));
     width: 1200px;
@@ -116,7 +124,7 @@ body {
 }
 
 .glow-right {
-    right: 30px;
+    right: 0;
 }
 
 main {

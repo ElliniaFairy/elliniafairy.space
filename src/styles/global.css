@@ -298,16 +298,17 @@ hr {
 }
 
 /* Blog content styling */
-article p,
-article li,
-article {
+article.blog-post p,
+article.blog-post li,
+article.blog-post {
 	font-family: 'Nunito Sans', sans-serif;
 }
 
-article h2 {
+article.blog-post h2 {
 	font-family: 'Sora', sans-serif;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	line-height: 1.6;
-	margin: 1.5em 0 0.8em 0;
+	margin-top: 1.5em;
+	margin-bottom: 0.8em;
 }
 

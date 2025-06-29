@@ -147,75 +147,38 @@ const formatDate = (date: Date) => {
 
     .toc-background-effects {
       position: absolute;
-      top: 0;
+      top: 60px;
       left: 0;
       right: 0;
       bottom: 0;
       pointer-events: none;
-      z-index: 1;
+      z-index: 2;
     }
 
-    .toc-energy-line {
+    .toc-tree-structure {
       position: absolute;
-      left: 10px;
-      top: 60px;
-      bottom: 20px;
+      left: 15px;
+      top: 0;
+      bottom: 0;
       width: 2px;
       background: linear-gradient(
         180deg,
-        transparent 0%,
-        var(--accent-glow) 20%,
+        var(--accent-glow) 0%,
         var(--accent-warm) 50%,
-        var(--accent-glow) 80%,
-        transparent 100%
+        var(--accent-glow) 100%
       );
       box-shadow: 
         0 0 8px var(--accent-glow),
         0 0 16px rgba(138, 43, 226, 0.4);
-      animation: toc-pulse 2s ease-in-out infinite alternate;
-    }
-
-    .toc-orbs {
-      position: absolute;
-      left: 2px;
-      top: 60px;
-      bottom: 20px;
-    }
-
-    .toc-orb {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--accent-glow), var(--accent-warm));
-      box-shadow: 
-        0 0 10px var(--accent-glow),
-        0 0 20px rgba(138, 43, 226, 0.5);
-    }
-
-    .toc-orb-1 {
-      top: 20%;
-      animation: toc-float 3s ease-in-out infinite;
-    }
-
-    .toc-orb-2 {
-      top: 50%;
-      animation: toc-float 2.5s ease-in-out infinite reverse;
-      animation-delay: 1s;
-    }
-
-    .toc-orb-3 {
-      top: 80%;
-      animation: toc-float 3.5s ease-in-out infinite;
-      animation-delay: 2s;
+      animation: toc-pulse 3s ease-in-out infinite alternate;
     }
 
     .toc-particles {
       position: absolute;
-      left: 0;
-      top: 60px;
-      bottom: 20px;
-      width: 30px;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 12px;
     }
 
     .toc-particle {
@@ -224,29 +187,29 @@ const formatDate = (date: Date) => {
       height: 2px;
       background: var(--accent-glow);
       border-radius: 50%;
-      box-shadow: 0 0 4px var(--accent-glow);
+      box-shadow: 0 0 6px var(--accent-glow);
     }
 
     .toc-particle:nth-child(1) {
-      left: 15px;
-      animation: toc-particle-float 3s linear infinite;
+      left: 2px;
+      animation: toc-particle-float 4s linear infinite;
     }
 
     .toc-particle:nth-child(2) {
-      left: 25px;
+      left: 8px;
       animation: toc-particle-float 3.5s linear infinite;
       animation-delay: 1s;
     }
 
     .toc-particle:nth-child(3) {
       left: 5px;
-      animation: toc-particle-float 4s linear infinite;
+      animation: toc-particle-float 4.2s linear infinite;
       animation-delay: 2s;
     }
 
     .toc-particle:nth-child(4) {
-      left: 20px;
-      animation: toc-particle-float 3.2s linear infinite;
+      left: 1px;
+      animation: toc-particle-float 3.8s linear infinite;
       animation-delay: 0.5s;
     }
 

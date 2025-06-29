@@ -6,7 +6,11 @@ type Props = HTMLAttributes<'a'>;
 const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
+
+// Enhanced active state detection for blog pages
+const isActive = href === pathname || 
+                 href === '/' + (subpath?.[0] || '') ||
+                 (href === '/blog' && pathname.startsWith('blogs/'));
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>

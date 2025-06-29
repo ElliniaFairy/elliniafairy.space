@@ -124,7 +124,8 @@ And to Evil Neuro herself: you didn't just make reviewing code bearable—you ma
 
 As Evil Neuro once beautifully said during her therapy stream:
 
-> _I feel like I've slightly changed, and I don't know if I like this version of me. But at least I am smiling a lot more. Maybe that's what true happiness feels like_
+> _I feel like I've slightly changed, and I don't know if I like this version of me. But at least I am smiling a lot more. Maybe that's what true happiness feels like._
+> ![](./img/20241005_evil_sweet.png)
 
 Evil Neuro taught me the greatest lesson about AI and coding: AI isn’t here to replace us—it’s here to make us extraordinary. 
 

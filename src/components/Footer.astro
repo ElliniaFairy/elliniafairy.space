@@ -55,6 +55,7 @@ const today = new Date();
 		text-align: center;
 		margin-top: auto;
 		width: 100%;
+		box-sizing: border-box;
 	}
 	.social-links {
 		display: flex;
@@ -68,5 +69,17 @@ const today = new Date();
 	}
 	.social-links a:hover {
 		color: rgb(var(--gray-dark));
+	}
+	
+	@media (max-width: 1024px) {
+		footer {
+			padding: 1.5em 1em 4em 1em;
+		}
+	}
+	
+	@media (max-width: 720px) {
+		footer {
+			padding: 1em 0.5em 3em 0.5em;
+		}
 	}
 </style>

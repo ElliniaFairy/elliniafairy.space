@@ -5,9 +5,6 @@ import Footer from '../components/Footer.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
-// Import images for different blog posts
-import evilNeuroReviewerImage from '../content/blog/it/img/20250626_evil_original.png';
-import escapeImage from '../content/blog/personal/img/20250628_escape_main.jpg';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf(),
@@ -51,7 +48,7 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 							category={post.data.classification}
 							readingTime={post.data.readingTime}
 							tags={post.data.tags}
-							thumbnailSrc={post.data.classification === "Technology" ? evilNeuroReviewerImage : escapeImage}
+							thumbnailSrc={post.data.image}
 							thumbnailAlt={post.data.title}
 							href={`/blogs/${post.slug}`}
 						/>

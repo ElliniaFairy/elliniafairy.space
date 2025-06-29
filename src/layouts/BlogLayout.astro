@@ -7,7 +7,7 @@ export type BlogPost = CollectionEntry<'blog'>;
 const { post } = Astro.props as { post: BlogPost };
 
 // Format date for better display
-const formatDate = (date: Date) => {
+const formatDate = (date: string) => {
   return new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'long',
@@ -364,7 +364,7 @@ const formatDate = (date: Date) => {
       const article = document.querySelector('.blog-content');
       const progressBar = document.getElementById('reading-progress');
       
-      if (!article || !progressBar) return;
+      if (!(article instanceof HTMLElement) || !progressBar) return;
 
       const articleTop = article.offsetTop;
       const articleHeight = article.offsetHeight;

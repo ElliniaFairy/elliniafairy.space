@@ -183,19 +183,21 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
-				const filterBtns = document.querySelectorAll('.filter-btn');
-				const blogItems = document.querySelectorAll('.blog-item');
+				const filterBtns = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
+				const blogItems = document.querySelectorAll('.blog-item') as NodeListOf<HTMLElement>;
 
 				filterBtns.forEach(btn => {
-					btn.addEventListener('click', function() {
-						const category = this.dataset.category;
+					btn.addEventListener('click', (event) => {
+						const target = event.currentTarget as HTMLButtonElement | null;
+						if (!target) return;
+						const category = target.dataset.category;
 
 						// Update active button
 						filterBtns.forEach(b => b.classList.remove('active'));
-						this.classList.add('active');
+						target.classList.add('active');
 
 						// Filter blog items
-						blogItems.forEach(item => {
+						blogItems.forEach((item) => {
 							if (category === 'all' || item.dataset.category === category) {
 								item.style.display = 'block';
 							} else {

@@ -10,23 +10,27 @@ const { Content } = aboutContent[0];
 		<div class="hero-content">
 			<div class="hero-text">
 				<h1 class="hero-title">
-					<span class="sparkle">✨</span> LET'S EXPLORE <span class="sparkle">💎</span>
-					<br>MY JOURNEY
+					🍃 About Me
 				</h1>
-				<p class="hero-subtitle">
-					Discover the intersection of mathematics, technology, and creative expression through the eyes of Ellinia Fairy
-				</p>
+				<div class="hero-intro">
+					<p>I'm <strong>Ellinia Fairy</strong>—a mathematics graduate turned app developer. I currently work in <strong>Yokohama Minato Mirai 21</strong>, a futuristic district, and live in <strong>Tokyo Haneda</strong>, close to the open skies inspiring my creative spirit.</p>
+					<p>I build with logic, but I live for resonance. Technology alone doesn't fascinate me; what deeply resonates are the stories born from technological possibilities and human creativity. I explore the intersection of intelligence and aesthetics through meteorology, storytelling and photography, aiming to blend rigorous science with artistic expression.</p>
+				</div>
 			</div>
 			<div class="hero-visual">
-				<div class="magic-orb"></div>
-				<div class="floating-elements">
-					<div class="element math">∫</div>
-					<div class="element code">&lt;/&gt;</div>
-					<div class="element star">⭐</div>
-					<div class="element heart">💜</div>
+				<div class="avatar-container">
+					<div class="eclipse-effect"></div>
+					<img src="/src/assets/avatar/avatar.png" alt="Ellinia Fairy" class="avatar-image" />
 				</div>
 			</div>
 		</div>
+	</section>
+	
+	<section class="read-more-section">
+		<button class="read-more-btn" onclick="toggleReadMore()">
+			<span class="btn-text">Read More About My Journey</span>
+			<span class="btn-icon">↓</span>
+		</button>
 	</section>
 	
 	<article class="about-content">
@@ -99,13 +103,21 @@ const { Content } = aboutContent[0];
 	filter: none;
 }
 
-.hero-subtitle {
+.hero-intro {
 	font-family: 'Inter', sans-serif;
-	font-size: 1.3rem;
-	line-height: 1.6;
+	font-size: 1.1rem;
+	line-height: 1.7;
 	color: var(--text-secondary);
-	margin-bottom: 0;
-	opacity: 0.9;
+	margin-top: 1.5rem;
+}
+
+.hero-intro p {
+	margin-bottom: 1.2rem;
+}
+
+.hero-intro strong {
+	color: var(--text-primary);
+	font-weight: 600;
 }
 
 .hero-visual {
@@ -116,82 +128,64 @@ const { Content } = aboutContent[0];
 	justify-content: center;
 }
 
-.magic-orb {
-	width: 300px;
-	height: 300px;
+.avatar-container {
+	position: relative;
+	width: 320px;
+	height: 320px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.eclipse-effect {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	border-radius: 50%;
 	background: radial-gradient(circle at 30% 30%, 
-		rgba(0, 255, 255, 0.8) 0%,
-		rgba(138, 43, 226, 0.6) 40%,
-		rgba(255, 0, 255, 0.4) 70%,
+		rgba(0, 255, 255, 0.4) 0%,
+		rgba(138, 43, 226, 0.3) 40%,
+		rgba(255, 0, 255, 0.2) 70%,
 		transparent 100%
 	);
-	position: relative;
-	animation: orbPulse 4s ease-in-out infinite;
-	filter: blur(1px);
+	animation: eclipsePulse 4s ease-in-out infinite;
+	z-index: 1;
 }
 
-.magic-orb::before {
+.eclipse-effect::before {
 	content: '';
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 200px;
-	height: 200px;
+	top: -10px;
+	left: -10px;
+	right: -10px;
+	bottom: -10px;
 	border-radius: 50%;
-	background: radial-gradient(circle at 40% 40%, 
-		rgba(255, 255, 255, 0.3) 0%,
-		rgba(0, 255, 255, 0.2) 50%,
-		transparent 100%
+	background: linear-gradient(45deg, 
+		rgba(0, 255, 255, 0.1) 0%,
+		transparent 30%,
+		transparent 70%,
+		rgba(255, 0, 255, 0.1) 100%
 	);
-	animation: innerGlow 3s ease-in-out infinite reverse;
+	animation: eclipseRotate 6s linear infinite;
 }
 
-.floating-elements {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+.avatar-image {
+	width: 280px;
+	height: 280px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 
+		0 0 30px rgba(0, 255, 255, 0.3),
+		0 0 60px rgba(138, 43, 226, 0.2),
+		inset 0 0 30px rgba(255, 255, 255, 0.05);
+	z-index: 2;
+	position: relative;
+	transition: transform 0.3s ease;
 }
 
-.element {
-	position: absolute;
-	font-size: 2rem;
-	font-weight: bold;
-	color: var(--accent-cyan);
-	text-shadow: 0 0 20px currentColor;
-	animation: float 6s ease-in-out infinite;
-	opacity: 0.8;
-}
-
-.element.math {
-	top: 20%;
-	left: 15%;
-	animation-delay: 0s;
-	color: var(--accent-cyan);
-}
-
-.element.code {
-	top: 60%;
-	right: 20%;
-	animation-delay: 1.5s;
-	color: var(--accent-purple);
-}
-
-.element.star {
-	top: 15%;
-	right: 25%;
-	animation-delay: 3s;
-	color: var(--accent-pink);
-}
-
-.element.heart {
-	bottom: 25%;
-	left: 20%;
-	animation-delay: 4.5s;
-	color: var(--accent-pink);
+.avatar-image:hover {
+	transform: scale(1.05);
 }
 
 @keyframes backgroundPulse {

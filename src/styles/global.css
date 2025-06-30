@@ -291,6 +291,8 @@ hr {
 	}
 	main {
 		padding: 0.5em;
+		width: 90%;
+		margin: 0 auto;
 	}
 }
 

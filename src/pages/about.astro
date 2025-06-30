@@ -17,7 +17,8 @@ import avatar from '../assets/avatar/avatar.png';
 			</div>
 			<div class="action-section">
 				<a href="/about-me" class="find-more-btn">
-					<span class="btn-text">Find out more about me</span>
+					<span class="btn-text-full">Find out more about me</span>
+					<span class="btn-text-short">More</span>
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
 						<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>
@@ -145,6 +146,10 @@ import avatar from '../assets/avatar/avatar.png';
 
 .find-more-btn svg {
 	transition: transform 0.3s ease;
+}
+
+.btn-text-short {
+	display: none;
 }
 
 .find-more-btn:hover svg {
@@ -340,54 +345,49 @@ import avatar from '../assets/avatar/avatar.png';
 }
 
 @media (max-width: 768px) {
+	body {
+		overflow-x: hidden;
+		width: 100vw;
+		max-width: 100%;
+	}
+	
+	main {
+		overflow-x: hidden;
+		width: 100%;
+		max-width: 100%;
+		padding: 0.5em 0.5em;
+		box-sizing: border-box;
+	}
+	
 	.hero-content {
 		grid-template-columns: 1fr;
 		gap: 2rem;
 		text-align: center;
-		padding: 0 1rem;
-	}
-	
-	.hero-visual {
-		height: 300px;
-	}
-	
-	.magic-orb {
-		width: 200px;
-		height: 200px;
-	}
-	
-	.magic-orb::before {
-		width: 120px;
-		height: 120px;
-	}
-	
-	.element {
-		font-size: 1.5rem;
-	}
-}
-
-
-@media (max-width: 768px) {
-	.hero-content {
-		grid-template-columns: 1fr;
-		gap: 2rem;
-		text-align: center;
-		padding: 0 1rem;
-		max-width: 90vw;
+		padding: 2rem 0.5rem;
+		max-width: 100%;
+		margin: 0 auto;
+		overflow-x: hidden;
+		box-sizing: border-box;
 	}
 	
 	.hero-section {
 		height: 60vh;
+		overflow-x: hidden;
+		width: 100%;
+		max-width: 100%;
 	}
 	
 	.hero-visual {
 		flex-direction: row;
 		gap: 1.5rem;
+		overflow-x: hidden;
+		justify-content: center;
 	}
 	
 	.avatar-container {
 		width: 200px;
 		height: 200px;
+		flex-shrink: 0;
 	}
 	
 	.avatar-image {
@@ -396,10 +396,16 @@ import avatar from '../assets/avatar/avatar.png';
 	}
 	
 	.map-container {
-		width: 200px;
-		height: 200px;
+		display: none;
 	}
 	
+	.btn-text-full {
+		display: none;
+	}
+	
+	.btn-text-short {
+		display: inline;
+	}
 }
 </style>
 

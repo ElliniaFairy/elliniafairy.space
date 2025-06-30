@@ -447,20 +447,85 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 				}
 
 				.blog-preview-right {
+					display: none;
+				}
+
+				.stylish-dashboard {
 					padding: 1rem;
 				}
 
-				.preview-window {
-					max-width: 100%;
+				.dashboard-title {
+					font-size: 1.2rem;
+					margin-bottom: 0.8rem;
 				}
 
-				.preview-content {
-					height: 200px;
+				.stats-grid {
+					gap: 0.8rem;
+					flex-direction: row;
+				}
+
+				.stat-box {
+					padding: 0.8rem 0.5rem;
+					min-width: 0;
+				}
+
+				.stat-icon {
+					font-size: 1rem;
+					margin-bottom: 0.3rem;
+				}
+
+				.stat-value {
+					font-size: 1.1rem;
+					margin-bottom: 0.2rem;
+				}
+
+				.stat-desc {
+					font-size: 0.75rem;
 				}
 
 				.content-grid {
 					grid-template-columns: 1fr;
 					padding: 0 1rem;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				.blog-redirect-card {
+					margin: 0 0.5rem;
+				}
+				
+				.blog-content-left {
+					padding: 1.5rem 1rem;
+				}
+				
+				.blog-main-title {
+					font-size: 1.8rem;
+				}
+				
+				.preview-content {
+					height: 150px;
+				}
+				
+				.stylish-dashboard {
+					padding: 0.8rem;
+				}
+				
+				.stats-grid {
+					flex-direction: column;
+					gap: 0.5rem;
+				}
+				
+				.stat-box {
+					padding: 0.6rem;
+					width: 100%;
+				}
+				
+				.dashboard-title {
+					font-size: 1.1rem;
+				}
+				
+				.content-grid {
+					padding: 0 0.5rem;
 				}
 			}
 		</style>

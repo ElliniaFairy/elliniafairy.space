@@ -1,0 +1,23 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+
+// Create a mock blog post object for the about page
+const aboutPost = {
+	data: {
+		title: "My Journey in Tech & Creativity",
+		description: "Discover the story behind Ellinia Fairy - from mathematics to app development, exploring the intersection of logic and creativity.",
+		publishDate: "2025-07-01",
+		classification: "Personal Journey",
+		readingTime: "13 min read",
+		tags: ["Personal", "Mathematics", "Technology", "Creativity"]
+	}
+};
+
+// Read the markdown content
+const aboutContent = await Astro.glob('./about.md');
+const { Content } = aboutContent[0];
+---
+
+<BlogLayout post={aboutPost}>
+	<Content />
+</BlogLayout>

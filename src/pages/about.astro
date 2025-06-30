@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import avatar from '../assets/avatar/avatar.png';
 
-const aboutContent = await Astro.glob('./about.md');
-const { Content } = aboutContent[0];
 ---
 
 <BaseLayout title="About - Ellinia Fairy" description="Learn about Ellinia Fairy - a mathematics graduate turned app developer, exploring the intersection of intelligence and aesthetics through technology and creativity." showFooter={false}>
@@ -52,7 +52,7 @@ const { Content } = aboutContent[0];
 		<div class="hero-visual">
 			<div class="avatar-container">
 				<div class="eclipse-effect"></div>
-				<img src="/src/assets/avatar/avatar.png" alt="Ellinia Fairy" class="avatar-image" />
+				<Image src={avatar} alt="Ellinia Fairy" class="avatar-image" width={240} height={290} />
 			</div>
 			<div class="map-container">
 				<iframe 
@@ -260,9 +260,6 @@ const { Content } = aboutContent[0];
 	transition: transform 0.3s ease;
 }
 
-.avatar-image:hover {
-	transform: scale(1.05);
-}
 
 .map-container {
 	position: relative;
@@ -279,9 +276,6 @@ const { Content } = aboutContent[0];
 	transition: transform 0.3s ease;
 }
 
-.map-container:hover {
-	transform: scale(1.05);
-}
 
 
 

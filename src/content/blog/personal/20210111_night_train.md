@@ -6,7 +6,7 @@ tags: ["travel"]
 classification: "Travel"
 description: "A reflection on the unique experience and emotional resonance of traveling overnight on slow-speed trains in China, witnessing magical night landscapes and pondering the gradual disappearance of this tradition."
 readingTime: "7 min read"
-image: "/src/content/blog/personal/img/20210111_night_train.png"
+image: "/blog/img/20210111_night_train.png"
 draft: false
 slug: "20210111_night_train"
 ---

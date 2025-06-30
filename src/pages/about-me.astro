@@ -14,8 +14,9 @@ const aboutPost = {
 };
 
 // Read the markdown content
-const aboutContent = await Astro.glob('./about.md');
-const { Content } = aboutContent[0];
+const modules = import.meta.glob('../content/about.md');
+const aboutContent = await modules['../content/about.md']();
+const { Content } = aboutContent;
 ---
 
 <BlogLayout post={aboutPost}>

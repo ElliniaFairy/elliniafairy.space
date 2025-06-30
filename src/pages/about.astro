@@ -236,10 +236,10 @@ import avatar from '../assets/avatar/avatar.png';
 .eclipse-effect::before {
 	content: '';
 	position: absolute;
-	top: -10px;
-	left: -10px;
-	right: -10px;
-	bottom: -10px;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	border-radius: 50%;
 	background: linear-gradient(45deg, 
 		rgba(0, 255, 255, 0.1) 0%,
@@ -247,6 +247,7 @@ import avatar from '../assets/avatar/avatar.png';
 		transparent 70%,
 		rgba(255, 0, 255, 0.1) 100%
 	);
+	transform: scale(1.1);
 	animation: eclipseRotate 6s linear infinite;
 }
 
@@ -347,7 +348,6 @@ import avatar from '../assets/avatar/avatar.png';
 @media (max-width: 768px) {
 	body {
 		overflow-x: hidden;
-		width: 100vw;
 		max-width: 100%;
 	}
 	
@@ -416,6 +416,9 @@ import avatar from '../assets/avatar/avatar.png';
 	.social-links {
 		justify-content: center;
 	}
+}
+.avatar-container {
+	overflow: hidden;
 }
 </style>
 

@@ -16,33 +16,37 @@ const { Content } = aboutContent[0];
 					<p>I'm <strong>Ellinia Fairy</strong>—a mathematics graduate turned app developer. I currently work in <strong>Yokohama Minato Mirai 21</strong>, a futuristic district, and live in <strong>Tokyo Haneda</strong>, close to the open skies inspiring my creative spirit.</p>
 					<p>I build with logic, but I live for resonance. Technology alone doesn't fascinate me; what deeply resonates are the stories born from technological possibilities and human creativity. I explore the intersection of intelligence and aesthetics through meteorology, storytelling and photography, aiming to blend rigorous science with artistic expression.</p>
 				</div>
+				<a href="/about-me" class="find-more-btn">
+					<span class="btn-text">Find out more about me</span>
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+						<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+				</a>
 			</div>
 			<div class="hero-visual">
 				<div class="avatar-container">
 					<div class="eclipse-effect"></div>
 					<img src="/src/assets/avatar/avatar.png" alt="Ellinia Fairy" class="avatar-image" />
 				</div>
+				<div class="map-container">
+					<iframe 
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d414604.2754293876!2d139.75446034853152!3d35.54828459292251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMyJzUzLjgiTiAxMznCsDQ1JzE2LjEiRQ!5e0!3m2!1sen!2sjp!4v1"
+						class="google-map"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade">
+					</iframe>
+				</div>
 			</div>
 		</div>
 	</section>
-	
-	<section class="read-more-section">
-		<button class="read-more-btn" onclick="toggleReadMore()">
-			<span class="btn-text">Read More About My Journey</span>
-			<span class="btn-icon">↓</span>
-		</button>
-	</section>
-	
-	<article class="about-content">
-		<Content />
-	</article>
 </BaseLayout>
 
 <style>
 /* Hero Section */
 .hero-section {
 	width: 100vw;
-	height: 500px;
+	height: 70vh;
 	background: linear-gradient(135deg, 
 		rgba(13, 25, 43, 0.95) 0%,
 		rgba(25, 39, 67, 0.9) 50%,
@@ -76,7 +80,7 @@ const { Content } = aboutContent[0];
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 4rem;
-	max-width: 1400px;
+	max-width: 70vw;
 	width: 100%;
 	padding: 0 2rem;
 	z-index: 2;
@@ -120,12 +124,49 @@ const { Content } = aboutContent[0];
 	font-weight: 600;
 }
 
+.find-more-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
+	color: white;
+	padding: 1.2rem 2.5rem;
+	border-radius: 30px;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.1rem;
+	font-family: 'Montserrat', sans-serif;
+	transition: all 0.3s ease;
+	box-shadow: 
+		0 8px 20px rgba(41, 98, 255, 0.3),
+		0 0 0 1px rgba(255, 255, 255, 0.1);
+	position: relative;
+	overflow: hidden;
+	margin-top: 2rem;
+}
+
+.find-more-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 
+		0 12px 30px rgba(41, 98, 255, 0.4),
+		0 0 40px rgba(34, 211, 238, 0.3);
+}
+
+.find-more-btn svg {
+	transition: transform 0.3s ease;
+}
+
+.find-more-btn:hover svg {
+	transform: translate(2px, -2px);
+}
+
 .hero-visual {
 	position: relative;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 4rem;
 }
 
 .avatar-container {
@@ -186,6 +227,34 @@ const { Content } = aboutContent[0];
 
 .avatar-image:hover {
 	transform: scale(1.05);
+}
+
+.map-container {
+	position: relative;
+	width: 280px;
+	height: 280px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 3px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 
+		0 0 30px rgba(34, 197, 94, 0.4),
+		0 0 60px rgba(22, 163, 74, 0.3),
+		0 0 90px rgba(16, 185, 129, 0.2),
+		inset 0 0 30px rgba(134, 239, 172, 0.05);
+	transition: transform 0.3s ease;
+}
+
+.map-container:hover {
+	transform: scale(1.05);
+}
+
+
+
+.google-map {
+	width: 100%;
+	height: 100%;
+	border: none;
+	filter: contrast(1.1) brightness(0.9) hue-rotate(15deg);
 }
 
 @keyframes backgroundPulse {
@@ -268,155 +337,40 @@ const { Content } = aboutContent[0];
 	}
 }
 
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 2rem 1rem;
-}
-
-.about-content {
-	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 20px;
-	padding: 3rem;
-	box-shadow: 
-		0 8px 32px rgba(0, 0, 0, 0.2),
-		inset 0 1px 0 rgba(255, 255, 255, 0.1);
-	margin: 2rem 0;
-}
-
-.about-content :global(h1) {
-	font-family: 'Sora', sans-serif;
-	font-size: 2.5rem;
-	font-weight: 700;
-	color: var(--text-primary);
-	margin-bottom: 1.5rem;
-	text-align: center;
-	background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-}
-
-.about-content :global(h2) {
-	font-family: 'Sora', sans-serif;
-	font-size: 1.8rem;
-	font-weight: 600;
-	color: var(--accent-cyan);
-	margin: 2.5rem 0 1rem 0;
-	border-bottom: 2px solid var(--accent-cyan);
-	padding-bottom: 0.5rem;
-}
-
-.about-content :global(h3) {
-	font-family: 'Sora', sans-serif;
-	font-size: 1.4rem;
-	font-weight: 600;
-	color: var(--accent-pink);
-	margin: 2rem 0 1rem 0;
-}
-
-.about-content :global(p) {
-	font-family: 'Inter', sans-serif;
-	font-size: 1.1rem;
-	line-height: 1.8;
-	color: var(--text-secondary);
-	margin-bottom: 1.5rem;
-}
-
-.about-content :global(strong) {
-	color: var(--text-primary);
-	font-weight: 600;
-}
-
-.about-content :global(ul) {
-	margin: 1rem 0 1.5rem 1rem;
-}
-
-.about-content :global(li) {
-	font-family: 'Inter', sans-serif;
-	font-size: 1.1rem;
-	line-height: 1.7;
-	color: var(--text-secondary);
-	margin-bottom: 0.5rem;
-	list-style-type: none;
-	position: relative;
-	padding-left: 1.5rem;
-}
-
-.about-content :global(li::before) {
-	content: '✨';
-	position: absolute;
-	left: 0;
-	color: var(--accent-cyan);
-}
-
-.about-content :global(table) {
-	width: 100%;
-	border-collapse: separate;
-	border-spacing: 0;
-	margin: 2rem 0;
-	background: rgba(255, 255, 255, 0.03);
-	border-radius: 12px;
-	overflow: hidden;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.about-content :global(th) {
-	background: rgba(var(--accent-cyan-rgb), 0.2);
-	color: var(--text-primary);
-	font-family: 'Sora', sans-serif;
-	font-weight: 600;
-	padding: 1rem;
-	text-align: left;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.about-content :global(td) {
-	padding: 1rem;
-	color: var(--text-secondary);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.about-content :global(tr:last-child td) {
-	border-bottom: none;
-}
-
-.about-content :global(code) {
-	font-family: 'JetBrains Mono', monospace;
-	background: rgba(var(--accent-purple-rgb), 0.2);
-	padding: 0.2rem 0.4rem;
-	border-radius: 4px;
-	font-size: 0.9rem;
-	color: var(--accent-purple);
-}
 
 @media (max-width: 768px) {
-	.container {
-		padding: 1rem 0.5rem;
+	.hero-content {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		text-align: center;
+		padding: 0 1rem;
+		max-width: 90vw;
 	}
 	
-	.about-content {
-		padding: 2rem;
-		margin: 1rem 0;
+	.hero-section {
+		height: 60vh;
 	}
 	
-	.about-content :global(h1) {
-		font-size: 2rem;
+	.hero-visual {
+		flex-direction: row;
+		gap: 1.5rem;
 	}
 	
-	.about-content :global(h2) {
-		font-size: 1.5rem;
+	.avatar-container {
+		width: 200px;
+		height: 200px;
 	}
 	
-	.about-content :global(table) {
-		font-size: 0.9rem;
+	.avatar-image {
+		width: 180px;
+		height: 180px;
 	}
 	
-	.about-content :global(th),
-	.about-content :global(td) {
-		padding: 0.7rem;
+	.map-container {
+		width: 200px;
+		height: 200px;
 	}
+	
 }
 </style>
+

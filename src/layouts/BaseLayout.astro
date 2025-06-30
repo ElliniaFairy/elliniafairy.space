@@ -21,9 +21,10 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  showFooter?: boolean;
 }
 
-const { title, description, image } = Astro.props as Props;
+const { title, description, image, showFooter = true } = Astro.props as Props;
 ---
 <!doctype html>
 <html lang="en">
@@ -35,6 +36,6 @@ const { title, description, image } = Astro.props as Props;
     <main>
       <slot />
     </main>
-    <Footer />
+    {showFooter && <Footer />}
   </body>
 </html>

@@ -5,87 +5,52 @@ const aboutContent = await Astro.glob('./about.md');
 const { Content } = aboutContent[0];
 ---
 
-<BaseLayout title="About - Ellinia Fairy" description="Learn about Ellinia Fairy - a mathematics graduate turned app developer, exploring the intersection of intelligence and aesthetics through technology and creativity.">
-	<section class="hero-section">
-		<div class="hero-content">
-			<div class="hero-text">
-				<h1 class="hero-title">
-					🍃 About Me
-				</h1>
-				<div class="hero-intro">
-					<p>I'm <strong>Ellinia Fairy</strong>—a mathematics graduate turned app developer. I currently work in <strong>Yokohama Minato Mirai 21</strong>, a futuristic district, and live in <strong>Tokyo Haneda</strong>, close to the open skies inspiring my creative spirit.</p>
-					<p>I build with logic, but I live for resonance. Technology alone doesn't fascinate me; what deeply resonates are the stories born from technological possibilities and human creativity. I explore the intersection of intelligence and aesthetics through meteorology, storytelling and photography, aiming to blend rigorous science with artistic expression.</p>
-				</div>
-				<a href="/about-me" class="find-more-btn">
-					<span class="btn-text">Find out more about me</span>
-					<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-						<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-					</svg>
-				</a>
+<BaseLayout title="About - Ellinia Fairy" description="Learn about Ellinia Fairy - a mathematics graduate turned app developer, exploring the intersection of intelligence and aesthetics through technology and creativity." showFooter={false}>
+	<div class="hero-content">
+		<div class="hero-text">
+			<h1 class="hero-title">
+				🍃 About Me
+			</h1>
+			<div class="hero-intro">
+				<p>I'm <strong>Ellinia Fairy</strong>—a mathematics graduate turned app developer. I currently work in <strong>Yokohama Minato Mirai 21</strong>, a futuristic district, and live in <strong>Tokyo Haneda</strong>, close to the open skies inspiring my creative spirit.</p>
+				<p>I build with logic, but I live for resonance. Technology alone doesn't fascinate me; what deeply resonates are the stories born from technological possibilities and human creativity. I explore the intersection of intelligence and aesthetics through meteorology, storytelling and photography, aiming to blend rigorous science with artistic expression.</p>
 			</div>
-			<div class="hero-visual">
-				<div class="avatar-container">
-					<div class="eclipse-effect"></div>
-					<img src="/src/assets/avatar/avatar.png" alt="Ellinia Fairy" class="avatar-image" />
-				</div>
-				<div class="map-container">
-					<iframe 
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d414604.2754293876!2d139.75446034853152!3d35.54828459292251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMyJzUzLjgiTiAxMznCsDQ1JzE2LjEiRQ!5e0!3m2!1sen!2sjp!4v1"
-						class="google-map"
-						allowfullscreen=""
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade">
-					</iframe>
-				</div>
+			<a href="/about-me" class="find-more-btn">
+				<span class="btn-text">Find out more about me</span>
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+					<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</a>
+		</div>
+		<div class="hero-visual">
+			<div class="avatar-container">
+				<div class="eclipse-effect"></div>
+				<img src="/src/assets/avatar/avatar.png" alt="Ellinia Fairy" class="avatar-image" />
+			</div>
+			<div class="map-container">
+				<iframe 
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9804334.4!2d139.75446034853152!3d35.54828459292251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMyJzUzLjgiTiAxMznCsDQ1JzE2LjEiRQ!5e0!3m2!1sen!2sjp!4v1"
+					class="google-map"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
 			</div>
 		</div>
-	</section>
+	</div>
 </BaseLayout>
 
 <style>
-/* Hero Section */
-.hero-section {
-	width: 100vw;
-	height: 70vh;
-	background: linear-gradient(135deg, 
-		rgba(13, 25, 43, 0.95) 0%,
-		rgba(25, 39, 67, 0.9) 50%,
-		rgba(13, 25, 43, 0.95) 100%
-	);
-	position: relative;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 0;
-	margin-left: calc(-50vw + 50%);
-	margin-right: calc(-50vw + 50%);
-}
-
-.hero-section::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: 
-		radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-		radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
-		radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.05) 0%, transparent 70%);
-	animation: backgroundPulse 8s ease-in-out infinite;
-}
-
 .hero-content {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 4rem;
-	max-width: 70vw;
+	max-width: 1200px;
 	width: 100%;
-	padding: 0 2rem;
-	z-index: 2;
-	position: relative;
+	margin: 0 auto;
+	padding: 4rem 2rem;
 	align-items: center;
+	position: relative;
 }
 
 .hero-text {
@@ -171,8 +136,8 @@ const { Content } = aboutContent[0];
 
 .avatar-container {
 	position: relative;
-	width: 320px;
-	height: 320px;
+	width: 250px;
+	height: 300px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -211,8 +176,8 @@ const { Content } = aboutContent[0];
 }
 
 .avatar-image {
-	width: 280px;
-	height: 280px;
+	width: 240px;
+	height: 290px;
 	border-radius: 50%;
 	object-fit: cover;
 	border: 3px solid rgba(255, 255, 255, 0.1);
@@ -231,8 +196,8 @@ const { Content } = aboutContent[0];
 
 .map-container {
 	position: relative;
-	width: 280px;
-	height: 280px;
+	width: 270px;
+	height: 270px;
 	border-radius: 50%;
 	overflow: hidden;
 	border: 3px solid rgba(255, 255, 255, 0.1);

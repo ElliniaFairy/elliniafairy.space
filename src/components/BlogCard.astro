@@ -150,6 +150,16 @@ const { title, excerpt, date, category, readingTime, tags, thumbnailSrc, thumbna
 		text-decoration: none;
 	}
 
+	/* Prevent default purple/blue colors for link states */
+	.title-link:hover,
+	.title-link:visited,
+	.title-link:active,
+	.title-link:focus {
+		color: inherit;
+		text-decoration: none;
+		text-shadow: none !important;
+	}
+
 	.blog-tags {
 		display: flex;
 		flex-wrap: wrap;

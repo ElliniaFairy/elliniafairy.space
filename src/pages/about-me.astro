@@ -1,5 +1,7 @@
 ---
 import BlogLayout from '../layouts/BlogLayout.astro';
+import { Content as AboutContent } from '../content/about.md';
+
 
 // Create a mock blog post object for the about page
 const aboutPost = {
@@ -13,12 +15,9 @@ const aboutPost = {
 	}
 };
 
-// Read the markdown content
-const modules = import.meta.glob('../content/about.md');
-const aboutContent = await modules['../content/about.md']();
-const { Content } = aboutContent;
+// No need to call render; use imported component directly.
 ---
 
 <BlogLayout post={aboutPost}>
-	<Content />
+	<AboutContent />
 </BlogLayout>

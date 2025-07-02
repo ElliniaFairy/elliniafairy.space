@@ -127,7 +127,6 @@ import EmailIcon from '../components/EmailIcon.astro';
 		0 0 0 1px rgba(255, 255, 255, 0.1);
 	position: relative;
 	overflow: hidden;
-	min-width: 255px;
 }
 
 .find-more-btn:hover {
@@ -139,6 +138,10 @@ import EmailIcon from '../components/EmailIcon.astro';
 
 .find-more-btn svg {
 	transition: transform 0.3s ease;
+}
+
+.btn-text-full {
+	min-width: 255px;
 }
 
 .btn-text-short {
@@ -338,6 +341,28 @@ import EmailIcon from '../components/EmailIcon.astro';
 	}
 }
 
+@media (max-width: 666px) {
+		
+	.find-more-btn {
+		padding: 1rem 1.5rem;
+	}
+	
+	.btn-text-full {
+		display: none;
+	}
+	
+	.btn-text-short {
+		display: inline;
+	}
+
+	.hero-visual {
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+	
+
+
 @media (max-width: 768px) {
 	body {
 		overflow-x: hidden;
@@ -369,37 +394,24 @@ import EmailIcon from '../components/EmailIcon.astro';
 		width: 100%;
 		max-width: 100%;
 	}
-	
-	.hero-visual {
-		flex-direction: row;
-		gap: 1.5rem;
-		overflow-x: hidden;
-		justify-content: center;
-	}
+
 	
 	.avatar-container {
-		width: 200px;
+		width: 170px;
 		height: 200px;
 		flex-shrink: 0;
 	}
 	
 	.avatar-image {
-		width: 180px;
+		width: 150px;
 		height: 180px;
 	}
 	
 	.map-container {
-		display: none;
+		width: 180px;
+		height: 180px;
 	}
-	
-	.btn-text-full {
-		display: none;
-	}
-	
-	.btn-text-short {
-		display: inline;
-	}
-	
+
 	.action-section {
 		flex-direction: column;
 		align-items: center;
@@ -409,9 +421,7 @@ import EmailIcon from '../components/EmailIcon.astro';
 	.social-links {
 		justify-content: center;
 	}
-}
-.avatar-container {
-	overflow: hidden;
+
 }
 </style>
 

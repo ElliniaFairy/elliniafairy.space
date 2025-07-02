@@ -266,20 +266,6 @@ hr {
 	white-space: nowrap;
 }
 
-/* Blog content styling */
-article.blog-post p,
-article.blog-post li,
-article.blog-post {
-	font-family: 'Nunito Sans', sans-serif;
-}
-
-article.blog-post h2 {
-	font-family: 'Sora', sans-serif;
-	font-size: 1.6em;
-	line-height: 1.6;
-	margin-top: 1.5em;
-	margin-bottom: 0.8em;
-}
 
 /* Shared tag styles */
 .tag, .blog-tag {

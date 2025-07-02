@@ -69,20 +69,15 @@ const { title, excerpt, date, category, readingTime, tags, thumbnailSrc, thumbna
 	.blog-image {
 		position: relative;
 		width: 400px;
-		flex-shrink: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		flex-shrink: 0; /* Prevents the image from shrinking */
 		overflow: hidden;
 		order: 2;
-		align-self: stretch;
 	}
 
 	.thumbnail {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		transition: transform 0.3s ease;
 	}
 
 	.category-tag {
@@ -203,11 +198,17 @@ const { title, excerpt, date, category, readingTime, tags, thumbnailSrc, thumbna
 		.blog-image {
 			order: 1;
 			width: 100%;
-			height: 200px;
+			height: 250px;
 		}
 
 		.blog-content {
 			order: 2;
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 1024px) {
+		.blog-image {
+			width: 40%;
 		}
 	}
 </style>

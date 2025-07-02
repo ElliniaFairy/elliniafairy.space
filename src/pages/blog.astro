@@ -1,7 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
@@ -14,14 +14,7 @@ const posts = (await getCollection('blog')).sort(
 const categories = [...new Set(posts.map(post => post.data.classification))];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights" />
-	</head>
-	<body>
-		<Header />
-		<div class="main-content-with-footer">
+<MainLayout title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights">
 			<main>
 				<section class="hero">
 					<div class="hero-content">
@@ -57,13 +50,7 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 					))}
 				</section>
 			</main>
-			<Footer />
-		</div>
-
-		<div class="glow-effect glow-left"></div>
-		<div class="glow-effect glow-right"></div>
-		<div class="neuro-glow-effect"></div>
-		<script src="/src/scripts/glow-effects.js"></script>
+		</MainLayout>
 
 		<style>
 			.hero {

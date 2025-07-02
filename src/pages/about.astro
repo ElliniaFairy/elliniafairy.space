@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 import { Image } from 'astro:assets';
 import avatar from '../assets/avatar/avatar.png';
 
 ---
 
-<BaseLayout title="About - Ellinia Fairy" description="Learn about Ellinia Fairy - a mathematics graduate turned app developer, exploring the intersection of intelligence and aesthetics through technology and creativity." showFooter={false}>
+<MainLayout title="About - Ellinia Fairy" description="Learn about Ellinia Fairy - a mathematics graduate turned app developer, exploring the intersection of intelligence and aesthetics through technology and creativity.">
 	<div class="hero-content">
 		<div class="hero-text">
 			<h1 class="hero-title">
@@ -66,7 +66,7 @@ import avatar from '../assets/avatar/avatar.png';
 			</div>
 		</div>
 	</div>
-</BaseLayout>
+</MainLayout>
 
 <style>
 .hero-content {

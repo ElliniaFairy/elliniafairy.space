@@ -1,7 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 
@@ -11,14 +11,7 @@ const latestPost = posts.sort((a, b) => new Date(b.data.publishDate).valueOf() -
 const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Never';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<div class="main-content-with-footer">
+<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 			<main>
 				<section class="hero">
 					<div class="hero-content">
@@ -93,14 +86,7 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 					</div>
 				</section>
 			</main>
-
-			<Footer />
-			<div class="glow-effect glow-left"></div>
-			<div class="glow-effect glow-right"></div>
-			<div class="neuro-glow-effect"></div>
-		</div>
-
-		<script src="/src/scripts/glow-effects.js"></script>
+		</MainLayout>
 
 		<style>
 			.hero {

@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import MainLayout from "./MainLayout.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 import type { CollectionEntry } from "astro:content";
 
@@ -17,7 +17,7 @@ const formatDate = (date: string) => {
 
 ---
 
-<BaseLayout
+<MainLayout
   title={post.data.title}
   description={post.data.description}
   image={post.data.image}
@@ -401,4 +401,4 @@ const formatDate = (date: string) => {
     window.addEventListener('scroll', onScroll);
     window.addEventListener('resize', updateReadingProgress);
   </script>
-</BaseLayout>
+</MainLayout>

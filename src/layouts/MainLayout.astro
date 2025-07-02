@@ -1,0 +1,75 @@
+---
+// A layout component that handles the main-content-with-footer structure
+// and includes the glow effects and related styling
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {title} {description} image={image} />
+  </head>
+  <body>
+    <Header />
+    <div class="main-content-with-footer">
+      <main>
+        <slot />
+      </main>
+      
+      <Footer />
+      
+      <!-- Glow effects -->
+      <div class="glow-effect glow-left"></div>
+      <div class="glow-effect glow-right"></div>
+      <div class="neuro-glow-effect"></div>
+    </div>
+
+    <!-- Include the glow effects script -->
+    <script src="/src/scripts/glow-effects.js"></script>
+  </body>
+</html>
+
+<style>
+  /* The main reason for this class is to push the footer to the bottom when there isn't enough content */
+  .main-content-with-footer {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  main {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 2em;
+    flex: 1;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 1024px) {
+    main {
+      padding: 1em;
+    }
+  }
+
+  @media (max-width: 720px) {
+    main {
+      padding: 0.5em;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+</style>

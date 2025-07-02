@@ -71,23 +71,6 @@ body {
 	overflow-x: hidden;
 }
 
-/* The main reason for this class is to push the footer to the bottom when there isn't enough content */
-.main-content-with-footer {
-	position: relative;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-}
-
-main {
-	width: 100%;
-	max-width: 1400px;
-	margin: auto;
-	padding: 2em;
-	flex: 1;
-	box-sizing: border-box;
-}
 h1 {
 	margin: 0 0 0.5rem 0;
 	color: var(--text-primary);
@@ -231,22 +214,6 @@ blockquote {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 1024px) {
-	main {
-		padding: 1em;
-	}
-}
-
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 0.5em;
-		width: 90%;
-		margin: 0 auto;
-	}
 }
 
 .sr-only {

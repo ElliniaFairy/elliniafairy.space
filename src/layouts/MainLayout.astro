@@ -9,9 +9,11 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  footer?: boolean;
+  glowing?: boolean;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, footer = true, glowing = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,16 +28,20 @@ const { title, description, image } = Astro.props;
         <slot />
       </main>
       
-      <Footer />
+      {footer && <Footer />}
       
       <!-- Glow effects -->
-      <div class="glow-effect glow-left"></div>
-      <div class="glow-effect glow-right"></div>
-      <div class="neuro-glow-effect"></div>
+      {glowing && (
+        <>
+          <div class="glow-effect glow-left"></div>
+          <div class="glow-effect glow-right"></div>
+          <div class="neuro-glow-effect"></div>
+        </>
+      )}
     </div>
 
     <!-- Include the glow effects script -->
-    <script src="/src/scripts/glow-effects.js"></script>
+    {glowing && <script src="/src/scripts/glow-effects.js"></script>}
   </body>
 </html>
 

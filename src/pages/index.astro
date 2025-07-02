@@ -9,7 +9,7 @@ const latestPost = posts.sort((a, b) => new Date(b.data.publishDate).valueOf() -
 const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Never';
 ---
 
-<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION} glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
 			<h1 class="hero-title">✨ Welcome to My Universe</h1>

@@ -14,7 +14,7 @@ const posts = (await getCollection('blog')).sort(
 const categories = [...new Set(posts.map(post => post.data.classification))];
 ---
 
-<MainLayout title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights">
+<MainLayout title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights" glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
 			<h1 class="hero-title"><span class="emoji">📖</span> Read my Blog</h1>

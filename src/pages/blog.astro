@@ -21,7 +21,7 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 	</head>
 	<body>
 		<Header />
-		<div class="page-container">
+		<div class="main-content-with-footer">
 			<main>
 				<section class="hero">
 					<div class="hero-content">
@@ -57,14 +57,12 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 					))}
 				</section>
 			</main>
-
 			<Footer />
-			
-			<div class="glow-effect glow-left"></div>
-			<div class="glow-effect glow-right"></div>
-			<div class="neuro-glow-effect"></div>
 		</div>
 
+		<div class="glow-effect glow-left"></div>
+		<div class="glow-effect glow-right"></div>
+		<div class="neuro-glow-effect"></div>
 		<script src="/src/scripts/glow-effects.js"></script>
 
 		<style>

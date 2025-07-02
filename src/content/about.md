@@ -107,9 +107,9 @@ My linguistic agility is a foundational asset, enabling me to thrive in cross-cu
 
 | Language        | Level & Certification | Professional Application                                                                 |
 | --------------- | --------------------- | ---------------------------------------------------------------------------------------- |
-| 🌸 **Japanese** | JLPT N1 (158)         | Daily professional working communication, legal document drafting, technical discussions |
-| 🌍 **English**  | IELTS 7.0 / TOEFL 96  | Technical writing, thesis publications, blog writing, community participation            |
-| 🀄 **Chinese**  | Native                | Complex philosophical writing, poetic and emotional expression.                          |
+| **Japanese** | JLPT N1 (158)         | Daily professional working communication, legal document drafting, technical discussions |
+| **English**  | IELTS 7.0 / TOEFL 96  | Technical writing, thesis publications, blog writing, community participation            |
+| **Chinese**  | Native                | Complex philosophical writing, poetic and emotional expression.                          |
 
 
 ## 🎨 Creative & Emotional Depth

@@ -284,6 +284,12 @@ const formatDate = (date: string) => {
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 
+    .blog-content :global(th),
+    .blog-content :global(td) {
+      padding: 0.6rem 0.6rem;
+      border: 1px solid var(--glass-border);
+    }
+
     .blog-content :global(pre code) {
       background: none;
       border: none;
@@ -352,6 +358,30 @@ const formatDate = (date: string) => {
 
       .blog-content :global(h3) {
         font-size: 1.25rem;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .blog-container {
+        padding: 1rem 0.5rem;
+      }
+      
+      /* Responsive table styling */
+      .blog-content :global(table) {
+        width: calc(100% + 1.6rem);
+        border-collapse: collapse;
+        margin-left: -0.8rem;
+        margin-right: -0.8rem;
+        font-size: 0.75rem;
+        display: block;             /* allow horizontal scroll on narrow screens */
+        overflow-x: auto;
+      }
+
+      .blog-content :global(th),
+      .blog-content :global(td) {
+        padding: 0.4rem 0.4rem;
+        text-align: left;
+        word-break: break-word;
       }
     }
   </style>

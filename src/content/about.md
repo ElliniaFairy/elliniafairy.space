@@ -25,14 +25,20 @@ Today, I specialize in:
 I build systems with a strong sense of both structure and emotional resonance---prioritizing clarity, autonomy, and long-term maintainability.
 
 -   **Languages**:
-    Proficient: TypeScript, C++
-    Intermediate: Java
-    Basic: Python
+
+    🔹 Proficient: TypeScript, C++
+
+    🔹 Intermediate: Java
+
+    🔹 Basic: Python
 
 -   **Frameworks & Tools**:
-    Advanced: Git, VS Code, Node.js
-    Intermediate: Astro, React
-    Basic: Docker, Linux (Bash)
+
+    🔹 Advanced: Git, VS Code, Node.js
+
+    🔹 Intermediate: Astro, React
+
+    🔹 Basic: Docker, Linux (Bash)
 
 -   **Backend & Cloud Integration**:
     Developed and deployed full-stack systems using v4 **Azure Functions** (HTTP/timer triggers, CosmosDB/Blob bindings), and managed production infrastructure with **role-based access control (RBAC)**, with Azure Key Vault for secrets and certificate management, Azure Alert, Application Insight and Application Log for monitoring, and cost-aware configurations for Azure resources. Used **Azure CosmosDB** for NoSQL storage, implemented TypeScript-based database querying pipelines for sorting, transformation, and data filtering, and managed regular database backup processes.
@@ -86,6 +92,7 @@ My interest in AI is rooted in co-evolution, not delegation---I build AI tools t
 ### 🧩 Algorithm Design
 
 🔹 **Algorithm Practice**: Regularly implemented and analyzed classic algorithmic problems, including hash sets, hash maps, monotonic stacks, breadth-first search (BFS), depth-first search (DFS), LRU cache, binary search, and Floyd’s cycle detection, both on Leetcode and in self-study.
+
 🔹 **Mathematical Thinking**: Integrated insights from category theory and mathematical abstractions into software architecture design.
 
 

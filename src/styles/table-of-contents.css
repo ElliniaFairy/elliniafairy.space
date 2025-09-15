@@ -1,9 +1,10 @@
 /* Table of Contents Styles */
 
 .table-of-contents {
-  position: sticky;
-  top: 2rem;
+  position: fixed;
+  top: 135px;
   width: 280px;
+  right: calc((100vw - 1200px) / 2);
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
   background: var(--bg-secondary);
@@ -53,6 +54,7 @@
   margin: 0;
   position: relative;
 }
+
 
 .table-of-contents .toc-list a {
   display: block;

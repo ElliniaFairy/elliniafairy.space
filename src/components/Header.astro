@@ -5,7 +5,7 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href="/"><img src="/icon.png" alt="{SITE_TITLE} logo" class="site-logo" /></a></h2>
 		<div class="center-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -71,11 +71,22 @@ import { SITE_TITLE } from '../consts';
 		font-family: 'Montserrat', sans-serif;
 	}
 
+	/* Constrain site logo size */
+	.site-logo {
+		height: 100%;
+		width: auto;
+		display: block;
+		border-radius: 0; /* override global img rounding for the logo */
+	}
+
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
 		color: var(--text-primary);
 		text-shadow: var(--text-glow);
+		display: inline-flex;
+		align-items: center;
+		height: 40px; /* controls logo height */
 	}
 	nav {
 		display: flex;
@@ -171,6 +182,12 @@ import { SITE_TITLE } from '../consts';
 		
 		h2 {
 			font-size: 1rem;
+		}
+
+		/* Set container height so .site-logo can be height:100% */
+		h2 a,
+		h2 a.active {
+			height: 32px;
 		}
 		
 		.center-links,

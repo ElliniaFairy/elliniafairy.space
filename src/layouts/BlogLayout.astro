@@ -92,7 +92,7 @@ const formatDate = (date: string) => {
       width: 0%;
       height: 3px;
       background: linear-gradient(90deg, var(--accent-glow), var(--accent-warm));
-      z-index: 1000;
+      z-index: 3;
       transition: width 0.2s ease;
     }
 
@@ -363,7 +363,7 @@ const formatDate = (date: string) => {
   
     @media (max-width: 480px) {
       .blog-container {
-        padding: 1rem 0.5rem;
+        padding: 0;
       }
       
       /* Responsive table styling */
@@ -371,7 +371,6 @@ const formatDate = (date: string) => {
         width: calc(100% + 1.6rem);
         border-collapse: collapse;
         margin-left: -0.8rem;
-        margin-right: -0.8rem;
         font-size: 0.75rem;
         display: block;             /* allow horizontal scroll on narrow screens */
         overflow-x: auto;

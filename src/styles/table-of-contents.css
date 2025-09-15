@@ -2,17 +2,11 @@
 
 .table-of-contents {
   position: fixed;
-  top: 135px;
+  top: 185px;
   width: 280px;
-  right: calc((100vw - 1200px) / 2);
+  right: calc((100vw - 1180px) / 2);
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--card-radius);
-  padding: 1.5rem;
-  flex-shrink: 0;
-  order: 2;
 }
 
 .toc-header {

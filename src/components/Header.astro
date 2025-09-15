@@ -5,7 +5,7 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 	<nav>
-		<h2><a href="/"><img src="/icon.png" alt="{SITE_TITLE} logo" class="site-logo" /></a></h2>
+		<a href="/"><img src="/simplified_logo.png" alt="{SITE_TITLE} logo" class="site-logo" /></a>
 		<div class="center-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -73,10 +73,12 @@ import { SITE_TITLE } from '../consts';
 
 	/* Constrain site logo size */
 	.site-logo {
-		height: 100%;
-		width: auto;
-		display: block;
+		height: 60px;
 		border-radius: 0; /* override global img rounding for the logo */
+		display: inline-flex;
+		align-items: center;
+		padding: 0;
+		margin-bottom: -10px;
 	}
 
 	h2 a,
@@ -84,9 +86,6 @@ import { SITE_TITLE } from '../consts';
 		text-decoration: none;
 		color: var(--text-primary);
 		text-shadow: var(--text-glow);
-		display: inline-flex;
-		align-items: center;
-		height: 40px; /* controls logo height */
 	}
 	nav {
 		display: flex;
@@ -119,6 +118,13 @@ import { SITE_TITLE } from '../consts';
 		color: var(--accent-glow);
 		text-shadow: 0 0 10px var(--accent-glow);
 		background: rgba(100, 181, 246, 0.1);
+	}
+
+	/* Don't apply hover background to the logo link */
+	h2 a:hover {
+		background: transparent !important;
+		color: inherit;
+		text-shadow: var(--text-glow);
 	}
 	nav a.active {
 		color: var(--accent-warm);

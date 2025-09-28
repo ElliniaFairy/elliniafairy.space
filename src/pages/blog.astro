@@ -73,12 +73,12 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 		text-shadow: none;
 	}
 
+	/* Prevent emoji from being rendered by gradient */
 	.hero-title .emoji {
-		background: none !important;
-		-webkit-background-clip: initial !important;
-		-webkit-text-fill-color: initial !important;
-		background-clip: initial !important;
-		color: initial !important;
+		-webkit-background-clip: initial;
+		-webkit-text-fill-color: initial;
+		background-clip: initial;
+		color: initial;
 	}
 
 	.hero-subtitle {

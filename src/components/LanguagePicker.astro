@@ -1,10 +1,10 @@
 ---
-import { getCurrentLanguage, LANGUAGES } from '../utils/language';
+import { getCurrentLanguage, LANGUAGES, type Language } from '../utils/language';
 const languages = Object.values(LANGUAGES);
 
 const urlLang = Astro.url.searchParams.get('lang');
-const current = urlLang && LANGUAGES[urlLang as keyof typeof LANGUAGES]
-  ? (urlLang as keyof typeof LANGUAGES)
+const current = urlLang && LANGUAGES[urlLang as Language]
+  ? (urlLang as Language)
   : getCurrentLanguage();
 ---
 <div class="language-picker">
@@ -108,12 +108,12 @@ const current = urlLang && LANGUAGES[urlLang as keyof typeof LANGUAGES]
 </style>
 
 <script>
-	import { getCurrentLanguage, LANGUAGES, setLanguage } from '../utils/language';
+	import { getCurrentLanguage, LANGUAGES, type Language, setLanguage } from '../utils/language';
 
-	const resolveLanguage = () => {
+	const resolveLanguage = (): Language => {
 		const searchLang = new URL(window.location.href).searchParams.get('lang');
-		if (searchLang && LANGUAGES[searchLang]) {
-			return searchLang;
+		if (searchLang && LANGUAGES[searchLang as Language] != null) {
+			return searchLang as Language;
 		}
 		return getCurrentLanguage();
 	};
@@ -121,9 +121,11 @@ const current = urlLang && LANGUAGES[urlLang as keyof typeof LANGUAGES]
 	document.querySelectorAll('.language-picker').forEach((picker) => {
 		const triggerFlag = picker.querySelector('.trigger .flag');
 		const triggerLabel = picker.querySelector('.trigger .code');
+		// Explain:
 		const optionButtons = Array.from(picker.querySelectorAll('button[data-lang]'));
 
-		const applyLanguage = (lang) => {
+
+		const applyLanguage = (lang: Language) => {
 			const config = LANGUAGES[lang];
 			if (!config) {
 				return;
@@ -149,7 +151,7 @@ const current = urlLang && LANGUAGES[urlLang as keyof typeof LANGUAGES]
 					return;
 				}
 				if (lang !== resolveLanguage()) {
-					setLanguage(lang);
+					setLanguage(lang as Language);
 				}
 			});
 		});

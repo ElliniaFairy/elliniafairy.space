@@ -1,7 +1,11 @@
 ---
 import { getCurrentLanguage, LANGUAGES } from '../utils/language';
 const languages = Object.values(LANGUAGES);
-const current = getCurrentLanguage();
+
+const urlLang = Astro.url.searchParams.get('lang');
+const current = urlLang && LANGUAGES[urlLang as keyof typeof LANGUAGES]
+  ? (urlLang as keyof typeof LANGUAGES)
+  : getCurrentLanguage();
 ---
 <div class="language-picker">
 	<button class="trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
@@ -11,7 +15,13 @@ const current = getCurrentLanguage();
 	</button>
 	<div class="menu" role="listbox">
 		{languages.map((lang) => (
-			<button class="option" type="button" role="option">
+			<button
+				class="option"
+				type="button"
+				role="option"
+				data-lang={lang.code}
+				aria-selected={lang.code === current}
+			>
 				<span class="flag" aria-hidden="true">{lang.flag}</span>
 				<span class="name">{lang.name}</span>
 				<span class="code">{lang.code}</span>
@@ -96,3 +106,52 @@ const current = getCurrentLanguage();
 	}
 	.chevron { font-size: 0.75rem; }
 </style>
+
+<script>
+	import { getCurrentLanguage, LANGUAGES, setLanguage } from '../utils/language';
+
+	const resolveLanguage = () => {
+		const searchLang = new URL(window.location.href).searchParams.get('lang');
+		if (searchLang && LANGUAGES[searchLang]) {
+			return searchLang;
+		}
+		return getCurrentLanguage();
+	};
+
+	document.querySelectorAll('.language-picker').forEach((picker) => {
+		const triggerFlag = picker.querySelector('.trigger .flag');
+		const triggerLabel = picker.querySelector('.trigger .code');
+		const optionButtons = Array.from(picker.querySelectorAll('button[data-lang]'));
+
+		const applyLanguage = (lang) => {
+			const config = LANGUAGES[lang];
+			if (!config) {
+				return;
+			}
+			if (triggerFlag) {
+				triggerFlag.textContent = config.flag;
+			}
+			if (triggerLabel) {
+				triggerLabel.textContent = config.name;
+			}
+			optionButtons.forEach((btn) => {
+				const isActive = btn.getAttribute('data-lang') === lang;
+				btn.setAttribute('aria-selected', String(isActive));
+			});
+		};
+
+		applyLanguage(resolveLanguage());
+
+		optionButtons.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const lang = btn.getAttribute('data-lang');
+				if (!lang) {
+					return;
+				}
+				if (lang !== resolveLanguage()) {
+					setLanguage(lang);
+				}
+			});
+		});
+	});
+</script>

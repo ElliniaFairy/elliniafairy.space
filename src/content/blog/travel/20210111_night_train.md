@@ -9,6 +9,7 @@ readingTime: "7 min read"
 image: "/blog/img/20210111_night_train.png"
 draft: false
 slug: "20210111_night_train"
+language: "en"
 ---
 
 Traveling overnight on an ordinary slow-speed train is the perfect union between security and fantasy.

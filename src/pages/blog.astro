@@ -1,6 +1,4 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import MainLayout from '../layouts/MainLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { SITE_TITLE } from '../consts';
@@ -33,7 +31,11 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 
 	<section class="blog-grid">
 		{posts.map((post) => (
-			<div class="blog-item" data-category={post.data.classification}>
+			<div
+				class="blog-item"
+				data-category={post.data.classification}
+				data-language={post.data.language}
+			>
 				<BlogCard
 					title={post.data.title}
 					excerpt={post.data.description}
@@ -165,30 +167,40 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 </style>
 
 <script>
-	// The script waits for DOMContentLoaded so the DOM is ready before it starts looking for elements.
-	document.addEventListener('DOMContentLoaded', function() {
-		const filterBtns = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
-		const blogItems = document.querySelectorAll('.blog-item') as NodeListOf<HTMLElement>;
+	import { getCurrentLanguage } from '../utils/language';
 
-		filterBtns.forEach(btn => {
+	document.addEventListener('DOMContentLoaded', () => {
+		const currentLanguage = getCurrentLanguage();
+
+		const applyFilters = (category: string | undefined) => {
+			const activeCategory = category ?? 'all';
+			const blogItems = document.querySelectorAll('.blog-item') as NodeListOf<HTMLElement>;
+			blogItems.forEach((item) => {
+				const categoryMatch = activeCategory === 'all' || item.dataset.category === activeCategory;
+				const languageMatch = item.dataset.language === currentLanguage;
+				item.style.display = categoryMatch && languageMatch ? 'block' : 'none';
+			});
+		};
+
+		const getActiveCategory = () => {
+			const activeBtn = document.querySelector('.filter-btn.active') as HTMLButtonElement | null;
+			return activeBtn?.dataset.category ?? 'all';
+		};
+
+		const filterBtns = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
+		filterBtns.forEach((btn) => {
 			btn.addEventListener('click', (event) => {
 				const target = event.currentTarget as HTMLButtonElement | null;
 				if (!target) return;
-				const category = target.dataset.category; // Access the data-category attribute
+				const category = target.dataset.category;
 
-				// Update active button
 				filterBtns.forEach(b => b.classList.remove('active'));
 				target.classList.add('active');
 
-				// Filter blog items
-				blogItems.forEach((item) => {
-					if (category === 'all' || item.dataset.category === category) {
-						item.style.display = 'block';
-					} else {
-						item.style.display = 'none';
-					}
-				});
+				applyFilters(category);
 			});
 		});
+
+		applyFilters(getActiveCategory());
 	});
 </script>

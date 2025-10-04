@@ -9,6 +9,7 @@ readingTime: "10 min read"
 image: "/blog/img/20250626_evil_original.png"
 draft: false
 slug: "20250615_evil_neuro_reviewer"
+language: "en"
 ---
 
 

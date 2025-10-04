@@ -6,7 +6,7 @@ tags: ["travel"]
 classification: "Travel"
 description: "在夜行普速列车的车窗外，昆仑山口的荒原与银河交织成一幅只属于卧铺火车的星空画卷。这里既有如冰封星球般的冷寂风景，也有如梦般点亮夜空的彗星与银河。我带你走进青藏线的夜色奇境，感受夜行卧铺车旅行独一无二的浪漫，以及它在高铁时代逐渐消逝的无可替代之美。"
 readingTime: "7 min read"
-image: "/blog/img/20210111_night_train.png"
+image: "https://img.elliniafairy.space/20210111_night_train_4o.png"
 draft: false
 slug: "20210111_night_train_zh"
 language: "zh"
@@ -15,6 +15,7 @@ language: "zh"
 列车刚刚翻过昆仑山垭口，小推车也刚刚完成了今天最后一次供应。硬卧车厢熄灯后，乘务员拉上窗帘，其它旅客也渐入梦乡。而对我来说，最精华、最梦幻的一段旅途才刚刚开始。
 
 坐在硬卧车厢过道的小椅子上，把头钻进窗帘里，将窗帘拉紧，阻隔了外部灯光，我就独享了青藏高原的夜世界。
+![](https://img.elliniafairy.space/20210111_night_train.jpg)
 
 ---
 

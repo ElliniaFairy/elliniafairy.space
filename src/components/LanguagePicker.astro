@@ -110,11 +110,11 @@ const current = urlLang && LANGUAGES[urlLang as Language]
 <script>
 	import { getCurrentLanguage, LANGUAGES, type Language, setLanguage } from '../utils/language';
 	document.querySelectorAll('.language-picker').forEach((picker) => {
-		const triggerFlag = picker.querySelector('.trigger .flag');
-		const triggerLabel = picker.querySelector('.trigger .code');
+		const triggerFlag = picker.querySelector('.trigger .flag');  // Showing the current selected language flag
+		const triggerLabel = picker.querySelector('.trigger .code');  // Showing the current selected language code
 		const optionButtons = Array.from(picker.querySelectorAll('button[data-lang]'));
 
-
+		// Apply language to the trigger and options to reflect the change in UI.
 		const applyLanguage = (lang: Language) => {
 			const config = LANGUAGES[lang];
 			if (!config) {

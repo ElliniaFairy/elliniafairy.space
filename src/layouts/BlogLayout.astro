@@ -5,6 +5,7 @@ import type { CollectionEntry } from "astro:content";
 
 export type BlogPost = CollectionEntry<'blog'>;
 const { post } = Astro.props as { post: BlogPost };
+const language = post.data.language ?? 'en';
 
 // Format date for better display
 const formatDate = (date: string) => {
@@ -64,7 +65,7 @@ const formatDate = (date: string) => {
         )}
       </header>
 
-      <div class="blog-content">
+      <div class="blog-content" data-lang={language}>
         <slot />
       </div>
     </article>
@@ -250,6 +251,12 @@ const formatDate = (date: string) => {
       font-family: 'Nunito Sans', sans-serif;
     }
 
+    /* Chinese paragraphs override */
+    .blog-content[data-lang="zh"] :global(p) {
+      font-family: 'LXGW WenKai', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-weight: 600;
+    }
+
     .blog-content :global(blockquote) {
       background: var(--glass-bg);
       border-left: 4px solid var(--accent-glow);
@@ -360,7 +367,7 @@ const formatDate = (date: string) => {
         font-size: 1.25rem;
       }
     }
-  
+
     @media (max-width: 480px) {
       .blog-container {
         padding: 0;

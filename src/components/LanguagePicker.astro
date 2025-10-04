@@ -109,19 +109,9 @@ const current = urlLang && LANGUAGES[urlLang as Language]
 
 <script>
 	import { getCurrentLanguage, LANGUAGES, type Language, setLanguage } from '../utils/language';
-
-	const resolveLanguage = (): Language => {
-		const searchLang = new URL(window.location.href).searchParams.get('lang');
-		if (searchLang && LANGUAGES[searchLang as Language] != null) {
-			return searchLang as Language;
-		}
-		return getCurrentLanguage();
-	};
-
 	document.querySelectorAll('.language-picker').forEach((picker) => {
 		const triggerFlag = picker.querySelector('.trigger .flag');
 		const triggerLabel = picker.querySelector('.trigger .code');
-		// Explain:
 		const optionButtons = Array.from(picker.querySelectorAll('button[data-lang]'));
 
 
@@ -142,7 +132,7 @@ const current = urlLang && LANGUAGES[urlLang as Language]
 			});
 		};
 
-		applyLanguage(resolveLanguage());
+		applyLanguage(getCurrentLanguage());
 
 		optionButtons.forEach((btn) => {
 			btn.addEventListener('click', () => {
@@ -150,7 +140,7 @@ const current = urlLang && LANGUAGES[urlLang as Language]
 				if (!lang) {
 					return;
 				}
-				if (lang !== resolveLanguage()) {
+				if (lang !== getCurrentLanguage()) {
 					setLanguage(lang as Language);
 				}
 			});

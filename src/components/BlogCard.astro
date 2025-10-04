@@ -41,7 +41,7 @@ const { title, excerpt, date, category, readingTime, tags, thumbnailSrc, thumbna
 	</div>
 	
 	<div class="blog-image">
-		<Image src={thumbnailSrc} alt={thumbnailAlt} class="thumbnail" width={1000} height={600} />
+		{thumbnailSrc!! && <Image src={thumbnailSrc} alt={thumbnailAlt} class="thumbnail" width={1000} height={600} />}
 		<span class="category-tag">{category}</span>
 	</div>
 </article>

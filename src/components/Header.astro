@@ -26,6 +26,9 @@ import LanguagePicker from './LanguagePicker.astro';
 		<a href="/" class="crystal-link">Home</a>
 		<a href="/blog" class="crystal-link">Blog</a>
 		<a href="/about" class="crystal-link">About Me</a>
+		<div class="mobile-language-picker">
+			<LanguagePicker />
+		</div>
 	</div>
 </header>
 <style>
@@ -257,6 +260,23 @@ import LanguagePicker from './LanguagePicker.astro';
 			color: var(--accent-glow);
 			text-shadow: 0 0 12px var(--accent-glow);
 			background: rgba(100, 181, 246, 0.2);
+		}
+
+		.mobile-language-picker {
+			padding: 0.5rem 0;
+			width: 100%;
+			display: flex;
+			align-items: center;
+		}
+
+		.mobile-language-picker :global(.language-picker) {
+			padding: 0 1em;
+			width: 100%;
+		}
+
+		.mobile-language-picker :global(.language-picker .trigger) {
+			width: 100%;
+			justify-content: space-between;
 		}
 	}
 </style>

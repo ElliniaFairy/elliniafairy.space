@@ -1,7 +1,7 @@
 
 ---
 title: "《可塑性记忆》综合感想"
-publishDate: "2017-3-30"
+publishDate: "2017-03-30"
 tags: ["动画感想", "Plastic Memories"]
 classification: "Anime Review"
 description: "《可塑性记忆》用游乐园的童话包装，讲述记忆终将消逝的残酷现实。机器人艾拉的温柔告别，正是对‘即使知道会失去，仍要创造回忆’最动人的回答。"

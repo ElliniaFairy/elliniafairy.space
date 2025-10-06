@@ -1,0 +1,80 @@
+---
+import 'mapbox-gl/dist/mapbox-gl.css';
+---
+<div class="mapbox-shell">
+  <div id="about-map"></div>
+</div>
+<style>
+  .mapbox-shell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #about-map {
+    width: 100%;
+    height: 100%;
+  }
+
+  :global(.about-map-marker) {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+  }
+
+  :global(.about-map-marker .marker-dot) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  :global(.about-map-marker .marker-dot::before) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(111, 168, 255, 0.35) 0%, rgba(111, 168, 255, 0) 75%);
+    animation: pulse 2.4s ease-out infinite;
+  }
+
+  :global(.about-map-marker .marker-dot::after) {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #6fa8ff 0%, #2f6dff 100%);
+    box-shadow: 0 4px 8px rgba(47, 109, 255, 0.35), 0 0 0 3px rgba(255, 255, 255, 0.95);
+  }
+
+</style>
+<script>
+  import mapboxgl from 'mapbox-gl';
+  const coords = { lng: 139.75464351574828, lat: 35.54853033801966 }; 
+  const token = import.meta.env.PUBLIC_MAPBOX_TOKEN;
+  const init = () => {
+    if (!token) { console.warn('PUBLIC_MAPBOX_TOKEN missing.'); return; }
+    const container = document.getElementById('about-map');
+    if (!container || container.dataset.ready) return;
+    container.dataset.ready = 'true';
+    mapboxgl.accessToken = token;
+    const map = new mapboxgl.Map({
+      container,
+      style: 'mapbox://styles/mapbox/dark-v11',
+      center: [coords.lng-0.05, coords.lat+0.1],
+      zoom: 8,
+      pitch: 40,
+      bearing: 0
+    });
+    const marker = document.createElement('div');
+    marker.className = 'about-map-marker';
+    marker.innerHTML = '<span class="marker-dot"></span>';
+    new mapboxgl.Marker(marker).setLngLat([coords.lng, coords.lat]).addTo(map);
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
+</script>

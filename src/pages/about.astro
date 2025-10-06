@@ -6,6 +6,7 @@ import WeiboIcon from '../components/WeiboIcon.astro';
 import BilibiliIcon from '../components/BilibiliIcon.astro';
 import ArrowIcon from '../components/ArrowIcon.astro';
 import EmailIcon from '../components/EmailIcon.astro';
+import AboutMap from '../components/AboutMap.astro';
 
 ---
 
@@ -47,13 +48,7 @@ import EmailIcon from '../components/EmailIcon.astro';
 				<Image src={avatar} alt="Ellinia Fairy" class="avatar-image" width={240} height={290} />
 			</div>
 			<div class="map-container">
-				<iframe 
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9804334.4!2d139.75446034853152!3d35.54828459292251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDMyJzUzLjgiTiAxMznCsDQ1JzE2LjEiRQ!5e0!3m2!1sen!2sjp!4v1"
-					class="google-map"
-					allowfullscreen=""
-					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade">
-				</iframe>
+				<AboutMap />
 			</div>
 		</div>
 	</div>
@@ -424,4 +419,3 @@ import EmailIcon from '../components/EmailIcon.astro';
 
 }
 </style>
-

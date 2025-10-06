@@ -416,6 +416,29 @@ const formatDate = (date: string) => {
       progressBar.style.width = `${progress * 100}%`;
     }
 
+    function wrapImagesWithLinks() {
+      const article = document.querySelector('.blog-content');
+      if (!(article instanceof HTMLElement)) return;
+
+      const images = article.querySelectorAll('img');
+      images.forEach((img) => {
+        if (img.closest('a') || !img.src) return;
+
+        const anchor = document.createElement('a');
+        anchor.href = img.src;
+        // Open image in new tab
+        anchor.target = '_blank';
+        // When opening the image, don't give it any relationship to the current page
+        anchor.rel = 'noopener noreferrer';
+        // Add 'data-image-wrapper' attribute to the anchor element
+        anchor.dataset.imageWrapper = 'true';
+
+        // Move the image inside the anchor link element.
+        img.parentElement?.insertBefore(anchor, img);
+        anchor.appendChild(img);
+      });
+    }
+
 
     // Throttled scroll handler
     let ticking = false;
@@ -432,6 +455,7 @@ const formatDate = (date: string) => {
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
       updateReadingProgress();
+      wrapImagesWithLinks();
     });
     
     window.addEventListener('scroll', onScroll);

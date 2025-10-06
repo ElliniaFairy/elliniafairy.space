@@ -20,6 +20,9 @@ FROM base AS build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
+# Provide Mapbox token at build time so Astro/Vite can access import.meta.env.PUBLIC_MAPBOX_TOKEN
+ENV PUBLIC_MAPBOX_TOKEN="pk.eyJ1IjoiZWxsaW5pYWZhaXJ5IiwiYSI6ImNtZ2V2eXV5ZzAxdm8ya3IwYXd6eTR1bmEifQ.Tc0S_lfvO_iFOAeSfR8_0A"
+
 # Install node modules
 COPY package-lock.json package.json ./
 RUN npm ci --include=dev
@@ -40,6 +43,9 @@ FROM base
 # Copy built application
 COPY --from=build /app/node_modules /app/node_modules
 COPY --from=build /app/dist /app/dist
+
+# Ensure the runtime environment matches build time for the Mapbox token
+ENV PUBLIC_MAPBOX_TOKEN="pk.eyJ1IjoiZWxsaW5pYWZhaXJ5IiwiYSI6ImNtZ2V2eXV5ZzAxdm8ya3IwYXd6eTR1bmEifQ.Tc0S_lfvO_iFOAeSfR8_0A"
 
 ENV PORT=4321
 ENV HOST=0.0.0.0

@@ -1,6 +1,8 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import LanguagePicker from './LanguagePicker.astro';
+
+const showLanguagePicker = Astro.url.pathname === '/blog';
 ---
 
 <header>
@@ -12,7 +14,7 @@ import LanguagePicker from './LanguagePicker.astro';
 		</div>
 		<div class="right-links">
 			<HeaderLink href="/about">About me</HeaderLink>
-			<LanguagePicker />
+			{showLanguagePicker && <LanguagePicker />}
 		</div>
 		<button class="crystal-menu-btn" aria-label="Navigation menu" onclick="toggleCrystalMenu()">
 			<div class="crystal-icon">
@@ -26,9 +28,11 @@ import LanguagePicker from './LanguagePicker.astro';
 		<a href="/" class="crystal-link">Home</a>
 		<a href="/blog" class="crystal-link">Blog</a>
 		<a href="/about" class="crystal-link">About Me</a>
-		<div class="mobile-language-picker">
-			<LanguagePicker />
-		</div>
+		{showLanguagePicker && (
+			<div class="mobile-language-picker">
+				<LanguagePicker />
+			</div>
+		)}
 	</div>
 </header>
 <style>

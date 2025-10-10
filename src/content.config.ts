@@ -21,6 +21,7 @@ export const collections = {
       description: z.string(),
       coverImage: z.string(),
       publishDate: z.coerce.date(),
+      language: z.string().default('en'),
       images: z.array(
         z.object({
           src: z.string(),

@@ -19,13 +19,18 @@ const albums = (await getCollection('gallery')).sort(
 
 	<section class="gallery-grid">
 		{albums.map((album) => (
-			<GalleryCard
-				title={album.data.title}
-				description={album.data.description}
-				coverImage={album.data.coverImage}
-				imageCount={album.data.images.length}
-				href={`/gallery/${album.id}`}
-			/>
+			<div
+				class="gallery-item"
+				data-language={album.data.language}
+			>
+				<GalleryCard
+					title={album.data.title}
+					description={album.data.description}
+					coverImage={album.data.coverImage}
+					imageCount={album.data.images.length}
+					href={`/gallery/${album.id}`}
+				/>
+			</div>
 		))}
 	</section>
 </MainLayout>
@@ -103,3 +108,21 @@ const albums = (await getCollection('gallery')).sort(
 		}
 	}
 </style>
+
+<script>
+	import { getCurrentLanguage } from '../utils/language';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		const currentLanguage = getCurrentLanguage();
+
+		const applyLanguageFilter = () => {
+			const galleryItems = document.querySelectorAll('.gallery-item') as NodeListOf<HTMLElement>;
+			galleryItems.forEach((item) => {
+				const languageMatch = item.dataset.language === currentLanguage;
+				item.style.display = languageMatch ? 'block' : 'none';
+			});
+		};
+
+		applyLanguageFilter();
+	});
+</script>

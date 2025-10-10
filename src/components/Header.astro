@@ -2,7 +2,8 @@
 import HeaderLink from './HeaderLink.astro';
 import LanguagePicker from './LanguagePicker.astro';
 
-const showLanguagePicker = Astro.url.pathname === '/blog';
+const pathname = Astro.url.pathname;
+const showLanguagePicker = pathname === '/blog' || pathname === '/blog/';
 ---
 
 <header>

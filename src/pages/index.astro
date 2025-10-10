@@ -72,7 +72,8 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 		</div>
 	</section>
 
-	<section class="gallery-redirect-section">
+	<!-- Alternative: Large gallery section with preview window (commented out, using compact cards instead) -->
+	<!-- <section class="gallery-redirect-section">
 		<div class="gallery-redirect-card">
 			<div class="gallery-content-left">
 				<h2 class="gallery-main-title">Explore My Visual Stories</h2>
@@ -121,15 +122,20 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<section class="content-grid">
-		<!-- Never remove the following comments!  -->
-		<!-- <div class="glass-card">
+		<div class="glass-card">
+			<h2>📷 Gallery</h2>
+			<p>A curated collection of moments, memories, and beautiful scenes. Explore {albumCount} albums with {totalImages} images capturing my visual journey.</p>
+			<a href="/gallery" class="card-link">View Gallery →</a>
+		</div>
+
+		<div class="glass-card">
 			<h2>🌟 About Me</h2>
 			<p>Discover my journey, passion for technology, and the creative process behind every project I craft.</p>
 			<a href="/about" class="card-link">Learn More →</a>
-		</div> -->
+		</div>
 
 		<!-- <div class="glass-card">
 			<h2>💫 Recent Work</h2>

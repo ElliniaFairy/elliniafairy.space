@@ -8,7 +8,7 @@ export const LANGUAGES = {
   
 export type Language = keyof typeof LANGUAGES;
 
-// Get current language from localStorage or default to 'en'
+// Get current language from URL, localStorage, browser preference, or default to 'en'
 export function getCurrentLanguage(): Language {
     if (typeof window !== 'undefined') {
         const urlLang = new URL(window.location.href).searchParams.get('lang');
@@ -19,6 +19,12 @@ export function getCurrentLanguage(): Language {
         const stored = localStorage.getItem('language');
         if (stored && LANGUAGES[stored as Language]) {
             return stored as Language;
+        }
+
+        // Detect browser language preference
+        const browserLang = navigator.language.split('-')[0]; // Extract language code (e.g., 'en-US' → 'en')
+        if (LANGUAGES[browserLang as Language]) {
+            return browserLang as Language;
         }
     }
 

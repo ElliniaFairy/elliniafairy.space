@@ -1,0 +1,26 @@
+{
+  "title": "Urban Life",
+  "description": "Capturing the essence of city life",
+  "coverImage": "/gallery/sample4.jpg",
+  "publishDate": "2025-10-01",
+  "images": [
+    {
+      "src": "/gallery/sample4.jpg",
+      "alt": "City skyline",
+      "description": "Downtown skyline at night"
+    },
+    {
+      "src": "/gallery/sample5.jpg",
+      "alt": "Street art"
+    },
+    {
+      "src": "/gallery/sample6.jpg",
+      "alt": "Cafe corner",
+      "description": "Cozy corner in a local cafe"
+    },
+    {
+      "src": "/gallery/sample7.jpg",
+      "alt": "Street lights"
+    }
+  ]
+}

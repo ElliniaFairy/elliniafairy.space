@@ -14,4 +14,20 @@ export const collections = {
       language: z.string().default('en'),
     }),
   }),
+  gallery: defineCollection({
+    type: 'data',
+    schema: z.object({
+      title: z.string(),
+      description: z.string(),
+      coverImage: z.string(),
+      publishDate: z.coerce.date(),
+      images: z.array(
+        z.object({
+          src: z.string(),
+          alt: z.string().optional(),
+          description: z.string().optional(),
+        })
+      ),
+    }),
+  }),
 };

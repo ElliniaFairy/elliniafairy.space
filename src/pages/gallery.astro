@@ -1,0 +1,105 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import GalleryCard from '../components/GalleryCard.astro';
+import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+
+const albums = (await getCollection('gallery')).sort(
+  (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf(),
+);
+---
+
+<MainLayout title={`Gallery - ${SITE_TITLE}`} description="Explore my photo albums and memories" glowing={true}>
+	<section class="hero">
+		<div class="hero-content">
+			<h1 class="hero-title"><span class="emoji">📷</span> My Gallery</h1>
+			<p class="hero-subtitle">A collection of moments, memories, and beautiful scenes captured through my lens.</p>
+		</div>
+	</section>
+
+	<section class="gallery-grid">
+		{albums.map((album) => (
+			<GalleryCard
+				title={album.data.title}
+				description={album.data.description}
+				coverImage={album.data.coverImage}
+				imageCount={album.data.images.length}
+				href={`/gallery/${album.id}`}
+			/>
+		))}
+	</section>
+</MainLayout>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: 4rem 0 2rem 0;
+		margin-bottom: 3rem;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.hero-title {
+		font-size: 3.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		background: linear-gradient(135deg, var(--text-primary), var(--accent-glow));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-shadow: none;
+	}
+
+	/* Prevent emoji from being rendered by gradient */
+	.hero-title .emoji {
+		-webkit-background-clip: initial;
+		-webkit-text-fill-color: initial;
+		background-clip: initial;
+		color: initial;
+	}
+
+	.hero-subtitle {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		margin-bottom: 1rem;
+		font-weight: 400;
+	}
+
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2rem;
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.gallery-grid {
+			grid-template-columns: 1fr;
+			padding: 0 1rem;
+			gap: 1.5rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.hero {
+			padding: 3rem 0 2rem 0;
+		}
+
+		.hero-title {
+			font-size: 2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1rem;
+		}
+	}
+</style>

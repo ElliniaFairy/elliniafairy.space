@@ -1,0 +1,23 @@
+{
+  "title": "Nature & Landscapes",
+  "description": "Beautiful moments captured in nature",
+  "coverImage": "/gallery/sample1.jpg",
+  "publishDate": "2025-09-15",
+  "images": [
+    {
+      "src": "/gallery/sample1.jpg",
+      "alt": "Mountain landscape",
+      "description": "A serene mountain view at sunset"
+    },
+    {
+      "src": "/gallery/sample2.jpg",
+      "alt": "Forest path",
+      "description": "Walking through the autumn forest"
+    },
+    {
+      "src": "/gallery/sample3.jpg",
+      "alt": "Ocean waves",
+      "description": "Peaceful waves at the beach"
+    }
+  ]
+}

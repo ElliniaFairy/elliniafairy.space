@@ -12,6 +12,7 @@ const showLanguagePicker = pathname === '/blog' || pathname === '/blog/';
 		<div class="center-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/gallery">Gallery</HeaderLink>
 		</div>
 		<div class="right-links">
 			<HeaderLink href="/about">About me</HeaderLink>
@@ -28,6 +29,7 @@ const showLanguagePicker = pathname === '/blog' || pathname === '/blog/';
 	<div class="crystal-dropdown" id="crystalDropdown">
 		<a href="/" class="crystal-link">Home</a>
 		<a href="/blog" class="crystal-link">Blog</a>
+		<a href="/gallery" class="crystal-link">Gallery</a>
 		<a href="/about" class="crystal-link">About Me</a>
 		{showLanguagePicker && (
 			<div class="mobile-language-picker">

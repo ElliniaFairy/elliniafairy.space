@@ -1,0 +1,455 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { SITE_TITLE } from '../../consts';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+	const albums = await getCollection('gallery');
+	return albums.map((album) => ({
+		params: { id: album.id },
+		props: { album },
+	}));
+}
+
+interface Props {
+	album: CollectionEntry<'gallery'>;
+}
+
+const { album } = Astro.props;
+const { title, description, images } = album.data;
+---
+
+<MainLayout title={`${title} - Gallery - ${SITE_TITLE}`} description={description} glowing={true}>
+	<section class="album-header">
+		<a href="/gallery" class="back-link">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Back to Gallery
+		</a>
+		<h1 class="album-title">{title}</h1>
+		<p class="album-description">{description}</p>
+		<p class="image-count">{images.length} {images.length === 1 ? 'image' : 'images'}</p>
+	</section>
+
+	<section class="image-grid">
+		{images.map((image, index) => (
+			<div class="image-item" data-index={index}>
+				<button class="image-button" data-index={index} aria-label={`View ${image.alt || 'image'} in full size`}>
+					<img src={image.src} alt={image.alt || `Image ${index + 1}`} class="grid-image" loading="lazy" />
+					{image.description && (
+						<div class="image-caption-overlay">
+							<p>{image.description}</p>
+						</div>
+					)}
+				</button>
+			</div>
+		))}
+	</section>
+
+	<!-- Lightbox Modal -->
+	<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+		<button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+
+		<button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+			<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<polyline points="15 18 9 12 15 6"></polyline>
+			</svg>
+		</button>
+
+		<div class="lightbox-content">
+			<img src="" alt="" id="lightbox-image" class="lightbox-image" />
+			<div class="lightbox-caption" id="lightbox-caption"></div>
+		</div>
+
+		<button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+			<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<polyline points="9 18 15 12 9 6"></polyline>
+			</svg>
+		</button>
+
+		<div class="lightbox-counter" id="lightbox-counter"></div>
+	</div>
+</MainLayout>
+
+<style>
+	.album-header {
+		text-align: center;
+		padding: 2rem 0 3rem 0;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		transition: all 0.3s ease;
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	.back-link:hover {
+		color: var(--accent-glow);
+		transform: translateX(-5px);
+	}
+
+	.album-title {
+		font-size: 3rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--text-primary);
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	.album-description {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		margin-bottom: 0.5rem;
+		line-height: 1.6;
+	}
+
+	.image-count {
+		font-size: 0.95rem;
+		color: var(--text-muted);
+		font-weight: 600;
+	}
+
+	.image-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 1.5rem;
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 0 2rem 4rem 2rem;
+	}
+
+	.image-item {
+		position: relative;
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+		border-radius: 15px;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		transition: all 0.3s ease;
+	}
+
+	.image-item:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	}
+
+	.image-button {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		border: none;
+		background: none;
+		cursor: pointer;
+		position: relative;
+	}
+
+	.grid-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.5s ease;
+	}
+
+	.image-button:hover .grid-image {
+		transform: scale(1.1);
+	}
+
+	.image-caption-overlay {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5), transparent);
+		padding: 2rem 1rem 1rem 1rem;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.image-button:hover .image-caption-overlay {
+		opacity: 1;
+	}
+
+	.image-caption-overlay p {
+		color: white;
+		font-size: 0.9rem;
+		margin: 0;
+		text-align: left;
+	}
+
+	/* Lightbox Styles */
+	.lightbox {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.95);
+		z-index: 10000;
+		align-items: center;
+		justify-content: center;
+		backdrop-filter: blur(10px);
+	}
+
+	.lightbox.active {
+		display: flex;
+	}
+
+	.lightbox-content {
+		max-width: 90vw;
+		max-height: 90vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.lightbox-image {
+		max-width: 100%;
+		max-height: 80vh;
+		object-fit: contain;
+		border-radius: 10px;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+	}
+
+	.lightbox-caption {
+		color: white;
+		font-size: 1rem;
+		text-align: center;
+		max-width: 600px;
+		padding: 0 1rem;
+		line-height: 1.6;
+	}
+
+	.lightbox-close {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		color: white;
+	}
+
+	.lightbox-close:hover {
+		background: rgba(255, 255, 255, 0.2);
+		transform: rotate(90deg);
+	}
+
+	.lightbox-nav {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		color: white;
+	}
+
+	.lightbox-nav:hover {
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.lightbox-prev {
+		left: 2rem;
+	}
+
+	.lightbox-next {
+		right: 2rem;
+	}
+
+	.lightbox-counter {
+		position: absolute;
+		bottom: 2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		color: white;
+		font-size: 0.95rem;
+		font-weight: 600;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 0.5rem 1.5rem;
+		border-radius: 20px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	@media (max-width: 768px) {
+		.album-header {
+			padding: 1rem 1rem 2rem 1rem;
+		}
+
+		.album-title {
+			font-size: 2rem;
+		}
+
+		.image-grid {
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+			gap: 1rem;
+			padding: 0 1rem 3rem 1rem;
+		}
+
+		.lightbox-nav {
+			width: 50px;
+			height: 50px;
+		}
+
+		.lightbox-prev {
+			left: 1rem;
+		}
+
+		.lightbox-next {
+			right: 1rem;
+		}
+
+		.lightbox-close {
+			top: 1rem;
+			right: 1rem;
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.image-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<script define:vars={{ images }}>
+	let currentIndex = 0;
+
+	function openLightbox(index) {
+		currentIndex = index;
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImage = document.getElementById('lightbox-image');
+		const lightboxCaption = document.getElementById('lightbox-caption');
+		const lightboxCounter = document.getElementById('lightbox-counter');
+
+		if (lightbox && lightboxImage && lightboxCaption && lightboxCounter) {
+			lightbox.classList.add('active');
+			updateLightboxContent();
+			document.body.style.overflow = 'hidden';
+		}
+	}
+
+	function closeLightbox() {
+		const lightbox = document.getElementById('lightbox');
+		if (lightbox) {
+			lightbox.classList.remove('active');
+			document.body.style.overflow = '';
+		}
+	}
+
+	function updateLightboxContent() {
+		const lightboxImage = document.getElementById('lightbox-image');
+		const lightboxCaption = document.getElementById('lightbox-caption');
+		const lightboxCounter = document.getElementById('lightbox-counter');
+
+		if (lightboxImage && lightboxCaption && lightboxCounter) {
+			const image = images[currentIndex];
+			lightboxImage.src = image.src;
+			lightboxImage.alt = image.alt || `Image ${currentIndex + 1}`;
+			lightboxCaption.textContent = image.description || '';
+			lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+		}
+	}
+
+	function showPrevImage() {
+		currentIndex = (currentIndex - 1 + images.length) % images.length;
+		updateLightboxContent();
+	}
+
+	function showNextImage() {
+		currentIndex = (currentIndex + 1) % images.length;
+		updateLightboxContent();
+	}
+
+	document.addEventListener('DOMContentLoaded', () => {
+		// Image button click handlers
+		const imageButtons = document.querySelectorAll('.image-button');
+		imageButtons.forEach((button) => {
+			button.addEventListener('click', (e) => {
+				const index = parseInt(button.getAttribute('data-index') || '0');
+				openLightbox(index);
+			});
+		});
+
+		// Close button
+		const closeButton = document.getElementById('lightbox-close');
+		if (closeButton) {
+			closeButton.addEventListener('click', closeLightbox);
+		}
+
+		// Navigation buttons
+		const prevButton = document.getElementById('lightbox-prev');
+		const nextButton = document.getElementById('lightbox-next');
+
+		if (prevButton) {
+			prevButton.addEventListener('click', showPrevImage);
+		}
+
+		if (nextButton) {
+			nextButton.addEventListener('click', showNextImage);
+		}
+
+		// Click on backdrop to close
+		const lightbox = document.getElementById('lightbox');
+		if (lightbox) {
+			lightbox.addEventListener('click', (e) => {
+				if (e.target === lightbox) {
+					closeLightbox();
+				}
+			});
+		}
+
+		// Keyboard navigation
+		document.addEventListener('keydown', (e) => {
+			const lightbox = document.getElementById('lightbox');
+			if (!lightbox?.classList.contains('active')) return;
+
+			switch (e.key) {
+				case 'Escape':
+					closeLightbox();
+					break;
+				case 'ArrowLeft':
+					showPrevImage();
+					break;
+				case 'ArrowRight':
+					showNextImage();
+					break;
+			}
+		});
+	});
+</script>

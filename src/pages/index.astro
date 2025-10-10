@@ -7,6 +7,10 @@ const posts = await getCollection('blog');
 const postCount = posts.length;
 const latestPost = posts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf())[0];
 const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Never';
+
+const albums = await getCollection('gallery');
+const albumCount = albums.length;
+const totalImages = albums.reduce((acc, album) => acc + album.data.images.length, 0);
 ---
 
 <MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION} glowing={true}>
@@ -68,6 +72,57 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 		</div>
 	</section>
 
+	<section class="gallery-redirect-section">
+		<div class="gallery-redirect-card">
+			<div class="gallery-content-left">
+				<h2 class="gallery-main-title">Explore My Visual Stories</h2>
+				<p class="gallery-description">A curated collection of moments, memories, and beautiful scenes captured through my journey. Each album tells a unique story.</p>
+				<a href="/gallery" class="gallery-cta-btn">
+					View Gallery
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+						<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+				</a>
+			</div>
+			<div class="gallery-preview-right">
+				<div class="preview-window">
+					<div class="window-header">
+						<div class="window-dots">
+							<span class="dot"></span>
+							<span class="dot"></span>
+							<span class="dot"></span>
+						</div>
+					</div>
+					<div class="preview-content">
+						<div class="stylish-dashboard">
+							<div class="dashboard-title">My Gallery</div>
+							<div class="stats-grid">
+								<div class="stat-box">
+									<div class="stat-icon">📸</div>
+									<div class="stat-value">{albumCount}</div>
+									<div class="stat-desc">Albums</div>
+								</div>
+								<div class="stat-box">
+									<div class="stat-icon">🖼️</div>
+									<div class="stat-value">{totalImages}</div>
+									<div class="stat-desc">Images</div>
+								</div>
+							</div>
+							<div class="activity-bar">
+								<div class="activity-dot active"></div>
+								<div class="activity-dot active"></div>
+								<div class="activity-dot"></div>
+								<div class="activity-dot active"></div>
+								<div class="activity-dot active"></div>
+								<div class="activity-dot"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="content-grid">
 		<!-- Never remove the following comments!  -->
 		<!-- <div class="glass-card">
@@ -114,13 +169,15 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 		font-weight: 300;
 	}
 
-	.blog-redirect-section {
+	.blog-redirect-section,
+	.gallery-redirect-section {
 		margin: 1rem 0 4rem 0;
 		width: 100%;
 		position: relative;
 	}
 
-	.blog-redirect-card {
+	.blog-redirect-card,
+	.gallery-redirect-card {
 		background: linear-gradient(135deg, rgba(41, 121, 255, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
 		backdrop-filter: blur(20px);
 		border: 1px solid rgba(255, 255, 255, 0.1);
@@ -131,14 +188,24 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 		display: flex;
 		align-items: center;
 		min-height: 400px;
-		box-shadow: 
+		box-shadow:
 			0 20px 40px rgba(0, 0, 0, 0.3),
 			0 0 80px rgba(138, 43, 226, 0.2),
 			0 0 120px rgba(147, 112, 219, 0.15),
 			inset 0 1px 0 rgba(255, 255, 255, 0.1);
 	}
 
-	.blog-redirect-card::before {
+	.gallery-redirect-card {
+		background: linear-gradient(135deg, rgba(244, 114, 182, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+		box-shadow:
+			0 20px 40px rgba(0, 0, 0, 0.3),
+			0 0 80px rgba(244, 114, 182, 0.2),
+			0 0 120px rgba(139, 92, 246, 0.15),
+			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	}
+
+	.blog-redirect-card::before,
+	.gallery-redirect-card::before {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -150,14 +217,21 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 		pointer-events: none;
 	}
 
-	.blog-content-left {
+	.gallery-redirect-card::before {
+		background: radial-gradient(circle at 20% 50%, rgba(244, 114, 182, 0.15) 0%, transparent 50%),
+					radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+	}
+
+	.blog-content-left,
+	.gallery-content-left {
 		flex: 1;
 		padding: 3rem;
 		z-index: 2;
 		position: relative;
 	}
 
-	.blog-main-title {
+	.blog-main-title,
+	.gallery-main-title {
 		font-size: 2.8rem;
 		font-weight: 700;
 		color: var(--text-primary);
@@ -167,7 +241,8 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 		text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 	}
 
-	.blog-description {
+	.blog-description,
+	.gallery-description {
 		font-size: 1.1rem;
 		color: var(--text-secondary);
 		line-height: 1.6;
@@ -175,7 +250,8 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 		opacity: 0.9;
 	}
 
-	.blog-cta-btn {
+	.blog-cta-btn,
+	.gallery-cta-btn {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
@@ -188,29 +264,46 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 		font-size: 1rem;
 		font-family: 'Montserrat', sans-serif;
 		transition: all 0.3s ease;
-		box-shadow: 
+		box-shadow:
 			0 8px 20px rgba(41, 98, 255, 0.3),
 			0 0 0 1px rgba(255, 255, 255, 0.1);
 		position: relative;
 		overflow: hidden;
 	}
 
-	.blog-cta-btn:hover {
+	.gallery-cta-btn {
+		background: linear-gradient(135deg, var(--accent-warm) 0%, var(--accent-ultimate-purple) 100%);
+		box-shadow:
+			0 8px 20px rgba(244, 114, 182, 0.3),
+			0 0 0 1px rgba(255, 255, 255, 0.1);
+	}
+
+	.blog-cta-btn:hover,
+	.gallery-cta-btn:hover {
 		transform: translateY(-2px);
-		box-shadow: 
+		box-shadow:
 			0 12px 30px rgba(41, 98, 255, 0.4),
 			0 0 40px rgba(34, 211, 238, 0.3);
 	}
 
-	.blog-cta-btn svg {
+	.gallery-cta-btn:hover {
+		box-shadow:
+			0 12px 30px rgba(244, 114, 182, 0.4),
+			0 0 40px rgba(139, 92, 246, 0.3);
+	}
+
+	.blog-cta-btn svg,
+	.gallery-cta-btn svg {
 		transition: transform 0.3s ease;
 	}
 
-	.blog-cta-btn:hover svg {
+	.blog-cta-btn:hover svg,
+	.gallery-cta-btn:hover svg {
 		transform: translate(2px, -2px);
 	}
 
-	.blog-preview-right {
+	.blog-preview-right,
+	.gallery-preview-right {
 		flex: 1;
 		padding: 2rem;
 		display: flex;
@@ -412,22 +505,26 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 		.hero-title {
 			font-size: 2.5rem;
 		}
-		
-		.blog-redirect-card {
+
+		.blog-redirect-card,
+		.gallery-redirect-card {
 			flex-direction: column;
 			min-height: auto;
 			margin: 0 1rem;
 		}
 
-		.blog-content-left {
+		.blog-content-left,
+		.gallery-content-left {
 			padding: 2rem 1.5rem;
 		}
 
-		.blog-main-title {
+		.blog-main-title,
+		.gallery-main-title {
 			font-size: 2rem;
 		}
 
-		.blog-preview-right {
+		.blog-preview-right,
+		.gallery-preview-right {
 			display: none;
 		}
 
@@ -471,15 +568,18 @@ const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleD
 	}
 	
 	@media (max-width: 480px) {
-		.blog-redirect-card {
+		.blog-redirect-card,
+		.gallery-redirect-card {
 			margin: 0 0.5rem;
 		}
-		
-		.blog-content-left {
+
+		.blog-content-left,
+		.gallery-content-left {
 			padding: 1.5rem 1rem;
 		}
-		
-		.blog-main-title {
+
+		.blog-main-title,
+		.gallery-main-title {
 			font-size: 1.8rem;
 		}
 		

@@ -1,0 +1,14 @@
+{
+  "title": "日常写真",
+  "description": "日常生活を記録しています。",
+  "coverImage": "https://img.elliniafairy.space/PXL_20251122_073114337.jpg",
+  "publishDate": "2025-11-24",
+  "language": "ja",
+  "images": [
+    {
+      "src": "https://img.elliniafairy.space/PXL_20251122_073114337.jpg",
+      "alt": "多摩川スカイブリッジからの富士山",
+      "description": "2025年11月22日、京急バス空84便に乗って、多摩川スカイブリッジを渡った時に撮影した富士山。"
+    }
+  ]
+}

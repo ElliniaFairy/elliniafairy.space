@@ -254,7 +254,14 @@ const formatDate = (date: string) => {
     /* Chinese paragraphs override */
     .blog-content[data-lang="zh"] :global(p) {
       font-family: 'LXGW WenKai', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      font-weight: 600;
+      font-weight: 400;
+    }
+
+    .blog-content[data-lang="zh"] :global(strong),
+    .blog-content[data-lang="zh"] :global(b) {
+      font-family: 'LXGW WenKai', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-weight: 700;
+      color: var(--text-primary);
     }
 
     .blog-content :global(blockquote) {

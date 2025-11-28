@@ -251,8 +251,17 @@ const formatDate = (date: string) => {
       font-family: 'Nunito Sans', sans-serif;
     }
 
+    .blog-content :global(ul),
+    .blog-content :global(ol),
+    .blog-content :global(li) {
+      font-family: 'Nunito Sans', sans-serif;
+    }
+
     /* Chinese paragraphs override */
-    .blog-content[data-lang="zh"] :global(p) {
+    .blog-content[data-lang="zh"] :global(p),
+    .blog-content[data-lang="zh"] :global(ul),
+    .blog-content[data-lang="zh"] :global(ol),
+    .blog-content[data-lang="zh"] :global(li) {
       font-family: 'LXGW WenKai', 'PingFang SC', 'Microsoft YaHei', sans-serif;
       font-weight: 400;
     }

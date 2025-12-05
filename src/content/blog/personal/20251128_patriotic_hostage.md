@@ -3,7 +3,7 @@
 title: "Patriotic Hostage"
 publishDate: "2025-11-28"
 tags: ["China", "nationalism", "censorship", "personal essay", "emigration"]
-classification: "Personal"
+classification: "Essay"
 description: "A reflection on how ordinary citizens in China become 'patriotic hostages'—their concerts canceled, their cruises stranded, their daily lives politicized without consent. From Ayumi Hamasaki's silenced Shanghai concert to the surveillance of private diaries, this essay explores why 'staying out of politics' is an impossible dream under authoritarian rule, and what it means to finally breathe normally."
 readingTime: "8 min read"
 image: ""
@@ -90,7 +90,7 @@ You want to buy a Japanese car? You want to use a Japanese phone?
 
 <br>
 
-And if something you deeply love is destroyed， like that concert canceled at the last minute, and you dare to complain?
+And if something you deeply love is destroyed, like that concert canceled at the last minute, and you dare to complain?
 
 No one will comfort you. They’ll just look down and say:
 > “It’s nothing compared to the needs of the nation. Why do you worship the Japanese anyway?”

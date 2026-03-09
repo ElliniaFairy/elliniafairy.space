@@ -5,8 +5,10 @@ export const LANGUAGES = {
     zh: { code: 'zh', name: '中文', flag: '🇨🇳' },
     ja: { code: 'ja', name: '日本語', flag: '🇯🇵' }
 } as const;
-  
+
 export type Language = keyof typeof LANGUAGES;
+
+import { ui } from './ui';
 
 // Get current language from URL, localStorage, browser preference, or default to 'en'
 export function getCurrentLanguage(): Language {
@@ -41,5 +43,11 @@ export function setLanguage(lang: Language): void {
         window.history.replaceState({}, '', url.toString());
         // Reload to apply language changes
         window.location.reload();
+    }
+}
+
+export function useTranslations(lang: Language): (key: keyof typeof ui['zh']) => string {
+    return function t (key: keyof typeof ui['zh']) {
+        return ui[lang][key] || ui['en'][key] || key;
     }
 }

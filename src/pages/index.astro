@@ -2,13 +2,24 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
+import { resolveLanguage, useTranslations } from '../utils/language';
 
-const posts = await getCollection('blog');
+export const prerender = false;
+
+const language = resolveLanguage(
+  Astro.url.searchParams.get('lang'),
+  Astro.cookies.get('language')?.value,
+);
+
+const t = useTranslations(language);
+
+const posts = (await getCollection('blog')).filter(post => post.data.language === language);
 const postCount = posts.length;
 const latestPost = posts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf())[0];
-const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Never';
+const dateLocale = language === 'zh' ? 'zh-CN' : language === 'ja' ? 'ja-JP' : 'en-US';
+const lastUpdated = latestPost ? new Date(latestPost.data.publishDate).toLocaleDateString(dateLocale, { month: 'short', day: 'numeric' }) : 'Never';
 
-const albums = await getCollection('gallery');
+const albums = (await getCollection('gallery')).filter(album => album.data.language === language);
 const albumCount = albums.length;
 const totalImages = albums.reduce((acc, album) => acc + album.data.images.length, 0);
 ---
@@ -16,18 +27,18 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 <MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION} glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
-			<h1 class="hero-title">✨ Welcome to My Universe</h1>
-			<p class="hero-subtitle">Where dreams meet code, and ideas come alive in gentle light</p>
+			<h1 class="hero-title">✨ {t('home.heroTitle')}</h1>
+			<p class="hero-subtitle">{t('home.heroSubtitle')}</p>
 		</div>
 	</section>
 
 	<section class="blog-redirect-section">
 		<div class="blog-redirect-card">
 			<div class="blog-content-left">
-				<h2 class="blog-main-title">Ready to Explore My Digital Universe?</h2>
-				<p class="blog-description">Discover insights, tutorials, and creative processes. Dive deep into my thoughts on technology, development, and innovative solutions.</p>
+				<h2 class="blog-main-title">{t('home.blogTitle')}</h2>
+				<p class="blog-description">{t('home.blogDescription')}</p>
 				<a href="/blog" class="blog-cta-btn">
-					Start Reading
+					{t('home.blogCta')}
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
 						<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>
@@ -44,17 +55,17 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 					</div>
 					<div class="preview-content">
 						<div class="stylish-dashboard">
-							<div class="dashboard-title">My Blog</div>
+							<div class="dashboard-title">{t('home.blogDashboard')}</div>
 							<div class="stats-grid">
 								<div class="stat-box">
 									<div class="stat-icon">📝</div>
 									<div class="stat-value">{postCount}</div>
-									<div class="stat-desc">Articles</div>
+									<div class="stat-desc">{t('home.blogArticles')}</div>
 								</div>
 								<div class="stat-box">
 									<div class="stat-icon">🕒</div>
 									<div class="stat-value">{lastUpdated}</div>
-									<div class="stat-desc">Updated</div>
+									<div class="stat-desc">{t('home.blogUpdated')}</div>
 								</div>
 							</div>
 							<div class="activity-bar">
@@ -126,15 +137,15 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 
 	<section class="content-grid">
 		<div class="glass-card">
-			<h2>📷 Gallery</h2>
-			<p>A curated collection of moments, memories, and beautiful scenes. Explore {albumCount} albums with {totalImages} images capturing my visual journey.</p>
-			<a href="/gallery" class="card-link">View Gallery →</a>
+			<h2>📷 {t('home.galleryCard')}</h2>
+			<p>{t('home.galleryDescription').replace('{albumCount}', String(albumCount)).replace('{totalImages}', String(totalImages))}</p>
+			<a href="/gallery" class="card-link">{t('home.galleryLink')}</a>
 		</div>
 
 		<div class="glass-card">
-			<h2>🌟 About Me</h2>
-			<p>Discover my journey, passion for technology, and the creative process behind every project I craft.</p>
-			<a href="/about" class="card-link">Learn More →</a>
+			<h2>🌟 {t('home.aboutCard')}</h2>
+			<p>{t('home.aboutDescription')}</p>
+			<a href="/about" class="card-link">{t('home.aboutLink')}</a>
 		</div>
 
 		<!-- <div class="glass-card">

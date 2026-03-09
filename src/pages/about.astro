@@ -7,24 +7,33 @@ import BilibiliIcon from '../components/BilibiliIcon.astro';
 import ArrowIcon from '../components/ArrowIcon.astro';
 import EmailIcon from '../components/EmailIcon.astro';
 import AboutMap from '../components/AboutMap.astro';
+import { resolveLanguage, useTranslations } from '../utils/language';
 
+export const prerender = false;
+
+const language = resolveLanguage(
+  Astro.url.searchParams.get('lang'),
+  Astro.cookies.get('language')?.value,
+);
+
+const t = useTranslations(language);
 ---
 
 <MainLayout title="About - Ellinia Fairy" description="Learn about Ellinia Fairy - a mathematics graduate turned app developer, exploring the intersection of intelligence and aesthetics through technology and creativity." footer={false} glowing={true}>
 	<div class="hero-content">
 		<div class="hero-text">
 			<h1 class="hero-title">
-				🍃 About Me
+				🍃 {t('about.title')}
 			</h1>
 			<div class="hero-intro">
-				<p>I'm <strong>Ellinia Fairy</strong>—a mathematics master degree graduate turned app developer. I currently work in <strong>Yokohama Minato Mirai 21</strong>, a futuristic district, and live in <strong>Tokyo Haneda</strong>, close to the open skies inspiring my creative spirit.</p>
-				<p>I build with logic, but I live for resonance. Technology alone doesn't fascinate me; what deeply resonates are the stories born from technological possibilities and human creativity. I explore the intersection of intelligence and aesthetics through meteorology, storytelling and photography, aiming to blend rigorous science with artistic expression.</p>
-				<p>If you are interested in my journey, you can find more details in <a href="/about-me">My Journey in Tech & Creativity</a> page, or contact me via <a href="mailto:elliniaharbor@outlook.com">email</a>.</p>
+				<p set:html={t('about.intro1')} />
+				<p set:html={t('about.intro2')} />
+				<p set:html={t('about.intro3')} />
 			</div>
 			<div class="action-section">
 				<a href="/about-me" class="find-more-btn">
-					<span class="btn-text-full">Find out more about me</span>
-					<span class="btn-text-short">More</span>
+					<span class="btn-text-full">{t('about.findMore')}</span>
+					<span class="btn-text-short">{t('about.findMoreShort')}</span>
 					<ArrowIcon />
 				</a>
 				<div class="social-links">

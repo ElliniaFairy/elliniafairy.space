@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import GalleryCard from '../components/GalleryCard.astro';
 import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
-import { resolveLanguage } from '../utils/language';
+import { resolveLanguage, useTranslations } from '../utils/language';
 
 export const prerender = false;
 
@@ -11,6 +11,8 @@ const language = resolveLanguage(
   Astro.url.searchParams.get('lang'),
   Astro.cookies.get('language')?.value,
 );
+
+const t = useTranslations(language);
 
 const albums = (await getCollection('gallery'))
   .filter(album => album.data.language === language)
@@ -22,8 +24,8 @@ const albums = (await getCollection('gallery'))
 <MainLayout title={`Gallery - ${SITE_TITLE}`} description="Explore my photo albums and memories" glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
-			<h1 class="hero-title"><span class="emoji">📷</span> My Gallery</h1>
-			<p class="hero-subtitle">A collection of moments, memories, and beautiful scenes captured through my lens.</p>
+			<h1 class="hero-title"><span class="emoji">📷</span> {t('gallery.title')}</h1>
+			<p class="hero-subtitle">{t('gallery.description')}</p>
 		</div>
 	</section>
 
@@ -39,6 +41,7 @@ const albums = (await getCollection('gallery'))
 					coverImage={album.data.coverImage}
 					imageCount={album.data.images.length}
 					href={`/gallery/${album.id}`}
+					language={language}
 				/>
 			</div>
 		))}

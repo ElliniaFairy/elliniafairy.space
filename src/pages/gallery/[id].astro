@@ -2,6 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import { SITE_TITLE } from '../../consts';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { useTranslations } from '../../utils/language';
 
 export const prerender = true;
 
@@ -19,6 +20,7 @@ interface Props {
 
 const { album } = Astro.props;
 const { title, description, images } = album.data;
+const t = useTranslations(album.data.language);
 ---
 
 <MainLayout title={`${title} - Gallery - ${SITE_TITLE}`} description={description} glowing={true}>
@@ -28,11 +30,11 @@ const { title, description, images } = album.data;
 				<line x1="19" y1="12" x2="5" y2="12"></line>
 				<polyline points="12 19 5 12 12 5"></polyline>
 			</svg>
-			Back to Gallery
+			{t('gallery.backToGallery')}
 		</a>
 		<h1 class="album-title">{title}</h1>
 		<p class="album-description">{description}</p>
-		<p class="image-count">{images.length} {images.length === 1 ? 'image' : 'images'}</p>
+		<p class="image-count">{images.length} {images.length === 1 ? t('gallery.imageCount') : t('gallery.imageCountPlural')}</p>
 	</section>
 
 	<section class="image-grid">

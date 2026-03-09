@@ -4,7 +4,7 @@
 #
 
 app = 'elliniafairywebsite'
-primary_region = 'nrt'
+primary_region = 'nrt' # Tokyo, Japan
 
 [build]
 

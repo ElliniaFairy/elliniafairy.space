@@ -46,9 +46,47 @@ const albums = (await getCollection('gallery'))
 			</div>
 		))}
 	</section>
+
+	{language === 'en' && (
+		<div class="other-language-hint">
+			<span class="hint-icon">🌏</span>
+			<p>Want to see more? Switch to <strong>Chinese</strong> or <strong>Japanese</strong> for additional albums!</p>
+		</div>
+	)}
 </MainLayout>
 
 <style>
+	.other-language-hint {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		max-width: 600px;
+		margin: 3rem auto 2rem auto;
+		padding: 1rem 1.5rem;
+		background: var(--glass-bg);
+		backdrop-filter: blur(20px);
+		border: 1px solid var(--glass-border);
+		border-radius: 15px;
+		box-shadow: var(--glass-shadow);
+	}
+
+	.other-language-hint .hint-icon {
+		font-size: 1.5rem;
+		flex-shrink: 0;
+	}
+
+	.other-language-hint p {
+		margin: 0;
+		color: var(--text-secondary);
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	.other-language-hint strong {
+		color: var(--accent);
+	}
+
 	.hero {
 		text-align: center;
 		padding: 4rem 0 2rem 0;

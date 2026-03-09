@@ -40,7 +40,7 @@ const albums = (await getCollection('gallery'))
 					description={album.data.description}
 					coverImage={album.data.coverImage}
 					imageCount={album.data.images.length}
-					href={`/gallery/${album.id}`}
+					href={`/galleries/${album.id}`}
 					language={language}
 				/>
 			</div>

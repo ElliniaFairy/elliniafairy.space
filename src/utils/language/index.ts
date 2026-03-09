@@ -69,6 +69,6 @@ export function setLanguage(lang: Language): void {
 
 export function useTranslations(lang: Language): (key: keyof typeof ui['zh']) => string {
     return function t (key: keyof typeof ui['zh']) {
-        return ui[lang][key] || ui['en'][key] || key;
+        return ui[lang as 'zh'][key] || ui['en'][key] || key;
     }
 }

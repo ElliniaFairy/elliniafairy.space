@@ -1,7 +1,10 @@
 ---
-import { getCurrentLanguage, LANGUAGES } from '../utils/language';
+import { LANGUAGES, resolveLanguage } from '../utils/language';
 const languages = Object.values(LANGUAGES);
-const current = getCurrentLanguage();
+const current = resolveLanguage(
+  Astro.url.searchParams.get('lang'),
+  Astro.cookies.get('language')?.value,
+);
 ---
 <div class="language-picker">
 	<button class="trigger" type="button" aria-haspopup="listbox" aria-expanded="false">

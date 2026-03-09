@@ -1,8 +1,13 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import LanguagePicker from './LanguagePicker.astro';
+import { resolveLanguage, useTranslations } from '../utils/language';
 
-
+const language = resolveLanguage(
+  Astro.url.searchParams.get('lang'),
+  Astro.cookies.get('language')?.value,
+);
+const t = useTranslations(language);
 const pathname = Astro.url.pathname;
 const showLanguagePicker = pathname === '/blog' || pathname === '/blog/' || pathname === '/gallery' || pathname === '/gallery/';
 ---
@@ -11,12 +16,12 @@ const showLanguagePicker = pathname === '/blog' || pathname === '/blog/' || path
 	<nav>
 		<a href="/"><img src="/simplified_logo2.png" alt="{SITE_TITLE} logo" class="site-logo" /></a>
 		<div class="center-links">
-			<HeaderLink href="/" data-i18n="headerlink.home"></HeaderLink>
-			<HeaderLink href="/blog" data-i18n="headerlink.blog"></HeaderLink>
-			<HeaderLink href="/gallery" data-i18n="headerlink.gallery"></HeaderLink>
+			<HeaderLink href="/" data-i18n="headerlink.home">{t('headerlink.home')}</HeaderLink>
+			<HeaderLink href="/blog" data-i18n="headerlink.blog">{t('headerlink.blog')}</HeaderLink>
+			<HeaderLink href="/gallery" data-i18n="headerlink.gallery">{t('headerlink.gallery')}</HeaderLink>
 		</div>
 		<div class="right-links">
-			<HeaderLink href="/about" data-i18n="headerlink.about"></HeaderLink>
+			<HeaderLink href="/about" data-i18n="headerlink.about">{t('headerlink.about')}</HeaderLink>
 			{showLanguagePicker && <LanguagePicker />}
 		</div>
 		<button class="crystal-menu-btn" aria-label="Navigation menu" onclick="toggleCrystalMenu()">
@@ -28,10 +33,10 @@ const showLanguagePicker = pathname === '/blog' || pathname === '/blog/' || path
 		</button>
 	</nav>
 	<div class="crystal-dropdown" id="crystalDropdown">
-		<a href="/" class="crystal-link" data-i18n="header.home"></a>
-		<a href="/blog" class="crystal-link" data-i18n="header.blog"></a>
-		<a href="/gallery" class="crystal-link" data-i18n="header.gallery"></a>
-		<a href="/about" class="crystal-link" data-i18n="header.about"></a>
+		<a href="/" class="crystal-link" data-i18n="headerlink.home">{t('headerlink.home')}</a>
+		<a href="/blog" class="crystal-link" data-i18n="headerlink.blog">{t('headerlink.blog')}</a>
+		<a href="/gallery" class="crystal-link" data-i18n="headerlink.gallery">{t('headerlink.gallery')}</a>
+		<a href="/about" class="crystal-link" data-i18n="headerlink.about">{t('headerlink.about')}</a>
 		{showLanguagePicker && (
 			<div class="mobile-language-picker">
 				<LanguagePicker />

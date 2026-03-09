@@ -3,10 +3,20 @@ import MainLayout from '../layouts/MainLayout.astro';
 import GalleryCard from '../components/GalleryCard.astro';
 import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
+import { resolveLanguage } from '../utils/language';
 
-const albums = (await getCollection('gallery')).sort(
-  (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf(),
+export const prerender = false;
+
+const language = resolveLanguage(
+  Astro.url.searchParams.get('lang'),
+  Astro.cookies.get('language')?.value,
 );
+
+const albums = (await getCollection('gallery'))
+  .filter(album => album.data.language === language)
+  .sort(
+    (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf(),
+  );
 ---
 
 <MainLayout title={`Gallery - ${SITE_TITLE}`} description="Explore my photo albums and memories" glowing={true}>

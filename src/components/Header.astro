@@ -9,7 +9,7 @@ const language = resolveLanguage(
 );
 const t = useTranslations(language);
 const pathname = Astro.url.pathname;
-const showLanguagePicker = true;
+const showLanguagePicker = !pathname.startsWith('/blogs') && !pathname.startsWith('/galleries/') 
 // const showLanguagePicker = pathname === '/blog' || pathname === '/blog/' || pathname === '/gallery' || pathname === '/gallery/';
 ---
 

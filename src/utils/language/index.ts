@@ -1,8 +1,8 @@
 
 // Available languages
 export const LANGUAGES = {
-    en: { code: 'en', name: 'English', flag: '🇺🇸' },
     zh: { code: 'zh', name: '中文', flag: '🇨🇳' },
+    en: { code: 'en', name: 'English', flag: '🇺🇸' },
     ja: { code: 'ja', name: '日本語', flag: '🇯🇵' }
 } as const;
 

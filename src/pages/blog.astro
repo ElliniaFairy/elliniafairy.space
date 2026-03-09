@@ -28,11 +28,16 @@ const t = useTranslations(language)
 <MainLayout title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights" glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
-			<h1 class="hero-title"><span class="emoji">📖</span> <span class="text-full">{t('bloglist.readmyblog')}</span><span class="text-short">{t('bloglist.readmyblogShort')}</span>{language === 'zh' && (
+			<h1 class="hero-title"><span class="emoji">📖</span> <span class="text-full">{t('bloglist.readmyblog')}</span><span class="text-short">{t('bloglist.readmyblogShort')}</span>
+			{ language === 'zh' && (
 				<a href="/rss/zh.xml" class="rss-icon" title="RSS 订阅" target="_blank" rel="noopener noreferrer">
 					<RssIcon />
 				</a>
-			)}</h1>
+			)}
+				<a href="/rss/tech.xml" class="rss-icon" id="tech-rss-icon" title="RSS Subscribe" target="_blank" rel="noopener noreferrer" style="display:none;">
+					<RssIcon />
+				</a>
+			</h1>
 			<p class="hero-subtitle">{t('bloglist.description')}</p>
 		</div>
 	</section>
@@ -103,6 +108,13 @@ const t = useTranslations(language)
 		-webkit-text-fill-color: initial;
 		background-clip: initial;
 		color: initial;
+	}
+
+	.hero-title .rss-icon {
+		-webkit-background-clip: initial;
+		-webkit-text-fill-color: initial;
+		background-clip: initial;
+		margin-left: 5px;
 	}
 
 
@@ -203,6 +215,8 @@ const t = useTranslations(language)
 	document.addEventListener('DOMContentLoaded', () => {
 		const currentLanguage = getCurrentLanguage();
 
+		const techRssIcon = document.getElementById('tech-rss-icon') as HTMLElement | null;
+
 		const applyFilters = (category: string | undefined) => {
 			const activeCategory = category ?? 'all';
 			const blogItems = document.querySelectorAll('.blog-item') as NodeListOf<HTMLElement>;
@@ -211,6 +225,10 @@ const t = useTranslations(language)
 				const languageMatch = item.dataset.language === currentLanguage;
 				item.style.display = categoryMatch && languageMatch ? 'block' : 'none';
 			});
+
+			if (techRssIcon) {
+				techRssIcon.style.display = activeCategory === 'Technology' ? 'inline' : 'none';
+			}
 		};
 
 		const getActiveCategory = () => {

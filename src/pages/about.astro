@@ -2,8 +2,9 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import { Image } from 'astro:assets';
 import avatar from '../assets/avatar/avatar2.png';
-import WeiboIcon from '../components/icons/WeiboIcon.astro';
 import BilibiliIcon from '../components/icons/BilibiliIcon.astro';
+import WeiboIcon from '../components/icons/WeiboIcon.astro';
+import XIcon from '../components/icons/XIcon.astro';
 import ArrowIcon from '../components/icons/ArrowIcon.astro';
 import EmailIcon from '../components/icons/EmailIcon.astro';
 import AboutMap from '../components/AboutMap.astro';
@@ -37,18 +38,27 @@ const t = useTranslations(language);
 					<ArrowIcon />
 				</a>
 				<div class="social-links">
-				<a href="https://space.bilibili.com/3981688" target="_blank" class="social-link">
-					<span class="sr-only">Visit my Bilibili</span>
-					<BilibiliIcon />
-				</a>
-				<a href="https://weibo.com/u/1666486042" target="_blank" class="social-link">
-					<span class="sr-only">Follow me on Weibo</span>
-					<WeiboIcon />
-				</a>
-				<a href="mailto:elliniaharbor@outlook.com" target="_blank" class="social-link">
-					<span class="sr-only">Email me</span>
-					<EmailIcon />
-				</a>
+					{language === 'zh' ? (
+						<>
+							<a href="https://space.bilibili.com/3981688" target="_blank" class="social-link">
+								<span class="sr-only">Visit my Bilibili</span>
+								<BilibiliIcon />
+							</a>
+							<a href="https://weibo.com/u/1666486042" target="_blank" class="social-link">
+								<span class="sr-only">Follow me on Weibo</span>
+								<WeiboIcon />
+							</a>
+						</>
+					) : (
+						<a href="https://x.com/ElliniaFairy" target="_blank" class="social-link">
+							<span class="sr-only">Follow me on X</span>
+							<XIcon />
+						</a>
+					)}
+					<a href="mailto:elliniaharbor@outlook.com" target="_blank" class="social-link">
+						<span class="sr-only">Email me</span>
+						<EmailIcon />
+					</a>
 				</div>
 			</div>
 		</div>
@@ -146,7 +156,7 @@ const t = useTranslations(language);
 }
 
 .btn-text-full {
-	min-width: 255px;
+	width: auto;
 }
 
 .btn-text-short {

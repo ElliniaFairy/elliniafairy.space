@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
+import RssIcon from '../components/icons/RssIcon.astro';
 import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 import { resolveLanguage, useTranslations } from '../utils/language';
@@ -27,7 +28,11 @@ const t = useTranslations(language)
 <MainLayout title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights" glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
-			<h1 class="hero-title"><span class="emoji">📖</span> <span class="text-full">{t('bloglist.readmyblog')}</span><span class="text-short">{t('bloglist.readmyblogShort')}</span></h1>
+			<h1 class="hero-title"><span class="emoji">📖</span> <span class="text-full">{t('bloglist.readmyblog')}</span><span class="text-short">{t('bloglist.readmyblogShort')}</span>{language === 'zh' && (
+				<a href="/rss/zh.xml" class="rss-icon" title="RSS 订阅" target="_blank" rel="noopener noreferrer">
+					<RssIcon />
+				</a>
+			)}</h1>
 			<p class="hero-subtitle">{t('bloglist.description')}</p>
 		</div>
 	</section>
@@ -99,6 +104,7 @@ const t = useTranslations(language)
 		background-clip: initial;
 		color: initial;
 	}
+
 
 	.hero-subtitle {
 		font-size: 1.1rem;

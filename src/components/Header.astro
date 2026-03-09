@@ -9,334 +9,319 @@ const language = resolveLanguage(
 );
 const t = useTranslations(language);
 const pathname = Astro.url.pathname;
-const showLanguagePicker = !pathname.startsWith('/blogs') && !pathname.startsWith('/galleries/') 
+const showLanguagePicker = !pathname.startsWith('/blogs') && !pathname.startsWith('/galleries/');
 // const showLanguagePicker = pathname === '/blog' || pathname === '/blog/' || pathname === '/gallery' || pathname === '/gallery/';
 ---
 
-<header>
-	<nav>
-		<a href="/"><img src="/simplified_logo2.png" alt="{SITE_TITLE} logo" class="site-logo" /></a>
-		<div class="center-links">
-			<HeaderLink href="/" data-i18n="headerlink.home">{t('headerlink.home')}</HeaderLink>
-			<HeaderLink href="/blog" data-i18n="headerlink.blog">{t('headerlink.blog')}</HeaderLink>
-			<HeaderLink href="/gallery" data-i18n="headerlink.gallery">{t('headerlink.gallery')}</HeaderLink>
-		</div>
-		<div class="right-links">
-			<HeaderLink href="/about" data-i18n="headerlink.about">{t('headerlink.about')}</HeaderLink>
-			{showLanguagePicker && <LanguagePicker />}
-		</div>
-		<button class="crystal-menu-btn" aria-label="Navigation menu" onclick="toggleCrystalMenu()">
-			<div class="crystal-icon">
-				<span></span>
-				<span></span>
-				<span></span>
+<>
+	<header>
+		<nav>
+			<a href="/"><img src="/simplified_logo2.png" alt="{SITE_TITLE} logo" class="site-logo" /></a>
+			<div class="center-links">
+				<HeaderLink href="/" data-i18n="headerlink.home">{t('headerlink.home')}</HeaderLink>
+				<HeaderLink href="/blog" data-i18n="headerlink.blog">{t('headerlink.blog')}</HeaderLink>
+				<HeaderLink href="/gallery" data-i18n="headerlink.gallery">{t('headerlink.gallery')}</HeaderLink>
 			</div>
-		</button>
-	</nav>
-	<div class="crystal-dropdown" id="crystalDropdown">
-		<a href="/" class="crystal-link" data-i18n="headerlink.home">{t('headerlink.home')}</a>
-		<a href="/blog" class="crystal-link" data-i18n="headerlink.blog">{t('headerlink.blog')}</a>
-		<a href="/gallery" class="crystal-link" data-i18n="headerlink.gallery">{t('headerlink.gallery')}</a>
-		<a href="/about" class="crystal-link" data-i18n="headerlink.about">{t('headerlink.about')}</a>
-		{showLanguagePicker && (
-			<div class="mobile-language-picker">
-				<LanguagePicker />
+			<div class="right-links">
+				<HeaderLink href="/about" data-i18n="headerlink.about">{t('headerlink.about')}</HeaderLink>
+				{showLanguagePicker && <LanguagePicker />}
 			</div>
-		)}
-	</div>
-</header>
-<style>
-	header {
-		margin: 0;
-		z-index: 2;
-		padding: 0 1.5em;
-		background: rgba(255, 255, 255, 0.09);
-		-webkit-backdrop-filter: blur(25px) saturate(200%);
-		backdrop-filter: blur(25px) saturate(200%);
-		box-shadow:
-			0 20px 60px rgba(0, 0, 0, 0.3),
-			0 8px 16px rgba(0, 0, 0, 0.15),
-			0 0 0 1px rgba(255, 255, 255, 0.2),
-			inset 0 2px 0 rgba(255, 255, 255, 0.4),
-			inset 0 -2px 0 rgba(255, 255, 255, 0.1),
-			0 0 40px rgba(34, 211, 238, 0.3),
-			0 0 80px rgba(139, 92, 246, 0.2);
-		position: relative;
-	}
-	
-
-
-	/* Constrain site logo size */
-	.site-logo {
-		height: 45px;
-		border-radius: 0; /* override global img rounding for the logo */
-		margin-bottom: -10px;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 1rem 0;
-	}
-	.center-links {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		display: flex;
-		gap: 0;
-	}
-	.right-links {
-		display: flex;
-		gap: 15px;
-	}
-	nav a {
-		padding: 0.6em 1em;
-		color: var(--text-secondary);
-		border-bottom: 2px solid transparent;
-		margin-bottom: -2px;
-		text-decoration: none;
-		transition: all 0.3s ease;
-		border-radius: 8px;
-		font-family: 'Montserrat', sans-serif;
-		font-weight: 600;
-	}
-	nav a:hover {
-		color: var(--accent-glow);
-		text-shadow: 0 0 10px var(--accent-glow);
-		background: rgba(100, 181, 246, 0.1);
-	}
-
-	/* Don't apply hover background to the logo link */
-	h2 a:hover {
-		background: transparent !important;
-		color: inherit;
-		text-shadow: var(--text-glow);
-	}
-	nav a.active {
-		color: var(--accent-warm);
-		border-bottom-color: var(--accent-warm);
-		text-shadow: 0 0 12px var(--accent-warm);
-	}
-	.crystal-menu-btn {
-		display: none;
-		background: rgba(0, 0, 0, 0.85);
-		z-index: 1100;
-		position: relative;
-	}
-	
-	.crystal-dropdown {
-		display: none;
-		position: fixed;
-		top: 83px;
-		right: 1rem;
-		background: rgba(20, 20, 30, 0.95) !important;
-		backdrop-filter: blur(25px) saturate(200%) !important;
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		border-radius: 12px;
-		box-shadow: 
-			0 20px 60px rgba(0, 0, 0, 0.4),
-			0 8px 16px rgba(0, 0, 0, 0.2),
-			0 0 0 1px rgba(255, 255, 255, 0.1);
-		min-width: 140px;
-		padding: 0.6rem 0;
-		opacity: 0;
-		visibility: hidden;
-		transform: translateY(-10px);
-		z-index: 999999;
-	}
-
-	@media (max-width: 720px) {
-		.crystal-dropdown {
-			display: block;
-		}
-		
-		.crystal-dropdown.show {
-			opacity: 1;
-			visibility: visible;
-			transform: translateY(0);
-		}
-	}
-	
-	
-	@media (max-width: 720px) {
+			<button class="crystal-menu-btn" aria-label="Navigation menu">
+				<div class="crystal-icon">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</button>
+		</nav>
+		<div class="crystal-dropdown" id="crystalDropdown">
+			<a href="/" class="crystal-link" data-i18n="headerlink.home">{t('headerlink.home')}</a>
+			<a href="/blog" class="crystal-link" data-i18n="headerlink.blog">{t('headerlink.blog')}</a>
+			<a href="/gallery" class="crystal-link" data-i18n="headerlink.gallery">{t('headerlink.gallery')}</a>
+			<a href="/about" class="crystal-link" data-i18n="headerlink.about">{t('headerlink.about')}</a>
+			{showLanguagePicker && (
+				<div class="mobile-language-picker">
+					<LanguagePicker />
+				</div>
+			)}
+		</div>
+	</header>
+	<style>
 		header {
-			padding: 0 1rem;
-			background: rgba(255, 255, 255, 0.08);
-			-webkit-backdrop-filter: blur(20px) saturate(180%);
-			backdrop-filter: blur(20px) saturate(180%);
+			margin: 0;
+			z-index: 2;
+			padding: 0 1.5em;
+			background: rgba(255, 255, 255, 0.09);
+			-webkit-backdrop-filter: blur(25px) saturate(200%);
+			backdrop-filter: blur(25px) saturate(200%);
+			box-shadow:
+				0 20px 60px rgba(0, 0, 0, 0.3),
+				0 8px 16px rgba(0, 0, 0, 0.15),
+				0 0 0 1px rgba(255, 255, 255, 0.2),
+				inset 0 2px 0 rgba(255, 255, 255, 0.4),
+				inset 0 -2px 0 rgba(255, 255, 255, 0.1),
+				0 0 40px rgba(34, 211, 238, 0.3),
+				0 0 80px rgba(139, 92, 246, 0.2);
 			position: relative;
-			overflow: visible;
 		}
 		
-		nav {
-			padding: 0.8rem 0;
-			justify-content: space-between;
-		}
-		
-		h2 {
-			font-size: 1rem;
-		}
 
-		/* Set container height so .site-logo can be height:100% */
-		h2 a,
-		h2 a.active {
-			height: 32px;
+
+		/* Constrain site logo size */
+		.site-logo {
+			height: 45px;
+			border-radius: 0; /* override global img rounding for the logo */
+			margin-bottom: -10px;
 		}
-		
-		.center-links,
-		.right-links {
-			display: none;
-		}
-		
-		.crystal-menu-btn {
-			display: flex;
-			width: 48px;
-			height: 48px;
-			background: rgba(255, 255, 255, 0.1);
-			backdrop-filter: blur(20px) saturate(180%);
-			border: 1px solid rgba(255, 255, 255, 0.2);
-			border-radius: 12px;
-			cursor: pointer;
-			transition: all 0.3s ease;
-			box-shadow: 
-				0 4px 16px rgba(0, 0, 0, 0.2),
-				0 0 0 1px rgba(255, 255, 255, 0.1),
-				inset 0 1px 0 rgba(255, 255, 255, 0.3),
-				0 0 15px rgba(34, 211, 238, 0.2);
-			position: relative;
-			overflow: hidden;
+		nav {
 			display: flex;
 			align-items: center;
-			justify-content: center;
+			justify-content: space-between;
+			padding: 1rem 0;
 		}
-		
-		.crystal-menu-btn::before {
-			content: '';
+		.center-links {
 			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: linear-gradient(135deg, 
-				rgba(255, 255, 255, 0.15) 0%, 
-				rgba(255, 255, 255, 0.05) 50%,
-				rgba(255, 255, 255, 0.1) 100%);
-			border-radius: 12px;
-			pointer-events: none;
-		}
-		
-		.crystal-menu-btn:hover {
-			transform: translateY(-1px);
-			box-shadow: 
-				0 6px 20px rgba(0, 0, 0, 0.3),
-				0 0 0 1px rgba(255, 255, 255, 0.2),
-				inset 0 1px 0 rgba(255, 255, 255, 0.4),
-				0 0 20px rgba(34, 211, 238, 0.3);
-		}
-		
-		.crystal-icon {
-			position: relative;
-			z-index: 2;
+			left: 50%;
+			transform: translateX(-50%);
 			display: flex;
-			flex-direction: column;
-			gap: 3px;
+			gap: 0;
 		}
-		
-		.crystal-icon span {
-			display: block;
-			width: 16px;
-			height: 2px;
-			background: var(--text-primary);
-			border-radius: 1px;
-			transition: all 0.3s ease;
-			box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+		.right-links {
+			display: flex;
+			gap: 15px;
 		}
-		
-		.crystal-menu-btn:hover .crystal-icon span {
-			box-shadow: 0 0 10px var(--accent-glow);
-			background: var(--accent-glow);
-		}
-		
-		.crystal-link {
-			display: block;
-			padding: 0.7rem 1rem;
-			color: #ffffff;
+		nav a {
+			padding: 0.6em 1em;
+			color: var(--text-secondary);
+			border-bottom: 2px solid transparent;
+			margin-bottom: -2px;
 			text-decoration: none;
+			transition: all 0.3s ease;
+			border-radius: 8px;
 			font-family: 'Montserrat', sans-serif;
 			font-weight: 600;
-			font-size: 0.9rem;
-			transition: all 0.3s ease;
-			text-shadow: none;
-			background: transparent;
 		}
-		
-		.crystal-link:hover {
+		nav a:hover {
 			color: var(--accent-glow);
-			text-shadow: 0 0 12px var(--accent-glow);
-			background: rgba(100, 181, 246, 0.2);
+			text-shadow: 0 0 10px var(--accent-glow);
+			background: rgba(100, 181, 246, 0.1);
 		}
 
-		.mobile-language-picker {
-			padding: 0.5rem 0;
-			width: 100%;
-			display: flex;
-			align-items: center;
+		/* Don't apply hover background to the logo link */
+		h2 a:hover {
+			background: transparent !important;
+			color: inherit;
+			text-shadow: var(--text-glow);
 		}
-
-		.mobile-language-picker :global(.language-picker) {
-			padding: 0 1em;
-			width: 100%;
+		nav a.active {
+			color: var(--accent-warm);
+			border-bottom-color: var(--accent-warm);
+			text-shadow: 0 0 12px var(--accent-warm);
 		}
-
-		.mobile-language-picker :global(.language-picker .trigger) {
-			width: 100%;
-			justify-content: space-between;
+		.crystal-menu-btn {
+			display: none;
+			background: rgba(0, 0, 0, 0.85);
+			z-index: 1100;
+			position: relative;
 		}
-	}
-</style>
-
-<script>
-	import { useTranslations, getCurrentLanguage, LANGUAGES } from '../utils/language';
-	import { ui, type UIKeys } from '../utils/language/ui';
-	
-	window.toggleCrystalMenu = function() {
-		const dropdown = document.getElementById('crystalDropdown');
-		if (dropdown) {
-			dropdown.classList.toggle('show');
-		}
-	}
-	
-	document.addEventListener('DOMContentLoaded', function() {
-		const i18nElements = document.querySelectorAll('[data-i18n]');
-		i18nElements.forEach(element => {
-			const key = element.getAttribute('data-i18n') as string;
-			const language = getCurrentLanguage()
-			let translatedWord = key
-			if ((language in LANGUAGES) && key in ui[language]) {
-				const t = useTranslations(language)
-				translatedWord = t(key as UIKeys);
-			}
-			element.textContent = translatedWord
-		});
-
-		document.addEventListener('click', (e) => {
-			const dropdown = document.getElementById('crystalDropdown');
-			const menuBtn = document.querySelector('.crystal-menu-btn');
-			
-			if (dropdown && dropdown.classList.contains('show')) {
-				if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
-					dropdown.classList.remove('show');
-				}
-			}
-		});
 		
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape') {
-				const dropdown = document.getElementById('crystalDropdown');
-				if (dropdown && dropdown.classList.contains('show')) {
-					dropdown.classList.remove('show');
-				}
+		.crystal-dropdown {
+			display: none;
+			position: fixed;
+			top: 83px;
+			right: 1rem;
+			background: rgba(20, 20, 30, 0.95) !important;
+			backdrop-filter: blur(25px) saturate(200%) !important;
+			border: 1px solid rgba(255, 255, 255, 0.15);
+			border-radius: 12px;
+			box-shadow: 
+				0 20px 60px rgba(0, 0, 0, 0.4),
+				0 8px 16px rgba(0, 0, 0, 0.2),
+				0 0 0 1px rgba(255, 255, 255, 0.1);
+			min-width: 140px;
+			padding: 0.6rem 0;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(-10px);
+			z-index: 999999;
+		}
+
+		@media (max-width: 720px) {
+			.crystal-dropdown {
+				display: block;
 			}
+			
+			.crystal-dropdown.show {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+		}
+		
+		
+		@media (max-width: 720px) {
+			header {
+				padding: 0 1rem;
+				background: rgba(255, 255, 255, 0.08);
+				-webkit-backdrop-filter: blur(20px) saturate(180%);
+				backdrop-filter: blur(20px) saturate(180%);
+				position: relative;
+				overflow: visible;
+			}
+			
+			nav {
+				padding: 0.8rem 0;
+				justify-content: space-between;
+			}
+			
+			h2 {
+				font-size: 1rem;
+			}
+
+			/* Set container height so .site-logo can be height:100% */
+			h2 a,
+			h2 a.active {
+				height: 32px;
+			}
+			
+			.center-links,
+			.right-links {
+				display: none;
+			}
+			
+			.crystal-menu-btn {
+				display: flex;
+				width: 48px;
+				height: 48px;
+				background: rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(20px) saturate(180%);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				border-radius: 12px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				box-shadow: 
+					0 4px 16px rgba(0, 0, 0, 0.2),
+					0 0 0 1px rgba(255, 255, 255, 0.1),
+					inset 0 1px 0 rgba(255, 255, 255, 0.3),
+					0 0 15px rgba(34, 211, 238, 0.2);
+				position: relative;
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.crystal-menu-btn::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(135deg, 
+					rgba(255, 255, 255, 0.15) 0%, 
+					rgba(255, 255, 255, 0.05) 50%,
+					rgba(255, 255, 255, 0.1) 100%);
+				border-radius: 12px;
+				pointer-events: none;
+			}
+			
+			.crystal-menu-btn:hover {
+				transform: translateY(-1px);
+				box-shadow: 
+					0 6px 20px rgba(0, 0, 0, 0.3),
+					0 0 0 1px rgba(255, 255, 255, 0.2),
+					inset 0 1px 0 rgba(255, 255, 255, 0.4),
+					0 0 20px rgba(34, 211, 238, 0.3);
+			}
+			
+			.crystal-icon {
+				position: relative;
+				z-index: 2;
+				display: flex;
+				flex-direction: column;
+				gap: 3px;
+			}
+			
+			.crystal-icon span {
+				display: block;
+				width: 16px;
+				height: 2px;
+				background: var(--text-primary);
+				border-radius: 1px;
+				transition: all 0.3s ease;
+				box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+			}
+			
+			.crystal-menu-btn:hover .crystal-icon span {
+				box-shadow: 0 0 10px var(--accent-glow);
+				background: var(--accent-glow);
+			}
+			
+			.crystal-link {
+				display: block;
+				padding: 0.7rem 1rem;
+				color: #ffffff;
+				text-decoration: none;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 600;
+				font-size: 0.9rem;
+				transition: all 0.3s ease;
+				text-shadow: none;
+				background: transparent;
+			}
+			
+			.crystal-link:hover {
+				color: var(--accent-glow);
+				text-shadow: 0 0 12px var(--accent-glow);
+				background: rgba(100, 181, 246, 0.2);
+			}
+
+			.mobile-language-picker {
+				padding: 0.5rem 0;
+				width: 100%;
+				display: flex;
+				align-items: center;
+			}
+
+			.mobile-language-picker :global(.language-picker) {
+				padding: 0 1em;
+				width: 100%;
+			}
+
+			.mobile-language-picker :global(.language-picker .trigger) {
+				width: 100%;
+				justify-content: space-between;
+			}
+		}
+	</style>
+
+	<script>
+		import { useTranslations, getCurrentLanguage, LANGUAGES } from '../utils/language';
+		import { ui, type UIKeys } from '../utils/language/ui';
+		
+		document.addEventListener('DOMContentLoaded', function() {
+			const i18nElements = document.querySelectorAll('[data-i18n]');
+			i18nElements.forEach(element => {
+				const key = element.getAttribute('data-i18n') as string;
+				const language = getCurrentLanguage()
+				let translatedWord = key
+				if ((language in LANGUAGES) && key in ui[language]) {
+					const t = useTranslations(language)
+					translatedWord = t(key as UIKeys);
+				}
+				element.textContent = translatedWord
+			});
+
+			document.addEventListener('click', (e) => {
+				const dropdown = document.getElementById('crystalDropdown');
+				const menuBtn = document.querySelector('.crystal-menu-btn');
+
+				if (menuBtn && menuBtn.contains(e.target as Node) && dropdown) {
+					dropdown.classList.toggle('show');
+				}
+			});
+
 		});
-	});
-</script>
+	</script>
+</>

@@ -132,8 +132,8 @@ a {
 	transition: all 0.3s ease;
 }
 a:hover {
-	color: var(--accent-warm);
-	text-shadow: 0 0 10px var(--accent-warm);
+	color: var(--accent-glow);
+	text-shadow: none;
 }
 p {
 	margin-bottom: 1em;

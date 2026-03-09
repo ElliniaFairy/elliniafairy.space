@@ -27,7 +27,7 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 <MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION} glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
-			<h1 class="hero-title">✨ {t('home.heroTitle')}</h1>
+			<h1 class="hero-title">✨ <span class="text-full">{t('home.heroTitle')}</span><span class="text-short">{t('home.heroTitleShort')}</span></h1>
 			<p class="hero-subtitle">{t('home.heroSubtitle')}</p>
 		</div>
 	</section>
@@ -35,7 +35,7 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 	<section class="blog-redirect-section">
 		<div class="blog-redirect-card">
 			<div class="blog-content-left">
-				<h2 class="blog-main-title">{t('home.blogTitle')}</h2>
+				<h2 class="blog-main-title"><span class="text-full">{t('home.blogTitle')}</span><span class="text-short">{t('home.blogTitleShort')}</span></h2>
 				<p class="blog-description">{t('home.blogDescription')}</p>
 				<a href="/blog" class="blog-cta-btn">
 					{t('home.blogCta')}
@@ -166,6 +166,10 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 	.hero-content {
 		max-width: 1000px;
 		margin: 0 auto;
+	}
+
+	.text-short {
+		display: none;
 	}
 
 	.hero-title {
@@ -519,6 +523,14 @@ const totalImages = albums.reduce((acc, album) => acc + album.data.images.length
 
 
 	@media (max-width: 768px) {
+		.text-full {
+			display: none;
+		}
+
+		.text-short {
+			display: inline;
+		}
+
 		.hero-title {
 			font-size: 2.5rem;
 		}

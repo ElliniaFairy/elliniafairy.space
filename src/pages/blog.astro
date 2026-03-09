@@ -27,7 +27,7 @@ const t = useTranslations(language)
 <MainLayout title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights" glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
-			<h1 class="hero-title"><span class="emoji">📖</span> {t('bloglist.readmyblog')}</h1>
+			<h1 class="hero-title"><span class="emoji">📖</span> <span class="text-full">{t('bloglist.readmyblog')}</span><span class="text-short">{t('bloglist.readmyblogShort')}</span></h1>
 			<p class="hero-subtitle">{t('bloglist.description')}</p>
 		</div>
 	</section>
@@ -75,6 +75,10 @@ const t = useTranslations(language)
 	.hero-content {
 		max-width: 800px;
 		margin: 0 auto;
+	}
+
+	.text-short {
+		display: none;
 	}
 
 	.hero-title {
@@ -149,6 +153,14 @@ const t = useTranslations(language)
 
 
 	@media (max-width: 768px) {
+		.text-full {
+			display: none;
+		}
+
+		.text-short {
+			display: inline;
+		}
+
 		.hero-title {
 			font-size: 2.5rem;
 		}

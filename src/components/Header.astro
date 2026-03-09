@@ -4,7 +4,7 @@ import LanguagePicker from './LanguagePicker.astro';
 
 
 const pathname = Astro.url.pathname;
-const showLanguagePicker = true;
+const showLanguagePicker = pathname === '/blog' || pathname === '/blog/' || pathname === '/gallery' || pathname === '/gallery/';
 ---
 
 <header>
@@ -28,10 +28,10 @@ const showLanguagePicker = true;
 		</button>
 	</nav>
 	<div class="crystal-dropdown" id="crystalDropdown">
-		<a href="/" class="crystal-link" data-i18n="headerlink.home"></a>
-		<a href="/blog" class="crystal-link" data-i18n="headerlink.blog"></a>
-		<a href="/gallery" class="crystal-link" data-i18n="headerlink.gallery"></a>
-		<a href="/about" class="crystal-link" data-i18n="headerlink.about"></a>
+		<a href="/" class="crystal-link" data-i18n="header.home"></a>
+		<a href="/blog" class="crystal-link" data-i18n="header.blog"></a>
+		<a href="/gallery" class="crystal-link" data-i18n="header.gallery"></a>
+		<a href="/about" class="crystal-link" data-i18n="header.about"></a>
 		{showLanguagePicker && (
 			<div class="mobile-language-picker">
 				<LanguagePicker />

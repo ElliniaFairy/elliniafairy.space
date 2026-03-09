@@ -7,6 +7,7 @@
   right: calc((100vw - 1180px) / 2);
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .toc-header {
@@ -52,15 +53,17 @@
 
 .table-of-contents .toc-list a {
   display: block;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
   line-height: 1.5;
   border-left: 3px solid transparent;
-  padding-left: 2rem;
   font-family: 'Inter', sans-serif;
   transition: all 0.3s ease;
   position: relative;
   border-radius: 6px;
   margin: 2px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .table-of-contents .toc-list a:hover {

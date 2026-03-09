@@ -2,9 +2,9 @@
 title: "博物馆三角：简陋而华丽，朴素而奢侈的个人领地"
 publishDate: "2020-08-15"
 tags: ["兰州大学", "个人空间", "校园记忆", "情感寄托"]
-classification: "Personal"
+classification: "个人故事"
 description: "在兰大三年，我独占的‘博物馆三角’是我灵魂的避风港——一个简陋如石板、却因环绕的博物馆建筑而华丽；朴素如空地、却因承载我所有情绪而奢侈的专属领地。它是我梦境与现实的交汇点：白天，我在这里放歌、发泄、沉思，看风云变幻、日月轮转；夜晚，我在这里独处、放飞自我，任由思绪在星空与建筑的缝隙间游荡。它不仅是物理空间，更是情感寄托——我在此见证四季更迭、校园人潮、他人迷路与欢笑，最终将它视为比家更安心、更私密、更自由的归宿。离开兰大后，它成了我心中一座缥缈的空中楼阁，一个永远无法被替代的‘个人天堂’。"
-readingTime: "20 min read"
+readingTime: "大约需要 20 分钟"
 image: "https://img.elliniafairy.space/20200815_lanzhou_university_personal_space(1).png"
 draft: false
 slug: "20200815_personal_space"

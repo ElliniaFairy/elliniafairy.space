@@ -3,6 +3,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import { SITE_TITLE } from '../../consts';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
 	const albums = await getCollection('gallery');
 	return albums.map((album) => ({

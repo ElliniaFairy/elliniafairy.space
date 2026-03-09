@@ -3,9 +3,9 @@
 title: "火车车窗外的宇宙星空"
 publishDate: "2021-01-11"
 tags: ["travel"]
-classification: "Travel"
+classification: "旅行地理"
 description: "在夜行普速列车的车窗外，昆仑山口的荒原与银河交织成一幅只属于卧铺火车的星空画卷。这里既有如冰封星球般的冷寂风景，也有如梦般点亮夜空的彗星与银河。我带你走进青藏线的夜色奇境，感受夜行卧铺车旅行独一无二的浪漫，以及它在高铁时代逐渐消逝的无可替代之美。"
-readingTime: "7 min read"
+readingTime: "大约需要 7 分钟"
 image: "https://img.elliniafairy.space/20210111_night_train_4o.png"
 draft: false
 slug: "20210111_night_train_zh"

@@ -2,9 +2,9 @@
 title: "有关《春物》和当前的生活状态"
 publishDate: "2018-09-08"
 tags: ["春物", "动漫", "随想", "我的青春恋爱物语果然有问题", "心理健康"]
-classification: "Personal"
+classification: "个人故事"
 description: "在兰大三年多的压抑与自我放弃边缘，我找到了《我的青春恋爱物语果然有问题。》中的由比滨结衣——她是我情感的救命稻草。本文坦诚记录我如何依赖动画角色逃避现实、重建内心温柔，以及在‘本物’缺失的现实中，如何通过春物的乌托邦重新发现生活之美。这不是逃避，而是治愈。"
-readingTime: "10 min read"
+readingTime: "大约需要 10 分钟"
 image: "https://img.elliniafairy.space/20180908_oregairu_personal_essay(5).png"
 draft: false
 slug: "20180908_oregairu_personal_essay"

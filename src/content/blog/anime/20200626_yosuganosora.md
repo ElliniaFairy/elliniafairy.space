@@ -3,9 +3,9 @@
 title: "为什么《缘之空》动画结局的“殉情说”这么深得我心？"
 publishDate: "2020-06-26"
 tags: ["动画感想", "缘之空", "ヨスガノソラ"]
-classification: "Anime Review"
+classification: "动画感想"
 description: "为什么即使官方否认，我仍坚信《缘之空》动画结局的“殉情说”具有极致的美学和情感感染力？我们认为，只有在此解读下，动画才能避免叙事地基的崩塌，同时将走投无路的绝望情感、象征物、与苍凉的乌托邦意象完美整合，实现对“永恒苍穹”主题的最高致敬。"
-readingTime: "20 min read"
+readingTime: "大约需要 20 分钟"
 image: "https://img.elliniafairy.space/20200626_yosuganosora%20(10).jpg"
 draft: false
 slug: "20200626_yosuganosora"

@@ -2,9 +2,9 @@
 title: "2014至2020年作为气象爱好者的成长轨迹"
 publishDate: "2020-08-04"
 tags: ["气象", "气象爱好者", "天气文化", "个人故事"]
-classification: "Meteorology"
+classification: "气象"
 description: "从高三黑板上的‘今日天气榜’到兰大校园的‘晴雨兰大’，从436页的《白话气象》到自创的天气卡牌与环流形势图——这是一段长达12年的气象爱好者成长史诗。本文讲述我如何以气象爱好者身份，从预报服务走向文化推广和预报图表创新，将天气从‘职业门槛’转化为‘生活美学’，最终在榆中校区的云卷云舒中，找到属于自己的气象科普职人之路。"
-readingTime: "25 min read"
+readingTime: "大约需要 25 分钟"
 image: "https://img.elliniafairy.space/20200804_meteorology_story(34).png"
 draft: false
 slug: "20200804_meteorology_story"

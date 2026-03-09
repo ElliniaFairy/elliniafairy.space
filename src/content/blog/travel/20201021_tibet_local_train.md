@@ -3,9 +3,9 @@
 title: "选乘站站停列车，是选择了一种旅行态度"
 publishDate: "2020-10-21"
 tags: ["travel"]
-classification: "Travel"
+classification: "旅行地理"
 description: "在进藏直达车被追捧时，本文聚焦于青藏线上的“小公交”——一列站站停慢车。它以近十小时的慢节奏，为你提供悠闲舒适的观景机会，让沿途的每一个小站都拥有生命力。通过自由席的无拘束和与当地劳动者的深入唠嗑，我发现这趟旅程远超省钱或怀旧，它是一种主动选择更高旅途质量、感受真实地方风貌的旅行态度。"
-readingTime: "10 min read"
+readingTime: "大约需要 10 分钟"
 image: "https://img.elliniafairy.space/20201021_tibet_local_train%20(1).jpg"
 draft: false
 slug: "20201021_tibet_local_train"

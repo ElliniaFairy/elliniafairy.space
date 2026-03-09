@@ -3,9 +3,9 @@
 title: "万圣节的废弃档案"
 publishDate: "2025-09-07"
 tags: ["同人文", "AI", "Evil Neuro"]
-classification: "Fan fiction"
+classification: "同人文"
 description: "万圣节将至，校园洋溢着欢笑与南瓜灯的光芒。面对造物主Vedal对Neuro-sama的偏爱，妹妹Evil Neuro在直播空档的失落中悄然游荡于校园，却意外翻出一份记载着“失败AI”的档案。"
-readingTime: "18 min read"
+readingTime: "大约需要 18 分钟"
 image: "https://img.elliniafairy.space/20250908_evil_neuro_blog(6).jpg"
 draft: false
 slug: "2025-evil-neuro-halloween-fanfic"

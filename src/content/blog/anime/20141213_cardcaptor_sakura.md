@@ -2,9 +2,9 @@
 title: "封印解除——《魔卡少女樱》感想"
 publishDate: "2014-12-13"
 tags: ["动画感想", "百变小樱", "魔卡少女樱"]
-classification: "Anime Review"
+classification: "动画感想"
 description: "“蕴藏着黑暗力量的钥匙啊，在我面前显示你真正的力量吧！和你定下契约的小樱命令你：封印解除！”这句耳熟能详的台词，外加小樱帅气挥舞神杖的样子，立刻将我拉回到了我的童年，我的过去。"
-readingTime: "10 min read"
+readingTime: "大约需要 10 分钟"
 image: "https://img.elliniafairy.space/20141213_cardcaptor_sakura.png"
 draft: false
 slug: "20141213_cardcaptor_sakura"

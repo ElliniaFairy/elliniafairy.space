@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
-import { resolveLanguage } from '../utils/language';
+import { resolveLanguage, useTranslations } from '../utils/language';
 
 export const prerender = false; // Should filter the blog by language
 
@@ -21,19 +21,20 @@ const posts = (await getCollection('blog'))
 
 // Get unique categories
 const categories = [...new Set(posts.map(post => post.data.classification))];
+const t = useTranslations(language)
 ---
 
 <MainLayout title={`Blog - ${SITE_TITLE}`} description="Stay ahead with the latest trends, tips, and insights" glowing={true}>
 	<section class="hero">
 		<div class="hero-content">
-			<h1 class="hero-title"><span class="emoji">📖</span> Read my Blog</h1>
-			<p class="hero-subtitle">Come walk with me through clouds and code, anime and math symbols, where logic holds emotion gently, and creation becomes our way home.</p>
+			<h1 class="hero-title"><span class="emoji">📖</span> {t('bloglist.readmyblog')}</h1>
+			<p class="hero-subtitle">{t('bloglist.description')}</p>
 		</div>
 	</section>
 
 	<section class="filter-section">
 		<div class="category-filters">
-			<button class="filter-btn active" data-category="all">All Categories</button>
+			<button class="filter-btn active" data-category="all">{t('bloglist.allcategories')}</button>
 			{categories.map(category => (
 				<button class="filter-btn" data-category={category}>{category}</button>
 			))}
@@ -57,6 +58,7 @@ const categories = [...new Set(posts.map(post => post.data.classification))];
 					thumbnailSrc={post.data.image}
 					thumbnailAlt={post.data.title}
 					href={`/blogs/${post.slug}`}
+					language={language}
 				/>
 			</div>
 		))}

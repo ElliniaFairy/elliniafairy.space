@@ -29,7 +29,7 @@ const formatDate = (date: string) => {
     <!-- Table of Contents -->
     <TableOfContents />
     
-    <article class="blog-post">
+    <article class="blog-post" data-lang={language}>
       <header class="blog-header">
         <div class="blog-header-content">
           {post.data.classification && (
@@ -271,6 +271,55 @@ const formatDate = (date: string) => {
       font-family: 'LXGW WenKai', 'PingFang SC', 'Microsoft YaHei', sans-serif;
       font-weight: 700;
       color: var(--text-primary);
+    }
+
+    /* Japanese header overrides */
+    .blog-post[data-lang="ja"] .blog-title {
+      font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    .blog-post[data-lang="ja"] .classification-tag {
+      font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    .blog-post[data-lang="ja"] .blog-meta {
+      font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+    }
+
+    .blog-post[data-lang="ja"] .blog-tag {
+      font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    /* Japanese content overrides */
+    .blog-content[data-lang="ja"] :global(h2),
+    .blog-content[data-lang="ja"] :global(h3) {
+      font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    /* Japanese paragraphs override */
+    .blog-content[data-lang="ja"] :global(p),
+    .blog-content[data-lang="ja"] :global(ul),
+    .blog-content[data-lang="ja"] :global(ol),
+    .blog-content[data-lang="ja"] :global(li) {
+      font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+
+    .blog-content[data-lang="ja"] :global(strong),
+    .blog-content[data-lang="ja"] :global(b) {
+      font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .blog-content[data-lang="ja"] :global(blockquote) {
+      font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+      letter-spacing: 0.03em;
     }
 
     .blog-content :global(blockquote) {

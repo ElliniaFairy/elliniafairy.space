@@ -20,7 +20,7 @@ const t = useTranslations(language);
 
 ---
 
-<article class="blog-card">
+<article class="blog-card" data-lang={language}>
 	<div class="blog-content">
 		<div class="blog-meta">
 			<time class="blog-date">{date}</time>
@@ -212,5 +212,31 @@ const t = useTranslations(language);
 		.blog-image {
 			width: 40%;
 		}
+	}
+
+	/* Japanese font overrides */
+	.blog-card[data-lang="ja"] .blog-title {
+		font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+		letter-spacing: 0.03em;
+	}
+
+	.blog-card[data-lang="ja"] .blog-excerpt {
+		font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+		letter-spacing: 0.03em;
+	}
+
+	.blog-card[data-lang="ja"] .category-tag {
+		font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+		letter-spacing: 0.03em;
+	}
+
+	.blog-card[data-lang="ja"] .tag {
+		font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+		letter-spacing: 0.03em;
+	}
+
+	.blog-card[data-lang="ja"] .read-more-btn {
+		font-family: 'M PLUS 2', 'Hiragino Sans', sans-serif;
+		letter-spacing: 0.03em;
 	}
 </style>

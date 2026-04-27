@@ -1,7 +1,7 @@
 {
   "title": "默认图册",
   "description": "记录我的日常生活",
-  "coverImage": "https://img.elliniafairy.space/PXL_20251122_073114337.jpg",
+  "coverImage": "https://img.elliniafairy.space/20260427_haneda_double_rainbow.jpg",
   "publishDate": "2025-11-24",
   "language": "zh",
   "images": [
@@ -9,6 +9,11 @@
       "src": "https://img.elliniafairy.space/PXL_20251122_073114337.jpg",
       "alt": "高层云下的富士山",
       "description": "2025年11月22日，乘坐空84路公交经过多摩川スカイブリッジ时拍摄到的高层云下的富士山。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260427_haneda_double_rainbow.jpg",
+      "alt": "羽田机场的双彩虹",
+      "description": "2026年4月27日，在羽田机场拍摄到的美丽双彩虹。"
     }
   ]
 }

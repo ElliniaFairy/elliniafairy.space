@@ -151,3 +151,8 @@ The app runs in Tokyo (`nrt`), listens on port `4321`, auto-starts on requests, 
 ## A Small Note
 
 This site is meant to stay personal and gentle. When adding new pages, keep the feeling close to the design guide: dark navy, soft glow, glassy surfaces, quiet motion, and writing that feels calm rather than loud.
+
+
+## License
+
+All rights reserved. © Ellinia Fairy

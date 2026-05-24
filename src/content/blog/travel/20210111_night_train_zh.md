@@ -1,6 +1,6 @@
 
 ---
-title: "火车车窗外的宇宙星空"
+title: "列车车窗外的夜色：渐渐消逝的幻想乡"
 publishDate: "2021-01-11"
 tags: ["travel"]
 classification: "旅行地理"

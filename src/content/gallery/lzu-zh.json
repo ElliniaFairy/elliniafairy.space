@@ -1,0 +1,24 @@
+{
+  "title": "兰州大学",
+  "description": "记录2015-2020年属于我的兰州大学",
+  "coverImage": "https://img.elliniafairy.space/20260524_lzu(1).webp",
+  "publishDate": "2016-12-08",
+  "language": "zh",
+  "images": [
+    {
+      "src": "https://img.elliniafairy.space/20260524_lzu(1).webp",
+      "alt": "兰州大学 1",
+      "description": "在一场新雨后从教学楼看到的兰大榆中校区。摄于2016年10月27日。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260524_lzu(2).webp",
+      "alt": "兰州大学 2",
+      "description": "在一场新雨后从教学楼看到的兰大榆中校区。摄于2016年10月27日。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260524_lzu(3).webp",
+      "alt": "兰州大学 3",
+      "description": "属于兰州大学的冬日，摄于2016年12月8日。"
+    }
+  ]
+}

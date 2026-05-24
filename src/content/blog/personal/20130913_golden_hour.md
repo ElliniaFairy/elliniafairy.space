@@ -2,7 +2,7 @@
 title: "金色的项圈"
 publishDate: "2013-09-13"
 tags: ["福州", "鼓岭", "秋高气爽", "城市风景"]
-classification: "随笔"
+classification: "个人故事"
 description: "四面层峦起伏的更高处，正有高积云悄悄聚在一起，为城市戴上了一个白色镶金的项圈。项圈内正是一片如宝石一般的蓝，伴着一丝丝薄薄的卷云。"
 readingTime: "大约需要 3 分钟"
 image: ""

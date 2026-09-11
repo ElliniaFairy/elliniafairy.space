@@ -1,6 +1,7 @@
 ---
 import { useTranslations } from '../utils/language';
 import type { Language } from '../utils/language';
+import { thumbnailUrl } from '../utils/image';
 
 export interface Props {
 	title: string;
@@ -13,12 +14,13 @@ export interface Props {
 
 const { title, description, coverImage, imageCount, href, language = 'en' } = Astro.props;
 const t = useTranslations(language);
+const cover = thumbnailUrl(coverImage);
 ---
 
 <article class="gallery-card">
 	<a href={href} class="card-link">
 		<div class="gallery-image">
-			<img src={coverImage} alt={title} class="cover-image" />
+			<img src={cover} alt={title} class="cover-image" loading="lazy" />
 			<div class="image-overlay">
 				<span class="image-count">
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

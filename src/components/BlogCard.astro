@@ -1,7 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import ArrowIcon from './icons/ArrowIcon.astro';
 import { LANGUAGES, useTranslations } from '../utils/language';
+import { thumbnailUrl } from '../utils/image';
 
 export interface Props {
 	title: string;
@@ -17,7 +17,7 @@ export interface Props {
 }
 const { title, excerpt, date, category, readingTime, tags, thumbnailSrc, thumbnailAlt = title, href, language } = Astro.props;
 const t = useTranslations(language);
-
+const thumbnail = thumbnailUrl(thumbnailSrc);
 ---
 
 <article class="blog-card" data-lang={language}>
@@ -44,7 +44,7 @@ const t = useTranslations(language);
 	</div>
 	
 	<div class="blog-image">
-		{thumbnailSrc!! && <Image src={thumbnailSrc} alt={thumbnailAlt} class="thumbnail" width={1000} height={600} />}
+		{thumbnail!! && <img src={thumbnail} alt={thumbnailAlt} class="thumbnail" width={1000} height={600} loading="lazy" />}
 		<span class="category-tag">{category}</span>
 	</div>
 </article>

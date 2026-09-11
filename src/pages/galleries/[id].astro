@@ -3,6 +3,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import { SITE_TITLE } from '../../consts';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { useTranslations } from '../../utils/language';
+import { thumbnailUrl } from '../../utils/image';
 
 export const prerender = true;
 
@@ -41,7 +42,7 @@ const t = useTranslations(album.data.language);
 		{images.map((image, index) => (
 			<div class="image-item" data-index={index}>
 				<button class="image-button" data-index={index} aria-label={`View ${image.alt || 'image'} in full size`}>
-					<img src={image.src} alt={image.alt || `Image ${index + 1}`} class="grid-image" loading="lazy" />
+					<img src={thumbnailUrl(image.src)} alt={image.alt || `Image ${index + 1}`} class="grid-image" loading="lazy" />
 					{image.description && (
 						<div class="image-caption-overlay">
 							<p>{image.description}</p>

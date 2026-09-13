@@ -1,0 +1,74 @@
+{
+  "title": "仙台生活の記録",
+  "description": "仙台に留学中の日々の思い出と四季の風景",
+  "coverImage": "https://img.elliniafairy.space/20260913sendai(10).jpg",
+  "publishDate": "2026-09-13",
+  "language": "ja",
+  "images": [
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(1).jpg",
+      "alt": "輪王寺の奥深い参道と眩しい新緑",
+      "description": "2022年5月14日。人生初のファイザー製新型コロナワクチンを接種した帰り道、ふと目にした輪王寺の奥深い参道。都会の秘境のような静けさの中、重なり合う新緑が目に染みるようだった。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(2).jpg",
+      "alt": "評定河原橋から望む広瀬川",
+      "description": "2022年5月31日。評定河原橋から広瀬川を望む。広瀬川の両岸に広がる鬱蒼とした森には、人の気配がまったくなかった。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(3).jpg",
+      "alt": "広瀬川の河原に立つ一本の柳",
+      "description": "2022年7月22日。曇り空の広瀬川の河原に、一本の柳の木。涼しくて青々とした夏の仙台。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(4).jpg",
+      "alt": "仙台市地下鉄南北線の車内",
+      "description": "2022年7月25日。仙台市地下鉄南北線。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(6).jpg",
+      "alt": "仙台市地下鉄東西線の車内",
+      "description": "2022年10月23日。仙台市地下鉄東西線。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(5).jpg",
+      "alt": "ショッピングセンターの後ろにそびえ立つ仙台大観音",
+      "description": "2022年8月19日。ショッピングセンターの後ろから仙台大観音がそびえ立ち、どこか非現実的な光景。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(7).jpg",
+      "alt": "宮城県運転免許センター前の紅葉",
+      "description": "2022年11月14日。外免切替試験の後、宮城県運転免許センターの前で撮った秋の紅葉。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(8).jpeg",
+      "alt": "貝ヶ森中央公園の夕暮れの秋景色",
+      "description": "2022年11月26日。貝ヶ森中央公園のあたりに広がる、色づいた秋の景色。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(9).jpg",
+      "alt": "貝ヶ森中央公園の池と紅葉",
+      "description": "2022年11月26日。貝ヶ森中央公園の池と、その周りの美しい紅葉。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(10).jpg",
+      "alt": "国道48号線の冬の夕暮れの並木と遠くの山々",
+      "description": "2022年12月10日。冬の夕暮れ、冷え冴えた風の中を、仙台西部の国道48号線を散歩した。葉を落とした並木が道沿いに続き、遠くには奥羽山脈の美しい山々が連なっていた。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(11).jpg",
+      "alt": "仙台市天文台の望遠鏡とオリオン座",
+      "description": "2023年2月4日。仙台市天文台の望遠鏡が冬の夜空を向いていた。開いたドームの外には、オリオン座がはっきりと見えた。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(12).jpg",
+      "alt": "大雪の広瀬川の河原",
+      "description": "2023年2月10日。大雪の広瀬川の河原。雪が舞い、あたりは真っ白だった。"
+    },
+    {
+      "src": "https://img.elliniafairy.space/20260913sendai(13).jpg",
+      "alt": "橋の上から望む大雪の広瀬川",
+      "description": "2023年2月10日。橋の上から大雪の広瀬川を望む。真っ白な世界の中を、暗い川の水が流れていた。"
+    }
+  ]
+}

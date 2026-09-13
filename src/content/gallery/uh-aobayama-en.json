@@ -1,0 +1,164 @@
+{
+  "title": "University House Aobayama",
+  "description": "Four seasons of stunning views captured while living at University House Aobayama, the international student dormitory of Tohoku University in Sendai",
+  "coverImage": "https://img.elliniafairy.space/uh-aobayama(11).jpeg",
+  "publishDate": "2026-09-13",
+  "language": "en",
+  "images": [
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(1).jpg",
+      "alt": "Night sky seen from the dorm late at night",
+      "description": "May 31, 2022 — I dimmed the lights in my dorm late at night, and the sky outside the window had such depth that I felt like I was living in the universe."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(2).jpg",
+      "alt": "Dawn glow in the small hours",
+      "description": "June 13, 2022 — in a Sendai summer the sky brightens early: before 3 a.m. it was already growing light, and by 3:35 a faint dawn glow had appeared."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(3).jpg",
+      "alt": "Stratocumulus seen from the University House Aobayama common room",
+      "description": "July 9, 2022 — early summer. Stratocumulus spread across the sky, and lush green filled the whole campus. A view from the common room of University House Aobayama."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(4).jpg",
+      "alt": "A road through the Aobayama forest in the rain",
+      "description": "July 13, 2022 — the back gate of University House Aobayama leads to a road through the Aobayama forest. Walking in the rain and breathing in the fresh forest air, I felt surrounded by untouched nature."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(5).jpg",
+      "alt": "A foggy early morning",
+      "description": "July 17, 2022 — a foggy early morning, just as the sky was beginning to lighten."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(6).jpg",
+      "alt": "Scud clouds hanging over the campus after rain",
+      "description": "July 23, 2022 — after the rain, low scud clouds hung over the campus. A view from my room window. The colors of summer are so rich."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(7).jpg",
+      "alt": "A summer sunset seen from the common room",
+      "description": "August 2, 2022 — a summer sunset seen from the common room."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(8).jpeg",
+      "alt": "A sunset glow with exceptional visibility, the Pacific in the distance",
+      "description": "August 3, 2022 — a sunset glow seen from my dorm window on a day of exceptional visibility; the Pacific Ocean in the distance was remarkably clear."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(9).jpg",
+      "alt": "The lush green campus outside my dorm window",
+      "description": "August 16, 2022 — outside my dorm window, the campus was lush and green."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(10).jpeg",
+      "alt": "Sunset glow seen from the common room",
+      "description": "August 16, 2022 — a sunset glow of pink and orange filled the whole sky."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(11).jpeg",
+      "alt": "The blood-red campus in light mist before dawn",
+      "description": "September 1, 2022, 4:49 a.m. — I looked out my dorm window: the mist-shrouded campus had turned a blood red so vivid it seemed like another world. I could hardly trust my own eyes."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(12).jpeg",
+      "alt": "The blood-red campus in light mist before dawn",
+      "description": "September 1, 2022, 4:50 a.m. — I looked out my dorm window: the mist-shrouded campus had turned a blood red so vivid it seemed like another world. I could hardly trust my own eyes."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(13).jpg",
+      "alt": "A path into the Aobayama forest",
+      "description": "September 17, 2022 — through the back gate of University House Aobayama, I stepped onto a small path into the Aobayama forest."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(14).jpg",
+      "alt": "Wooden steps under the cedar shade",
+      "description": "September 17, 2022 — out the back gate and into the Aobayama forest. As I climbed the wooden steps, the light coming through the cedars grew softer with every step."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(15).jpg",
+      "alt": "Early autumn seen from the common room balcony",
+      "description": "November 3, 2022 — the same view, this time from the common room balcony. The pines were still deep green, but the trees around had quietly begun to take on autumn colors."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(16).jpeg",
+      "alt": "Late autumn seen from the common room balcony",
+      "description": "November 16, 2022 — from the common room balcony. Autumn had deepened: red maples covered the hillside, and the distant ridges layered one behind another in the light breaking through the clouds."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(17).jpg",
+      "alt": "A dim yellow glow on a rainy autumn night",
+      "description": "November 23, 2022 — a night of steady autumn rain. Sky and road alike were bathed in a dim yellow glow."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(18).jpg",
+      "alt": "Winter fog in the midnight moonlight",
+      "description": "December 8, 2022 — the small woods behind the dorm, winter fog adrift in the midnight moonlight."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(19).jpg",
+      "alt": "Winter cumulus clouds in front of the dorm",
+      "description": "December 13, 2022 — winter cumulus clouds towering in front of the dorm, bringing no rain yet, turning the evening light a murky yellow."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(20).jpeg",
+      "alt": "Snow-covered trees in silver",
+      "description": "December 14, 2022 — on the slope leading up to University House Aobayama, the trees glittered in a coat of silver, and the snow glowed faintly blue beneath the streetlight. A hushed, fairy-tale world."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(21).jpg",
+      "alt": "Unmelted snow on the slope at night",
+      "description": "December 17, 2022 — the slope leading up to the dorm, the snow still unmelted. Against the deep blue of night, the leftover snow glimmered faintly under the streetlights."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(22).jpeg",
+      "alt": "Freezing fog outside my dorm window",
+      "description": "December 19, 2022 — freezing fog outside my dorm window. Sky and earth alike were wrapped in a boundless white."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(23).JPG",
+      "alt": "The city in night and the Pacific dawn glow",
+      "description": "December 20, 2022, 6:08 a.m. — the city in the distance still dark, while a fiery sunrise glow burned over the Pacific."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(24).JPG",
+      "alt": "First sunlight on the campus buildings, mist over the mountains",
+      "description": "December 20, 2022, 7:00 a.m. — the first rays of morning sun were already falling on the campus buildings, while mist wreathed the distant mountains."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(25).jpg",
+      "alt": "Withered winter grass and a clear sky",
+      "description": "December 30, 2022 — near the dorm, a field of withered winter grass stretched out under a clear blue sky dotted with small, fair-weather cumulus clouds."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(26).jpg",
+      "alt": "The snow-covered experimental area like a Nordic village",
+      "description": "January 25, 2023, 5:21 p.m. — after a night of heavy snow, the greenhouses of the experimental area looked like a small Nordic village. From the common room balcony, the sky held that blue-gray dusk light, the streetlights melting warm yellow circles into the snow, and the distant mountains sat heavy against the horizon."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(27).jpg",
+      "alt": "The campus late at night after heavy snow",
+      "description": "January 26, 2023, 1:43 a.m. — below the slope leading to University House Aobayama after a heavy snow. Thick snow blanketed the whole campus, making me feel, truly, this is Sendai."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(28).jpg",
+      "alt": "The snow-covered road to the dorm",
+      "description": "January 26, 2023, 1:47 a.m. — the road leading to University House Aobayama. Thick snow blanketed everything, making me feel, truly, this is Sendai."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(29).jpg",
+      "alt": "Heavy snow on the slope to the dorm",
+      "description": "February 10, 2023 — the slope leading up to University House Aobayama was engulfed in heavy snow, with accumulations reaching around 30 cm."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(30).jpg",
+      "alt": "Heavy snow on the slope to the dorm",
+      "description": "February 10, 2023 — the slope leading up to University House Aobayama was engulfed in heavy snow, with accumulations reaching around 30 cm."
+    },
+    {
+      "src": "https://img.elliniafairy.space/uh-aobayama(31).jpg",
+      "alt": "Heavy snow on the slope to the dorm",
+      "description": "February 10, 2023 — the slope leading up to University House Aobayama was engulfed in heavy snow, with accumulations reaching around 30 cm."
+    }
+  ]
+}
